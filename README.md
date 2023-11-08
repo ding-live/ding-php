@@ -1,20 +1,7 @@
-# ding/sdk
+# Ding PHP SDK
 
-<div align="left">
-    <a href="https://speakeasyapi.dev/"><img src="https://custom-icon-badges.demolab.com/badge/-Built%20By%20Speakeasy-212015?style=for-the-badge&logoColor=FBE331&logo=speakeasy&labelColor=545454" /></a>
-    <a href="https://github.com/ding-live/ding-php.git/actions"><img src="https://img.shields.io/github/actions/workflow/status/ding-live/ding-php/speakeasy_sdk_generation.yml?style=for-the-badge" /></a>
-    
-</div>
+The Ding PHP library provides convenient access to the Ding API from applications written in the PHP language.
 
-
-## 🏗 **Welcome to your new SDK!** 🏗
-
-It has been generated successfully based on your OpenAPI spec. However, it is not yet ready for production use. Here are some next steps:
-- [ ] 🛠 Make your SDK feel handcrafted by [customizing it](https://www.speakeasyapi.dev/docs/customize-sdks)
-- [ ] ♻️ Refine your SDK quickly by iterating locally with the [Speakeasy CLI](https://github.com/speakeasy-api/speakeasy)
-- [ ] 🎁 Publish your SDK to package managers by [configuring automatic publishing](https://www.speakeasyapi.dev/docs/productionize-sdks/publish-sdks)
-- [ ] ✨ When ready to productionize, delete this section from the README
-<!-- Start SDK Installation -->
 # SDK Installation
 
 ## Composer
@@ -22,12 +9,15 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 ```bash
 composer require "ding/sdk"
 ```
+
 <!-- End SDK Installation -->
 
 ## SDK Example Usage
+
 <!-- Start SDK Example Usage -->
 
 # Send a code
+
 Send an OTP code to a user's phone number.
 
 ```php
@@ -71,8 +61,8 @@ try {
 
 ```
 
-
 # Check a code
+
 Check that a code entered by a user is valid.
 
 ```php
@@ -108,8 +98,8 @@ try {
 
 ```
 
-
 # Retry an authentication
+
 Retry an authentication if a user has not received the code.
 
 ```php
@@ -143,26 +133,25 @@ try {
 }
 
 ```
+
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-# Available Resources and Operations
 
+# Available Resources and Operations
 
 ## [Otp](docs/sdks/otp/README.md)
 
-* [check](docs/sdks/otp/README.md#check) - Check an authentication code
-* [createAutentication](docs/sdks/otp/README.md#createautentication) - Create an authentication
-* [retry](docs/sdks/otp/README.md#retry) - Retry an authentication
+- [check](docs/sdks/otp/README.md#check) - Check an authentication code
+- [createAutentication](docs/sdks/otp/README.md#createautentication) - Create an authentication
+- [retry](docs/sdks/otp/README.md#retry) - Retry an authentication
 
 ## [Lookup](docs/sdks/lookup/README.md)
 
-* [lookup](docs/sdks/lookup/README.md#lookup) - Lookup a phone number
+- [lookup](docs/sdks/lookup/README.md#lookup) - Lookup a phone number
 <!-- End SDK Available Operations -->
 
 <!-- Start Dev Containers -->
-
-
 
 <!-- End Dev Containers -->
 
@@ -180,5 +169,3 @@ looking for the latest version.
 
 While we value open-source contributions to this SDK, this library is generated programmatically.
 Feel free to open a PR or a Github issue as a proof of concept and we'll do our best to include it in a future release!
-
-### SDK Created by [Speakeasy](https://docs.speakeasyapi.dev/docs/using-speakeasy/client-sdks)
