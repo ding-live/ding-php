@@ -5,9 +5,15 @@ management:
   speakeasyVersion: 1.116.0
   generationVersion: 2.185.0
 generation:
-  comments: {}
+  comments:
+    disableComments: false
+    omitDescriptionIfSummaryPresent: false
+  baseServerURL: ""
+  flattenGlobalSecurity: true
+  repoURL: https://github.com/ding-live/ding-python.git
   sdkClassName: Ding
-  repoURL: https://github.com/ding-live/ding-php.git
+  singleTagPerOp: false
+  tagNamespacingDisabled: false
 features:
   php:
     core: 3.1.1
@@ -18,19 +24,6 @@ features:
     serverIDs: 2.81.1
 php:
   version: 0.1.0
-  imports:
-    option: openapi
-    paths:
-      callbacks: Models/Callbacks
-      errors: Models/Errors
-      operations: Models/Operations
-      shared: Models/Components
-      webhooks: Models/Webhooks
-  inputModelSuffix: input
-  installationURL: https://github.com/ding-live/ding-php
   maxMethodParams: 4
   namespace: ding\sdk
-  outputModelSuffix: output
   packageName: ding/sdk
-  published: true
-  repoSubDirectory: .
