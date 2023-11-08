@@ -1,0 +1,16 @@
+configVersion: 1.0.0
+generation:
+  comments:
+    disableComments: false
+    omitDescriptionIfSummaryPresent: false
+  baseServerURL: ""
+  flattenGlobalSecurity: true
+  repoURL: https://github.com/ding-live/ding-python.git
+  sdkClassName: Ding
+  singleTagPerOp: false
+  tagNamespacingDisabled: false
+php:
+  version: 0.0.1
+  maxMethodParams: 4
+  namespace: ding\sdk
+  packageName: ding/sdk
