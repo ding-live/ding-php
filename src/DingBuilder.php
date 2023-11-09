@@ -37,10 +37,10 @@ class DingBuilder
     /**
      * setSecurity is used to configure the security required for the SDK.
      *
-     * @param Models\Components\Security $security
+     * @param Models\Shared\Security $security
      * @return DingBuilder
      */
-    public function setSecurity(Models\Components\Security $security): DingBuilder
+    public function setSecurity(Models\Shared\Security $security): DingBuilder
     {
         $this->sdkConfig->security = $security;
         return $this;

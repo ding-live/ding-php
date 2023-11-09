@@ -6,13 +6,13 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk\Models\Components;
+namespace ding\sdk\Models\Shared;
 
 
 /**
  * CreateAuthenticationResponse - A successful response to an authentication creation request.
  * 
- * @package ding\sdk\Models\Components
+ * @package ding\sdk\Models\Shared
  * @access public
  */
 class CreateAuthenticationResponse
@@ -45,10 +45,10 @@ class CreateAuthenticationResponse
     /**
      * The status of the authentication.
      * 
-     * @var ?\ding\sdk\Models\Components\Status $status
+     * @var ?\ding\sdk\Models\Shared\Status $status
      */
 	#[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('enum<ding\sdk\Models\Components\Status>')]
+    #[\JMS\Serializer\Annotation\Type('enum<ding\sdk\Models\Shared\Status>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Status $status = null;
     

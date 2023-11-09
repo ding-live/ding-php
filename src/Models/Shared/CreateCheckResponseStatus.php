@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk\Models\Components;
+namespace ding\sdk\Models\Shared;
 
 
 /** A status representing the result of the check. */

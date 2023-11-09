@@ -22,18 +22,18 @@ class LookupResponse
     /**
      * Bad Request
      * 
-     * @var ?\ding\sdk\Models\Components\ErrorResponse $errorResponse
+     * @var ?\ding\sdk\Models\Shared\ErrorResponse $errorResponse
      */
 	
-    public ?\ding\sdk\Models\Components\ErrorResponse $errorResponse = null;
+    public ?\ding\sdk\Models\Shared\ErrorResponse $errorResponse = null;
     
     /**
      * OK
      * 
-     * @var ?\ding\sdk\Models\Components\LookupResponse $lookupResponse
+     * @var ?\ding\sdk\Models\Shared\LookupResponse $lookupResponse
      */
 	
-    public ?\ding\sdk\Models\Components\LookupResponse $lookupResponse = null;
+    public ?\ding\sdk\Models\Shared\LookupResponse $lookupResponse = null;
     
     /**
      * HTTP response status code for this operation

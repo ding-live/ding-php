@@ -22,18 +22,18 @@ class CreateAutenticationResponse
     /**
      * OK
      * 
-     * @var ?\ding\sdk\Models\Components\CreateAuthenticationResponse $createAuthenticationResponse
+     * @var ?\ding\sdk\Models\Shared\CreateAuthenticationResponse $createAuthenticationResponse
      */
 	
-    public ?\ding\sdk\Models\Components\CreateAuthenticationResponse $createAuthenticationResponse = null;
+    public ?\ding\sdk\Models\Shared\CreateAuthenticationResponse $createAuthenticationResponse = null;
     
     /**
      * Bad Request
      * 
-     * @var ?\ding\sdk\Models\Components\ErrorResponse $errorResponse
+     * @var ?\ding\sdk\Models\Shared\ErrorResponse $errorResponse
      */
 	
-    public ?\ding\sdk\Models\Components\ErrorResponse $errorResponse = null;
+    public ?\ding\sdk\Models\Shared\ErrorResponse $errorResponse = null;
     
     /**
      * HTTP response status code for this operation

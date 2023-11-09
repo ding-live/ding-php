@@ -22,18 +22,18 @@ class CheckResponse
     /**
      * OK
      * 
-     * @var ?\ding\sdk\Models\Components\CreateCheckResponse $createCheckResponse
+     * @var ?\ding\sdk\Models\Shared\CreateCheckResponse $createCheckResponse
      */
 	
-    public ?\ding\sdk\Models\Components\CreateCheckResponse $createCheckResponse = null;
+    public ?\ding\sdk\Models\Shared\CreateCheckResponse $createCheckResponse = null;
     
     /**
      * Bad Request
      * 
-     * @var ?\ding\sdk\Models\Components\ErrorResponse $errorResponse
+     * @var ?\ding\sdk\Models\Shared\ErrorResponse $errorResponse
      */
 	
-    public ?\ding\sdk\Models\Components\ErrorResponse $errorResponse = null;
+    public ?\ding\sdk\Models\Shared\ErrorResponse $errorResponse = null;
     
     /**
      * HTTP response status code for this operation

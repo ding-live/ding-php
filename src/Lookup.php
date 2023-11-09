@@ -25,12 +25,12 @@ class Lookup
      * Lookup a phone number
      * 
      * @param string $customerUuid
-     * @param ?\ding\sdk\Models\Components\LookupRequest $lookupRequest
+     * @param ?\ding\sdk\Models\Shared\LookupRequest $lookupRequest
      * @return \ding\sdk\Models\Operations\LookupResponse
      */
 	public function lookup(
         string $customerUuid,
-        ?\ding\sdk\Models\Components\LookupRequest $lookupRequest = null,
+        ?\ding\sdk\Models\Shared\LookupRequest $lookupRequest = null,
     ): \ding\sdk\Models\Operations\LookupResponse
     {
         $request = new \ding\sdk\Models\Operations\LookupRequest();
@@ -66,13 +66,13 @@ class Lookup
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->lookupResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'ding\sdk\Models\Components\LookupResponse', 'json');
+                $response->lookupResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'ding\sdk\Models\Shared\LookupResponse', 'json');
             }
         }
         else if ($httpResponse->getStatusCode() === 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->errorResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'ding\sdk\Models\Components\ErrorResponse', 'json');
+                $response->errorResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'ding\sdk\Models\Shared\ErrorResponse', 'json');
             }
         }
 

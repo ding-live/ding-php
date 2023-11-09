@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk\Models\Components;
+namespace ding\sdk\Models\Shared;
 
 
 class CreateCheckResponse
@@ -24,10 +24,10 @@ class CreateCheckResponse
     /**
      * A status representing the result of the check.
      * 
-     * @var ?\ding\sdk\Models\Components\CreateCheckResponseStatus $status
+     * @var ?\ding\sdk\Models\Shared\CreateCheckResponseStatus $status
      */
 	#[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('enum<ding\sdk\Models\Components\CreateCheckResponseStatus>')]
+    #[\JMS\Serializer\Annotation\Type('enum<ding\sdk\Models\Shared\CreateCheckResponseStatus>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?CreateCheckResponseStatus $status = null;
     

@@ -22,18 +22,18 @@ class RetryResponse
     /**
      * Bad Request
      * 
-     * @var ?\ding\sdk\Models\Components\ErrorResponse $errorResponse
+     * @var ?\ding\sdk\Models\Shared\ErrorResponse $errorResponse
      */
 	
-    public ?\ding\sdk\Models\Components\ErrorResponse $errorResponse = null;
+    public ?\ding\sdk\Models\Shared\ErrorResponse $errorResponse = null;
     
     /**
      * OK
      * 
-     * @var ?\ding\sdk\Models\Components\RetryAuthenticationResponse $retryAuthenticationResponse
+     * @var ?\ding\sdk\Models\Shared\RetryAuthenticationResponse $retryAuthenticationResponse
      */
 	
-    public ?\ding\sdk\Models\Components\RetryAuthenticationResponse $retryAuthenticationResponse = null;
+    public ?\ding\sdk\Models\Shared\RetryAuthenticationResponse $retryAuthenticationResponse = null;
     
     /**
      * HTTP response status code for this operation

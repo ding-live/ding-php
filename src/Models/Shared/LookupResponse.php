@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk\Models\Components;
+namespace ding\sdk\Models\Shared;
 
 
 class LookupResponse
@@ -34,10 +34,10 @@ class LookupResponse
     /**
      * The type of phone line.
      * 
-     * @var ?\ding\sdk\Models\Components\LineType $lineType
+     * @var ?\ding\sdk\Models\Shared\LineType $lineType
      */
 	#[\JMS\Serializer\Annotation\SerializedName('line_type')]
-    #[\JMS\Serializer\Annotation\Type('enum<ding\sdk\Models\Components\LineType>')]
+    #[\JMS\Serializer\Annotation\Type('enum<ding\sdk\Models\Shared\LineType>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?LineType $lineType = null;
     

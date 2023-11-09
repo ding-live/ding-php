@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk\Models\Components;
+namespace ding\sdk\Models\Shared;
 
 
 class RetryAuthenticationResponse
@@ -49,10 +49,10 @@ class RetryAuthenticationResponse
     /**
      * The status of the authentication.
      * 
-     * @var ?\ding\sdk\Models\Components\RetryAuthenticationResponseStatus $status
+     * @var ?\ding\sdk\Models\Shared\RetryAuthenticationResponseStatus $status
      */
 	#[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('enum<ding\sdk\Models\Components\RetryAuthenticationResponseStatus>')]
+    #[\JMS\Serializer\Annotation\Type('enum<ding\sdk\Models\Shared\RetryAuthenticationResponseStatus>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?RetryAuthenticationResponseStatus $status = null;
     

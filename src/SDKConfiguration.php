@@ -12,14 +12,14 @@ class SDKConfiguration
 {
 	public ?\GuzzleHttp\ClientInterface $defaultClient = null;
 	public ?\GuzzleHttp\ClientInterface $securityClient = null;
-	public ?Models\Components\Security $security = null;
+	public ?Models\Shared\Security $security = null;
 	public string $serverUrl = '';
 	public string $server = '';
 	public string $language = 'php';
 	public string $openapiDocVersion = '1.0.0';
-	public string $sdkVersion = '0.1.0';
-	public string $genVersion = '2.185.0';
-	public string $userAgent = 'speakeasy-sdk/php 0.1.0 2.185.0 1.0.0 ding/sdk';
+	public string $sdkVersion = '0.1.1';
+	public string $genVersion = '2.186.4';
+	public string $userAgent = 'speakeasy-sdk/php 0.1.1 2.186.4 1.0.0 ding/sdk';
 	
 
 	public function getServerUrl(): string

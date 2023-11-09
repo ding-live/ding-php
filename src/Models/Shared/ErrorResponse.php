@@ -6,13 +6,13 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk\Models\Components;
+namespace ding\sdk\Models\Shared;
 
 
 class ErrorResponse
 {
 	#[\JMS\Serializer\Annotation\SerializedName('code')]
-    #[\JMS\Serializer\Annotation\Type('enum<ding\sdk\Models\Components\Code>')]
+    #[\JMS\Serializer\Annotation\Type('enum<ding\sdk\Models\Shared\Code>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Code $code = null;
     

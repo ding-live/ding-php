@@ -15,7 +15,7 @@ class LookupRequest
     public string $customerUuid;
     
 	#[SpeakeasyMetadata('request:mediaType=application/json')]
-    public ?\ding\sdk\Models\Components\LookupRequest $lookupRequest = null;
+    public ?\ding\sdk\Models\Shared\LookupRequest $lookupRequest = null;
     
 	public function __construct()
 	{
