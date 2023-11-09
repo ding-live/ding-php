@@ -40,7 +40,6 @@ src/Models/Shared/RetryAuthenticationResponse.php
 src/Models/Shared/RetryAuthenticationRequest.php
 src/Models/Shared/LineType.php
 src/Models/Shared/LookupResponse.php
-src/Models/Shared/LookupRequest.php
 src/Models/Shared/Security.php
 USAGE.md
 docs/Models/Operations/CheckResponse.md
@@ -62,7 +61,6 @@ docs/Models/Shared/RetryAuthenticationResponse.md
 docs/Models/Shared/RetryAuthenticationRequest.md
 docs/Models/Shared/LineType.md
 docs/Models/Shared/LookupResponse.md
-docs/Models/Shared/LookupRequest.md
 docs/Models/Shared/Security.md
 docs/sdks/ding/README.md
 docs/sdks/otp/README.md

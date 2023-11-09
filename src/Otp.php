@@ -22,7 +22,7 @@ class Otp
 	}
 	
     /**
-     * Check an authentication code
+     * Check a code
      * 
      * @param \ding\sdk\Models\Shared\CreateCheckRequest $request
      * @return \ding\sdk\Models\Operations\CheckResponse
@@ -70,7 +70,7 @@ class Otp
     }
 	
     /**
-     * Create an authentication
+     * Send a code
      * 
      * @param \ding\sdk\Models\Shared\CreateAuthenticationRequest $request
      * @return \ding\sdk\Models\Operations\CreateAutenticationResponse
@@ -118,7 +118,7 @@ class Otp
     }
 	
     /**
-     * Retry an authentication
+     * Perform a retry
      * 
      * @param \ding\sdk\Models\Shared\RetryAuthenticationRequest $request
      * @return \ding\sdk\Models\Operations\RetryResponse

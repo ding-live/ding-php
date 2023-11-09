@@ -7,11 +7,11 @@ Retrieve up-to-date metadata about a specific phone number
 
 ### Available Operations
 
-* [lookup](#lookup) - Lookup a phone number
+* [lookup](#lookup) - Lookup a number
 
 ## lookup
 
-Lookup a phone number
+Lookup a number
 
 ### Example Usage
 
@@ -33,10 +33,9 @@ $sdk = sdk\Ding::builder()
     ->build();
 
 try {
-    $lookupRequest = new Shared\LookupRequest();
-    $lookupRequest->phoneNumber = '+1234567890';
 
-    $response = $sdk->lookup->lookup('6e93aa15-9177-4d09-8395-b69ce50db1c8', $lookupRequest);
+
+    $response = $sdk->lookup->lookup('6e93aa15-9177-4d09-8395-b69ce50db1c8', 'string');
 
     if ($response->lookupResponse !== null) {
         // handle response
@@ -48,10 +47,10 @@ try {
 
 ### Parameters
 
-| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
-| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `customerUuid`                                                                | *string*                                                                      | :heavy_check_mark:                                                            | N/A                                                                           |
-| `lookupRequest`                                                               | [\ding\sdk\Models\Shared\LookupRequest](../../Models/Shared/LookupRequest.md) | :heavy_minus_sign:                                                            | N/A                                                                           |
+| Parameter          | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `customerUuid`     | *string*           | :heavy_check_mark: | N/A                |
+| `phoneNumber`      | *string*           | :heavy_check_mark: | N/A                |
 
 
 ### Response

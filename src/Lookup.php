@@ -22,29 +22,25 @@ class Lookup
 	}
 	
     /**
-     * Lookup a phone number
+     * Lookup a number
      * 
      * @param string $customerUuid
-     * @param ?\ding\sdk\Models\Shared\LookupRequest $lookupRequest
+     * @param string $phoneNumber
      * @return \ding\sdk\Models\Operations\LookupResponse
      */
 	public function lookup(
         string $customerUuid,
-        ?\ding\sdk\Models\Shared\LookupRequest $lookupRequest = null,
+        string $phoneNumber,
     ): \ding\sdk\Models\Operations\LookupResponse
     {
         $request = new \ding\sdk\Models\Operations\LookupRequest();
         $request->customerUuid = $customerUuid;
-        $request->lookupRequest = $lookupRequest;
+        $request->phoneNumber = $phoneNumber;
         
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/lookup');
+        $url = Utils\Utils::generateUrl($baseUrl, '/lookup/{phone_number}', \ding\sdk\Models\Operations\LookupRequest::class, $request);
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, "lookupRequest", "json");
-        if ($body !== null) {
-            $options = array_merge_recursive($options, $body);
-        }
         $options = array_merge_recursive($options, Utils\Utils::getHeaders($request));
         if (!array_key_exists('headers', $options)) {
             $options['headers'] = [];
@@ -52,7 +48,7 @@ class Lookup
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         
-        $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
+        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 

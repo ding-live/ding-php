@@ -14,12 +14,12 @@ class LookupRequest
 	#[SpeakeasyMetadata('header:style=simple,explode=false,name=customer-uuid')]
     public string $customerUuid;
     
-	#[SpeakeasyMetadata('request:mediaType=application/json')]
-    public ?\ding\sdk\Models\Shared\LookupRequest $lookupRequest = null;
+	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=phone_number')]
+    public string $phoneNumber;
     
 	public function __construct()
 	{
 		$this->customerUuid = "";
-		$this->lookupRequest = null;
+		$this->phoneNumber = "";
 	}
 }
