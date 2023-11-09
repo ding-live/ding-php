@@ -40,17 +40,17 @@ try {
     $request = new Shared\CreateAuthenticationRequest();
     $request->appRealm = 'string';
     $request->appVersion = 'string';
-    $request->callbackUrl = 'https://cuddly-ignorant.info';
-    $request->customerUuid = '90129667-9178-4532-b940-17ce3f0faa19';
+    $request->callbackUrl = 'https://quiet-swing.com';
+    $request->customerUuid = '92ab9e1e-b217-45b1-bfcb-79a32fcc4c39';
     $request->deviceId = 'string';
     $request->deviceModel = 'string';
-    $request->deviceType = Shared\DeviceType::Android;
-    $request->ip = '69.99.185.232';
+    $request->deviceType = Shared\DeviceType::Web;
+    $request->ip = '97.139.118.123';
     $request->isReturningUser = false;
     $request->osVersion = 'string';
     $request->phoneNumber = '+1234567890';
 
-    $response = $sdk->otp->send($request);
+    $response = $sdk->otp->createAutentication($request);
 
     if ($response->createAuthenticationResponse !== null) {
         // handle response
@@ -144,8 +144,8 @@ try {
 ### [Otp](docs/sdks/otp/README.md)
 
 * [check](docs/sdks/otp/README.md#check) - Check an authentication code
+* [createAutentication](docs/sdks/otp/README.md#createautentication) - Create an authentication
 * [retry](docs/sdks/otp/README.md#retry) - Retry an authentication
-* [send](docs/sdks/otp/README.md#send) - Create an authentication
 
 ### [Lookup](docs/sdks/lookup/README.md)
 
