@@ -22,7 +22,7 @@ class Lookup
 	}
 	
     /**
-     * Lookup a number
+     * Perform a phone number lookup
      * 
      * @param string $customerUuid
      * @param string $phoneNumber

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace ding\sdk;
 
 /**
- * Ding - Ding: The OTP API allows you to send authentication codes to your users using their phone numbers
+ * Ding - Ding: The OTP API allows you to send authentication codes to your users using their phone numbers.
  * 
  * @package ding\sdk
  * @access public

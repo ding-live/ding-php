@@ -22,7 +22,7 @@ class CreateAuthenticationRequest
     public ?string $appRealm = null;
     
     /**
-     * The version of your app.
+     * The version of your application.
      * 
      * @var ?string $appVersion
      */
@@ -51,7 +51,7 @@ class CreateAuthenticationRequest
     public string $customerUuid;
     
     /**
-     * Unique identifier for the user's device. For Android, this corresponds to the ANDROID_ID and for iOS, this corresponds to the identifierForVendor.
+     * Unique identifier for the user's device. For Android, this corresponds to the `ANDROID_ID` and for iOS, this corresponds to the `identifierForVendor`.
      * 
      * @var ?string $deviceId
      */
@@ -101,7 +101,7 @@ class CreateAuthenticationRequest
     public ?bool $isReturningUser = null;
     
     /**
-     * The version of the user's operating system.
+     * The version of the user's device operating system.
      * 
      * @var ?string $osVersion
      */
