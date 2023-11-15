@@ -1,5 +1,5 @@
 {
-  "name": "dinglive/sdk",
+  "name": "ding-live/ding-php",
   "type": "library",
   "autoload": {
     "psr-4": {
