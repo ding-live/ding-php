@@ -164,7 +164,7 @@ try {
 ### Composer
 
 ```bash
-composer require "ding/sdk"
+composer require "dinglive/sdk"
 ```
 <!-- End SDK Installation -->
 
