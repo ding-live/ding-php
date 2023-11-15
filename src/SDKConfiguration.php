@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk;
+namespace Ding\DingSDK;
 
 class SDKConfiguration
 {
@@ -17,9 +17,9 @@ class SDKConfiguration
 	public string $server = '';
 	public string $language = 'php';
 	public string $openapiDocVersion = '1.0.0';
-	public string $sdkVersion = '0.3.0';
+	public string $sdkVersion = '0.4.0';
 	public string $genVersion = '2.189.1';
-	public string $userAgent = 'speakeasy-sdk/php 0.3.0 2.189.1 1.0.0 ding/sdk';
+	public string $userAgent = 'speakeasy-sdk/php 0.4.0 2.189.1 1.0.0 ding/sdk';
 	
 
 	public function getServerUrl(): string

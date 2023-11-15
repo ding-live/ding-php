@@ -6,9 +6,9 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk\Models\Operations;
+namespace Ding\DingSDK\Models\Operations;
 
-use \ding\sdk\Utils\SpeakeasyMetadata;
+use \Ding\DingSDK\Utils\SpeakeasyMetadata;
 class LookupRequest
 {
 	#[SpeakeasyMetadata('header:style=simple,explode=false,name=customer-uuid')]

@@ -21,14 +21,14 @@ Perform a phone number lookup
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \ding\sdk;
-use \ding\sdk\Models\Shared;
-use \ding\sdk\Models\Operations;
+use \Ding\DingSDK;
+use \Ding\DingSDK\Models\Shared;
+use \Ding\DingSDK\Models\Operations;
 
 $security = new Shared\Security();
 $security->apiKey = 'YOUR_API_KEY';
 
-$sdk = sdk\Ding::builder()
+$sdk = DingSDK\Ding::builder()
     ->setSecurity($security)
     ->build();
 
@@ -55,5 +55,5 @@ try {
 
 ### Response
 
-**[?\ding\sdk\Models\Operations\LookupResponse](../../Models/Operations/LookupResponse.md)**
+**[?\Ding\DingSDK\Models\Operations\LookupResponse](../../Models/Operations/LookupResponse.md)**
 

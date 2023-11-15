@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk\Models\Shared;
+namespace Ding\DingSDK\Models\Shared;
 
 
 /** The type of device the user is using. */

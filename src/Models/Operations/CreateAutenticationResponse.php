@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk\Models\Operations;
+namespace Ding\DingSDK\Models\Operations;
 
 
 class CreateAutenticationResponse
@@ -22,18 +22,18 @@ class CreateAutenticationResponse
     /**
      * OK
      * 
-     * @var ?\ding\sdk\Models\Shared\CreateAuthenticationResponse $createAuthenticationResponse
+     * @var ?\Ding\DingSDK\Models\Shared\CreateAuthenticationResponse $createAuthenticationResponse
      */
 	
-    public ?\ding\sdk\Models\Shared\CreateAuthenticationResponse $createAuthenticationResponse = null;
+    public ?\Ding\DingSDK\Models\Shared\CreateAuthenticationResponse $createAuthenticationResponse = null;
     
     /**
      * Bad Request
      * 
-     * @var ?\ding\sdk\Models\Shared\ErrorResponse $errorResponse
+     * @var ?\Ding\DingSDK\Models\Shared\ErrorResponse $errorResponse
      */
 	
-    public ?\ding\sdk\Models\Shared\ErrorResponse $errorResponse = null;
+    public ?\Ding\DingSDK\Models\Shared\ErrorResponse $errorResponse = null;
     
     /**
      * HTTP response status code for this operation

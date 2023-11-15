@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk\Models\Shared;
+namespace Ding\DingSDK\Models\Shared;
 
 
 class CreateCheckResponse
@@ -32,10 +32,10 @@ class CreateCheckResponse
      *   * `expired_auth` - The authentication has expired and cannot be checked.
      * 
      * 
-     * @var ?\ding\sdk\Models\Shared\CreateCheckResponseStatus $status
+     * @var ?\Ding\DingSDK\Models\Shared\CreateCheckResponseStatus $status
      */
 	#[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('enum<ding\sdk\Models\Shared\CreateCheckResponseStatus>')]
+    #[\JMS\Serializer\Annotation\Type('enum<Ding\DingSDK\Models\Shared\CreateCheckResponseStatus>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?CreateCheckResponseStatus $status = null;
     

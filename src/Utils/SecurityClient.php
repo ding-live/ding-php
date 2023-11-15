@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk\Utils;
+namespace Ding\DingSDK\Utils;
 
 class SecurityClient implements \GuzzleHttp\ClientInterface
 {

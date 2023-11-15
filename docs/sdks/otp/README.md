@@ -23,13 +23,13 @@ Check a code
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \ding\sdk;
-use \ding\sdk\Models\Shared;
+use \Ding\DingSDK;
+use \Ding\DingSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = 'YOUR_API_KEY';
 
-$sdk = sdk\Ding::builder()
+$sdk = DingSDK\Ding::builder()
     ->setSecurity($security)
     ->build();
 
@@ -51,14 +51,14 @@ try {
 
 ### Parameters
 
-| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `$request`                                                                              | [\ding\sdk\Models\Shared\CreateCheckRequest](../../Models/Shared/CreateCheckRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `$request`                                                                                  | [\Ding\DingSDK\Models\Shared\CreateCheckRequest](../../Models/Shared/CreateCheckRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
 
 ### Response
 
-**[?\ding\sdk\Models\Operations\CheckResponse](../../Models/Operations/CheckResponse.md)**
+**[?\Ding\DingSDK\Models\Operations\CheckResponse](../../Models/Operations/CheckResponse.md)**
 
 
 ## createAutentication
@@ -73,13 +73,13 @@ Send a code
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \ding\sdk;
-use \ding\sdk\Models\Shared;
+use \Ding\DingSDK;
+use \Ding\DingSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = 'YOUR_API_KEY';
 
-$sdk = sdk\Ding::builder()
+$sdk = DingSDK\Ding::builder()
     ->setSecurity($security)
     ->build();
 
@@ -109,14 +109,14 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                | [\ding\sdk\Models\Shared\CreateAuthenticationRequest](../../Models/Shared/CreateAuthenticationRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                    | [\Ding\DingSDK\Models\Shared\CreateAuthenticationRequest](../../Models/Shared/CreateAuthenticationRequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
 
 
 ### Response
 
-**[?\ding\sdk\Models\Operations\CreateAutenticationResponse](../../Models/Operations/CreateAutenticationResponse.md)**
+**[?\Ding\DingSDK\Models\Operations\CreateAutenticationResponse](../../Models/Operations/CreateAutenticationResponse.md)**
 
 
 ## retry
@@ -131,13 +131,13 @@ Perform a retry
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \ding\sdk;
-use \ding\sdk\Models\Shared;
+use \Ding\DingSDK;
+use \Ding\DingSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = 'YOUR_API_KEY';
 
-$sdk = sdk\Ding::builder()
+$sdk = DingSDK\Ding::builder()
     ->setSecurity($security)
     ->build();
 
@@ -158,12 +158,12 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                              | [\ding\sdk\Models\Shared\RetryAuthenticationRequest](../../Models/Shared/RetryAuthenticationRequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                  | [\Ding\DingSDK\Models\Shared\RetryAuthenticationRequest](../../Models/Shared/RetryAuthenticationRequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
 
 
 ### Response
 
-**[?\ding\sdk\Models\Operations\RetryResponse](../../Models/Operations/RetryResponse.md)**
+**[?\Ding\DingSDK\Models\Operations\RetryResponse](../../Models/Operations/RetryResponse.md)**
 

@@ -6,12 +6,12 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk;
+namespace Ding\DingSDK;
 
 /**
  * Ding - Ding: The OTP API allows you to send authentication codes to your users using their phone numbers.
  * 
- * @package ding\sdk
+ * @package Ding\DingSDK
  * @access public
  */
 class Ding

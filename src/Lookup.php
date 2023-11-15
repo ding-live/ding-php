@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk;
+namespace Ding\DingSDK;
 
 class Lookup 
 {
@@ -26,19 +26,19 @@ class Lookup
      * 
      * @param string $customerUuid
      * @param string $phoneNumber
-     * @return \ding\sdk\Models\Operations\LookupResponse
+     * @return \Ding\DingSDK\Models\Operations\LookupResponse
      */
 	public function lookup(
         string $customerUuid,
         string $phoneNumber,
-    ): \ding\sdk\Models\Operations\LookupResponse
+    ): \Ding\DingSDK\Models\Operations\LookupResponse
     {
-        $request = new \ding\sdk\Models\Operations\LookupRequest();
+        $request = new \Ding\DingSDK\Models\Operations\LookupRequest();
         $request->customerUuid = $customerUuid;
         $request->phoneNumber = $phoneNumber;
         
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/lookup/{phone_number}', \ding\sdk\Models\Operations\LookupRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/lookup/{phone_number}', \Ding\DingSDK\Models\Operations\LookupRequest::class, $request);
         
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getHeaders($request));
@@ -54,7 +54,7 @@ class Lookup
 
         $statusCode = $httpResponse->getStatusCode();
 
-        $response = new \ding\sdk\Models\Operations\LookupResponse();
+        $response = new \Ding\DingSDK\Models\Operations\LookupResponse();
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
@@ -62,13 +62,13 @@ class Lookup
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->lookupResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'ding\sdk\Models\Shared\LookupResponse', 'json');
+                $response->lookupResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\LookupResponse', 'json');
             }
         }
         else if ($httpResponse->getStatusCode() === 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->errorResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'ding\sdk\Models\Shared\ErrorResponse', 'json');
+                $response->errorResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\ErrorResponse', 'json');
             }
         }
 

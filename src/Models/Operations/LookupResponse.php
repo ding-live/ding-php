@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk\Models\Operations;
+namespace Ding\DingSDK\Models\Operations;
 
 
 class LookupResponse
@@ -22,18 +22,18 @@ class LookupResponse
     /**
      * Bad Request
      * 
-     * @var ?\ding\sdk\Models\Shared\ErrorResponse $errorResponse
+     * @var ?\Ding\DingSDK\Models\Shared\ErrorResponse $errorResponse
      */
 	
-    public ?\ding\sdk\Models\Shared\ErrorResponse $errorResponse = null;
+    public ?\Ding\DingSDK\Models\Shared\ErrorResponse $errorResponse = null;
     
     /**
      * OK
      * 
-     * @var ?\ding\sdk\Models\Shared\LookupResponse $lookupResponse
+     * @var ?\Ding\DingSDK\Models\Shared\LookupResponse $lookupResponse
      */
 	
-    public ?\ding\sdk\Models\Shared\LookupResponse $lookupResponse = null;
+    public ?\Ding\DingSDK\Models\Shared\LookupResponse $lookupResponse = null;
     
     /**
      * HTTP response status code for this operation

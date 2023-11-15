@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk\Models\Shared;
+namespace Ding\DingSDK\Models\Shared;
 
 
 class ErrorResponse
@@ -29,10 +29,10 @@ class ErrorResponse
      *   * `invalid_device_id` - The provided device ID is invalid.
      * 
      * 
-     * @var ?\ding\sdk\Models\Shared\Code $code
+     * @var ?\Ding\DingSDK\Models\Shared\Code $code
      */
 	#[\JMS\Serializer\Annotation\SerializedName('code')]
-    #[\JMS\Serializer\Annotation\Type('enum<ding\sdk\Models\Shared\Code>')]
+    #[\JMS\Serializer\Annotation\Type('enum<Ding\DingSDK\Models\Shared\Code>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Code $code = null;
     

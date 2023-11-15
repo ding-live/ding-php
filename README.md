@@ -26,13 +26,13 @@ Send an OTP code to a user's phone number.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use ding\sdk;
-use ding\sdk\Models\Shared;
+use Ding\DingSDK;
+use Ding\DingSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = 'YOUR_API_KEY';
 
-$sdk = sdk\Ding::builder()
+$sdk = DingSDK\Ding::builder()
     ->setSecurity($security)
     ->build();
 
@@ -72,13 +72,13 @@ Check that a code entered by a user is valid.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use ding\sdk;
-use ding\sdk\Models\Shared;
+use Ding\DingSDK;
+use Ding\DingSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = 'YOUR_API_KEY';
 
-$sdk = sdk\Ding::builder()
+$sdk = DingSDK\Ding::builder()
     ->setSecurity($security)
     ->build();
 
@@ -110,13 +110,13 @@ Perform a retry if a user has not received the code.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use ding\sdk;
-use ding\sdk\Models\Shared;
+use Ding\DingSDK;
+use Ding\DingSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = 'YOUR_API_KEY';
 
-$sdk = sdk\Ding::builder()
+$sdk = DingSDK\Ding::builder()
     ->setSecurity($security)
     ->build();
 

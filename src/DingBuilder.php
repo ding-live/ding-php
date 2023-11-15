@@ -7,12 +7,12 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk;
+namespace Ding\DingSDK;
 
 /**
  * DingBuilder is used to configure and build an instance of the SDK.
  * 
- * @package ding\sdk
+ * @package Ding\DingSDK
  */
 class DingBuilder
 {

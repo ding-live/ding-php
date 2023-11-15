@@ -3,7 +3,7 @@
   "type": "library",
   "autoload": {
     "psr-4": {
-      "ding\\sdk\\": "src/"
+      "Ding\\DingSDK\\": "src/"
     }
   },
   "license": "MIT",

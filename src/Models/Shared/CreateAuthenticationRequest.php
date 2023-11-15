@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk\Models\Shared;
+namespace Ding\DingSDK\Models\Shared;
 
 
 class CreateAuthenticationRequest
@@ -73,10 +73,10 @@ class CreateAuthenticationRequest
     /**
      * The type of device the user is using.
      * 
-     * @var ?\ding\sdk\Models\Shared\DeviceType $deviceType
+     * @var ?\Ding\DingSDK\Models\Shared\DeviceType $deviceType
      */
 	#[\JMS\Serializer\Annotation\SerializedName('device_type')]
-    #[\JMS\Serializer\Annotation\Type('enum<ding\sdk\Models\Shared\DeviceType>')]
+    #[\JMS\Serializer\Annotation\Type('enum<Ding\DingSDK\Models\Shared\DeviceType>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?DeviceType $deviceType = null;
     

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk\Models\Operations;
+namespace Ding\DingSDK\Models\Operations;
 
 
 class CheckResponse
@@ -22,18 +22,18 @@ class CheckResponse
     /**
      * OK
      * 
-     * @var ?\ding\sdk\Models\Shared\CreateCheckResponse $createCheckResponse
+     * @var ?\Ding\DingSDK\Models\Shared\CreateCheckResponse $createCheckResponse
      */
 	
-    public ?\ding\sdk\Models\Shared\CreateCheckResponse $createCheckResponse = null;
+    public ?\Ding\DingSDK\Models\Shared\CreateCheckResponse $createCheckResponse = null;
     
     /**
      * Bad Request
      * 
-     * @var ?\ding\sdk\Models\Shared\ErrorResponse $errorResponse
+     * @var ?\Ding\DingSDK\Models\Shared\ErrorResponse $errorResponse
      */
 	
-    public ?\ding\sdk\Models\Shared\ErrorResponse $errorResponse = null;
+    public ?\Ding\DingSDK\Models\Shared\ErrorResponse $errorResponse = null;
     
     /**
      * HTTP response status code for this operation

@@ -6,9 +6,9 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk\Models\Shared;
+namespace Ding\DingSDK\Models\Shared;
 
-use \ding\sdk\Utils\SpeakeasyMetadata;
+use \Ding\DingSDK\Utils\SpeakeasyMetadata;
 class Security
 {
 	#[SpeakeasyMetadata('security:scheme=true,type=apiKey,subtype=header,name=x-api-key')]

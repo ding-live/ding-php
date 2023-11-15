@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk\Models\Shared;
+namespace Ding\DingSDK\Models\Shared;
 
 
 class RetryAuthenticationResponse
@@ -57,10 +57,10 @@ class RetryAuthenticationResponse
      *   * `already_validated` - The authentication has already been validated.
      * 
      * 
-     * @var ?\ding\sdk\Models\Shared\RetryAuthenticationResponseStatus $status
+     * @var ?\Ding\DingSDK\Models\Shared\RetryAuthenticationResponseStatus $status
      */
 	#[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('enum<ding\sdk\Models\Shared\RetryAuthenticationResponseStatus>')]
+    #[\JMS\Serializer\Annotation\Type('enum<Ding\DingSDK\Models\Shared\RetryAuthenticationResponseStatus>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?RetryAuthenticationResponseStatus $status = null;
     

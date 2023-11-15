@@ -6,13 +6,13 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk\Models\Shared;
+namespace Ding\DingSDK\Models\Shared;
 
 
 /**
  * CreateAuthenticationResponse - A successful response to an authentication creation request.
  * 
- * @package ding\sdk\Models\Shared
+ * @package Ding\DingSDK\Models\Shared
  * @access public
  */
 class CreateAuthenticationResponse
@@ -50,10 +50,10 @@ class CreateAuthenticationResponse
      *   * `spam_detected` - This attempt is flagged as spam. Go to the dashboard for more details.
      * 
      * 
-     * @var ?\ding\sdk\Models\Shared\Status $status
+     * @var ?\Ding\DingSDK\Models\Shared\Status $status
      */
 	#[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('enum<ding\sdk\Models\Shared\Status>')]
+    #[\JMS\Serializer\Annotation\Type('enum<Ding\DingSDK\Models\Shared\Status>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Status $status = null;
     

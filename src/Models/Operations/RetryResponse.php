@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace ding\sdk\Models\Operations;
+namespace Ding\DingSDK\Models\Operations;
 
 
 class RetryResponse
@@ -22,18 +22,18 @@ class RetryResponse
     /**
      * Bad Request
      * 
-     * @var ?\ding\sdk\Models\Shared\ErrorResponse $errorResponse
+     * @var ?\Ding\DingSDK\Models\Shared\ErrorResponse $errorResponse
      */
 	
-    public ?\ding\sdk\Models\Shared\ErrorResponse $errorResponse = null;
+    public ?\Ding\DingSDK\Models\Shared\ErrorResponse $errorResponse = null;
     
     /**
      * OK
      * 
-     * @var ?\ding\sdk\Models\Shared\RetryAuthenticationResponse $retryAuthenticationResponse
+     * @var ?\Ding\DingSDK\Models\Shared\RetryAuthenticationResponse $retryAuthenticationResponse
      */
 	
-    public ?\ding\sdk\Models\Shared\RetryAuthenticationResponse $retryAuthenticationResponse = null;
+    public ?\Ding\DingSDK\Models\Shared\RetryAuthenticationResponse $retryAuthenticationResponse = null;
     
     /**
      * HTTP response status code for this operation
