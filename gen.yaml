@@ -31,7 +31,7 @@ php:
   inputModelSuffix: input
   installationURL: https://github.com/ding-live/ding-php
   maxMethodParams: 4
-  namespace: ding\sdk
+  namespace: Ding\DingSDK
   outputModelSuffix: output
   packageName: ding/sdk
   published: true
