@@ -33,6 +33,6 @@ php:
   maxMethodParams: 4
   namespace: Ding\DingSDK
   outputModelSuffix: output
-  packageName: dinglive/sdk
+  packageName: ding-live/ding-php
   published: true
   repoSubDirectory: .
