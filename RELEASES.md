@@ -79,3 +79,13 @@ Based on:
 - [php v0.2.0] .
 ### Releases
 - [Composer v0.2.0] https://packagist.org/packages/ding/sdk#v0.2.0 - .
+
+## 2023-11-15 10:48:23
+### Changes
+Based on:
+- OpenAPI Doc 1.0.0 
+- Speakeasy CLI 1.120.1 (2.189.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [php v0.3.0] .
+### Releases
+- [Composer v0.3.0] https://packagist.org/packages/ding/sdk#v0.3.0 - .
