@@ -19,7 +19,7 @@ features:
     globalServerURLs: 2.82.0
     serverIDs: 2.81.1
 php:
-  version: 0.6.0
+  version: 0.7.0
   imports:
     option: openapi
     paths:
