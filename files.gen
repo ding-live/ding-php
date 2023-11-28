@@ -41,7 +41,6 @@ src/Models/Shared/RetryAuthenticationRequest.php
 src/Models/Shared/LineType.php
 src/Models/Shared/LookupResponse.php
 src/Models/Shared/Security.php
-USAGE.md
 docs/Models/Operations/CheckResponse.md
 docs/Models/Operations/CreateAutenticationResponse.md
 docs/Models/Operations/RetryResponse.md
@@ -65,4 +64,5 @@ docs/Models/Shared/Security.md
 docs/sdks/ding/README.md
 docs/sdks/otp/README.md
 docs/sdks/lookup/README.md
+USAGE.md
 .gitattributes

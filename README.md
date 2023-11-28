@@ -14,7 +14,9 @@ composer require "ding/sdk"
 
 ## SDK Example Usage
 
-<!-- Start SDK Example Usage -->
+<!-- Start SDK Example Usage [usage] -->
+## SDK Example Usage
+
 ### Send a code
 
 Send an OTP code to a user's phone number.
@@ -135,11 +137,10 @@ try {
 }
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
-
 
 ### [Otp](docs/sdks/otp/README.md)
 
@@ -150,15 +151,11 @@ try {
 ### [Lookup](docs/sdks/lookup/README.md)
 
 * [lookup](docs/sdks/lookup/README.md#lookup) - Perform a phone number lookup
-<!-- End SDK Available Operations -->
-
-<!-- Start Dev Containers -->
-
-<!-- End Dev Containers -->
+<!-- End Available Resources and Operations [operations] -->
 
 
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### Composer
@@ -166,7 +163,7 @@ try {
 ```bash
 composer require "ding-live/ding-php"
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
