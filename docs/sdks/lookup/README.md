@@ -28,12 +28,10 @@ use \Ding\DingSDK\Models\Operations;
 $security = new Shared\Security();
 $security->apiKey = 'YOUR_API_KEY';
 
-$sdk = DingSDK\Ding::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = DingSDK\Ding::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->lookup->lookup('6e93aa15-9177-4d09-8395-b69ce50db1c8', 'string');
 
