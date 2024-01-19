@@ -4,9 +4,9 @@ management:
   docChecksum: 5e4ef027bc51f54368e8b1607b77c098
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.225.2
-  releaseVersion: 0.8.0
-  configChecksum: d2c9503d7382326407100cf530401403
+  generationVersion: 2.237.2
+  releaseVersion: 0.8.1
+  configChecksum: 09f95e287b70cc346e9e22bce068e3da
   repoURL: https://github.com/ding-live/ding-php.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-php
@@ -16,7 +16,7 @@ features:
     core: 3.3.0
     examples: 2.81.3
     flattening: 2.81.1
-    globalSecurity: 2.81.2
+    globalSecurity: 2.81.3
     globalServerURLs: 2.82.1
     serverIDs: 2.81.1
 generatedFiles:
