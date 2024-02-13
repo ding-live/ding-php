@@ -42,7 +42,7 @@ try {
     if ($response->createCheckResponse !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
@@ -98,7 +98,7 @@ try {
     if ($response->createAuthenticationResponse !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
@@ -145,7 +145,7 @@ try {
     if ($response->retryAuthenticationResponse !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```

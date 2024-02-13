@@ -4,16 +4,16 @@ management:
   docChecksum: 5e4ef027bc51f54368e8b1607b77c098
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.237.2
-  releaseVersion: 0.8.1
-  configChecksum: 09f95e287b70cc346e9e22bce068e3da
+  generationVersion: 2.253.0
+  releaseVersion: 0.8.2
+  configChecksum: 7ab66fb9aa9892815a23ce36213a4eee
   repoURL: https://github.com/ding-live/ding-php.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-php
   published: true
 features:
   php:
-    core: 3.3.0
+    core: 3.3.1
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.81.3
@@ -27,6 +27,7 @@ generatedFiles:
   - src/DingBuilder.php
   - composer.json
   - phpstan.neon
+  - rector.php
   - src/Utils/EnumHandler.php
   - src/Utils/FormMetadata.php
   - src/Utils/Headers.php
