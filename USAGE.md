@@ -22,16 +22,16 @@ $sdk = DingSDK\Ding::builder()
 
 try {
     $request = new Shared\CreateAuthenticationRequest();
-    $request->appRealm = 'string';
-    $request->appVersion = 'string';
+    $request->appRealm = '<value>';
+    $request->appVersion = '<value>';
     $request->callbackUrl = 'https://quiet-swing.com';
     $request->customerUuid = '92ab9e1e-b217-45b1-bfcb-79a32fcc4c39';
-    $request->deviceId = 'string';
-    $request->deviceModel = 'string';
+    $request->deviceId = '<value>';
+    $request->deviceModel = '<value>';
     $request->deviceType = Shared\DeviceType::Web;
     $request->ip = '97.139.118.123';
     $request->isReturningUser = false;
-    $request->osVersion = 'string';
+    $request->osVersion = '<value>';
     $request->phoneNumber = '+1234567890';
 
     $response = $sdk->otp->createAutentication($request);
