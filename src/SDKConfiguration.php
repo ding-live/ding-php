@@ -14,12 +14,12 @@ class SDKConfiguration
 	public ?\GuzzleHttp\ClientInterface $securityClient = null;
 	public ?Models\Shared\Security $security = null;
 	public string $serverUrl = '';
-	public string $server = '';
+	public int $serverIndex = 0;
 	public string $language = 'php';
 	public string $openapiDocVersion = '1.0.0';
-	public string $sdkVersion = '0.8.3';
-	public string $genVersion = '2.258.0';
-	public string $userAgent = 'speakeasy-sdk/php 0.8.3 2.258.0 1.0.0 ding-live/ding-php';
+	public string $sdkVersion = '0.9.0';
+	public string $genVersion = '2.263.3';
+	public string $userAgent = 'speakeasy-sdk/php 0.9.0 2.263.3 1.0.0 ding-live/ding-php';
 	
 
 	public function getServerUrl(): string
@@ -27,12 +27,8 @@ class SDKConfiguration
 		
 		if ($this->serverUrl !== '') {
 			return $this->serverUrl;
-		}
-		if ($this->server === '') {
-			$this->server = Ding::SERVER_PRODUCTION;
-		}
-
-		return Ding::SERVERS[$this->server];
+		};
+		return Ding::SERVERS[$this->serverIndex];
 	}
 	
 }

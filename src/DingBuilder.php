@@ -62,12 +62,12 @@ class DingBuilder
     /**
      * setServer is used to configure the server for the SDK
      *
-     * @param string $server
+     * @param int $serverIdx
      * @return DingBuilder
      */
-    public function setServer(string $server): DingBuilder
+    public function setServerIndex(int $serverIdx): DingBuilder
     {
-        $this->sdkConfig->server = $server;
+        $this->sdkConfig->serverIndex = $serverIdx;
         return $this;
     }
     

@@ -16,12 +16,9 @@ namespace Ding\DingSDK;
  */
 class Ding
 {
-    /** SERVER_PRODUCTION - The production Ding API server */
-	public const SERVER_PRODUCTION = 'production';
-	
 	public const SERVERS = [
         /** The production Ding API server */
-		Ding::SERVER_PRODUCTION => 'https://api.ding.live/v1',
+		'https://api.ding.live/v1',
 	];
   	
     /**

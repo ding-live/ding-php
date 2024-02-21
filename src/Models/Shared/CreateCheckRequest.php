@@ -30,7 +30,7 @@ class CreateCheckRequest
     public string $checkCode;
     
     /**
-     * Your customer UUID, which can be found in the API settings in the dashboard.
+     * Your customer UUID, which can be found in the API settings in the Dashboard.
      * 
      * @var string $customerUuid
      */
