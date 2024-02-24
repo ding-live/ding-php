@@ -19,7 +19,8 @@ Perform a phone number lookup
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Ding\DingSDK;
 use \Ding\DingSDK\Models\Shared;

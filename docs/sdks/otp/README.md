@@ -21,7 +21,8 @@ Check a code
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Ding\DingSDK;
 use \Ding\DingSDK\Models\Shared;
@@ -69,7 +70,8 @@ Send a code
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Ding\DingSDK;
 use \Ding\DingSDK\Models\Shared;
@@ -125,7 +127,8 @@ Perform a retry
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Ding\DingSDK;
 use \Ding\DingSDK\Models\Shared;

@@ -4,19 +4,19 @@ management:
   docChecksum: 01bd42610039f89b431afa7eb1a3c56c
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.263.3
-  releaseVersion: 0.9.0
-  configChecksum: 752e49541546f29348dd642a09cb4d69
+  generationVersion: 2.272.4
+  releaseVersion: 0.9.1
+  configChecksum: fdc5260f38926cdc3203457d68995f19
   repoURL: https://github.com/ding-live/ding-php.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-php
   published: true
 features:
   php:
-    core: 3.3.2
+    core: 3.3.3
     examples: 2.81.3
     flattening: 2.81.1
-    globalSecurity: 2.81.3
+    globalSecurity: 2.81.4
     globalServerURLs: 2.82.1
 generatedFiles:
   - src/SDKConfiguration.php

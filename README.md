@@ -26,7 +26,8 @@ Send an OTP code to a user's phone number.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use Ding\DingSDK;
 use Ding\DingSDK\Models\Shared;
@@ -72,7 +73,8 @@ Check that a code entered by a user is valid.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use Ding\DingSDK;
 use Ding\DingSDK\Models\Shared;
@@ -110,7 +112,8 @@ Perform a retry if a user has not received the code.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use Ding\DingSDK;
 use Ding\DingSDK\Models\Shared;
