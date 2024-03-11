@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Ding\DingSDK\Models\Operations;
 
 
-class CreateAutenticationResponse
+class CreateAuthenticationResponse
 {
     /**
      * HTTP response content type for this operation

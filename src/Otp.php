@@ -73,11 +73,11 @@ class Otp
      * Send a code
      * 
      * @param \Ding\DingSDK\Models\Shared\CreateAuthenticationRequest $request
-     * @return \Ding\DingSDK\Models\Operations\CreateAutenticationResponse
+     * @return \Ding\DingSDK\Models\Operations\CreateAuthenticationResponse
      */
-	public function createAutentication(
+	public function createAuthentication(
         ?\Ding\DingSDK\Models\Shared\CreateAuthenticationRequest $request,
-    ): \Ding\DingSDK\Models\Operations\CreateAutenticationResponse
+    ): \Ding\DingSDK\Models\Operations\CreateAuthenticationResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/authentication');
@@ -96,7 +96,7 @@ class Otp
 
         $statusCode = $httpResponse->getStatusCode();
 
-        $response = new \Ding\DingSDK\Models\Operations\CreateAutenticationResponse();
+        $response = new \Ding\DingSDK\Models\Operations\CreateAuthenticationResponse();
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;

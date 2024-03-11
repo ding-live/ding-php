@@ -119,6 +119,16 @@ class CreateAuthenticationRequest
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $phoneNumber;
     
+    /**
+     * The template id associated with the message content variant to be sent.
+     * 
+     * @var ?string $templateId
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('template_id')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $templateId = null;
+    
 	public function __construct()
 	{
 		$this->appRealm = null;
@@ -132,5 +142,6 @@ class CreateAuthenticationRequest
 		$this->isReturningUser = null;
 		$this->osVersion = null;
 		$this->phoneNumber = "";
+		$this->templateId = null;
 	}
 }

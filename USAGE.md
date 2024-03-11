@@ -25,17 +25,18 @@ try {
     $request = new Shared\CreateAuthenticationRequest();
     $request->appRealm = '<value>';
     $request->appVersion = '<value>';
-    $request->callbackUrl = 'https://quiet-swing.com';
-    $request->customerUuid = '92ab9e1e-b217-45b1-bfcb-79a32fcc4c39';
+    $request->callbackUrl = 'https://piercing-volcano.name';
+    $request->customerUuid = '26e0deca-1ec4-471f-acd6-e8efeb46fdea';
     $request->deviceId = '<value>';
     $request->deviceModel = '<value>';
-    $request->deviceType = Shared\DeviceType::Web;
-    $request->ip = '97.139.118.123';
+    $request->deviceType = Shared\DeviceType::Android;
+    $request->ip = '176.157.112.67';
     $request->isReturningUser = false;
     $request->osVersion = '<value>';
     $request->phoneNumber = '+1234567890';
+    $request->templateId = '<value>';
 
-    $response = $sdk->otp->createAutentication($request);
+    $response = $sdk->otp->createAuthentication($request);
 
     if ($response->createAuthenticationResponse !== null) {
         // handle response
