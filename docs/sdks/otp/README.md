@@ -9,6 +9,7 @@ Send OTP codes to your users using their phone numbers.
 
 * [check](#check) - Check a code
 * [createAuthentication](#createauthentication) - Send a code
+* [feedback](#feedback) - Send feedback
 * [retry](#retry) - Perform a retry
 
 ## check
@@ -116,6 +117,55 @@ try {
 ### Response
 
 **[?\Ding\DingSDK\Models\Operations\CreateAuthenticationResponse](../../Models/Operations/CreateAuthenticationResponse.md)**
+
+
+## feedback
+
+Send feedback
+
+### Example Usage
+
+```php
+<?php
+
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use \Ding\DingSDK;
+use \Ding\DingSDK\Models\Shared;
+
+$security = new Shared\Security();
+$security->apiKey = 'YOUR_API_KEY';
+
+$sdk = DingSDK\Ding::builder()->setSecurity($security)->build();
+
+try {
+        $request = new Shared\FeedbackRequest();
+    $request->customerUuid = 'c0c405fa-6bcb-4094-9430-7d6e2428ff23';
+    $request->phoneNumber = '+1234567890';
+    $request->status = Shared\FeedbackRequestStatus::Onboarded;;
+
+    $response = $sdk->otp->feedback($request);
+
+    if ($response->feedbackResponse !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `$request`                                                                            | [\Ding\DingSDK\Models\Shared\FeedbackRequest](../../Models/Shared/FeedbackRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
+
+
+### Response
+
+**[?\Ding\DingSDK\Models\Operations\FeedbackResponse](../../Models/Operations/FeedbackResponse.md)**
 
 
 ## retry

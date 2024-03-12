@@ -118,6 +118,54 @@ class Otp
     }
 	
     /**
+     * Send feedback
+     * 
+     * @param \Ding\DingSDK\Models\Shared\FeedbackRequest $request
+     * @return \Ding\DingSDK\Models\Operations\FeedbackResponse
+     */
+	public function feedback(
+        ?\Ding\DingSDK\Models\Shared\FeedbackRequest $request,
+    ): \Ding\DingSDK\Models\Operations\FeedbackResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/authentication/feedback');
+        
+        $options = ['http_errors' => false];
+        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
+        if ($body !== null) {
+            $options = array_merge_recursive($options, $body);
+        }
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        
+        $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
+        
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+
+        $response = new \Ding\DingSDK\Models\Operations\FeedbackResponse();
+        $response->statusCode = $statusCode;
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->feedbackResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\FeedbackResponse', 'json');
+            }
+        }
+        else {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->errorResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\ErrorResponse', 'json');
+            }
+        }
+
+        return $response;
+    }
+	
+    /**
      * Perform a retry
      * 
      * @param \Ding\DingSDK\Models\Shared\RetryAuthenticationRequest $request

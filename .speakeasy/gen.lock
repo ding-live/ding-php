@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: c921ac1f-7be5-423b-b385-7f3f7aaa6ba4
 management:
-  docChecksum: a2a29dc8a8df536c8b2553db26987fad
+  docChecksum: bd5703227a0834ce8cffa01539ad4346
   docVersion: 1.0.0
-  speakeasyVersion: 1.205.2
-  generationVersion: 2.279.1
-  releaseVersion: 0.9.2
-  configChecksum: 3e83d3a196d1e91e6e11c3ab83573742
+  speakeasyVersion: 1.206.3
+  generationVersion: 2.280.6
+  releaseVersion: 0.9.3
+  configChecksum: 9572e228cc29e89ac6571b80837eb816
   repoURL: https://github.com/ding-live/ding-php.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-php
@@ -45,6 +45,7 @@ generatedFiles:
   - src/Utils/Utils.php
   - src/Models/Operations/CheckResponse.php
   - src/Models/Operations/CreateAuthenticationResponse.php
+  - src/Models/Operations/FeedbackResponse.php
   - src/Models/Operations/RetryResponse.php
   - src/Models/Operations/LookupRequest.php
   - src/Models/Operations/LookupResponse.php
@@ -57,6 +58,9 @@ generatedFiles:
   - src/Models/Shared/CreateAuthenticationResponse.php
   - src/Models/Shared/DeviceType.php
   - src/Models/Shared/CreateAuthenticationRequest.php
+  - src/Models/Shared/FeedbackResponse.php
+  - src/Models/Shared/FeedbackRequestStatus.php
+  - src/Models/Shared/FeedbackRequest.php
   - src/Models/Shared/RetryAuthenticationResponseStatus.php
   - src/Models/Shared/RetryAuthenticationResponse.php
   - src/Models/Shared/RetryAuthenticationRequest.php
@@ -65,6 +69,7 @@ generatedFiles:
   - src/Models/Shared/Security.php
   - docs/Models/Operations/CheckResponse.md
   - docs/Models/Operations/CreateAuthenticationResponse.md
+  - docs/Models/Operations/FeedbackResponse.md
   - docs/Models/Operations/RetryResponse.md
   - docs/Models/Operations/LookupRequest.md
   - docs/Models/Operations/LookupResponse.md
@@ -77,6 +82,9 @@ generatedFiles:
   - docs/Models/Shared/CreateAuthenticationResponse.md
   - docs/Models/Shared/DeviceType.md
   - docs/Models/Shared/CreateAuthenticationRequest.md
+  - docs/Models/Shared/FeedbackResponse.md
+  - docs/Models/Shared/FeedbackRequestStatus.md
+  - docs/Models/Shared/FeedbackRequest.md
   - docs/Models/Shared/RetryAuthenticationResponseStatus.md
   - docs/Models/Shared/RetryAuthenticationResponse.md
   - docs/Models/Shared/RetryAuthenticationRequest.md

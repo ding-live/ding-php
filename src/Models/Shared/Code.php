@@ -25,6 +25,8 @@ namespace Ding\DingSDK\Models\Shared;
  *   * `invalid_os_version` - The provided OS version is invalid.
  *   * `invalid_device_model` - The provided device model is invalid.
  *   * `invalid_device_id` - The provided device ID is invalid.
+ *   * `no_associated_auth_found` - The associated authentication was not found.
+ *   * `duplicated_feedback_status` - Duplicated feedback status has found.
  *   * `invalid_template_id` - The provided template ID is invalid.
  * 
  */
@@ -46,5 +48,7 @@ enum Code: string
     case InvalidOsVersion = 'invalid_os_version';
     case InvalidDeviceModel = 'invalid_device_model';
     case InvalidDeviceId = 'invalid_device_id';
+    case NoAssociatedAuthFound = 'no_associated_auth_found';
+    case DuplicatedFeedbackStatus = 'duplicated_feedback_status';
     case InvalidTemplateId = 'invalid_template_id';
 }
