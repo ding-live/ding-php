@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: c921ac1f-7be5-423b-b385-7f3f7aaa6ba4
 management:
-  docChecksum: bd5703227a0834ce8cffa01539ad4346
+  docChecksum: 761ff7b72b6a6546da651525ba52b429
   docVersion: 1.0.0
-  speakeasyVersion: 1.206.3
-  generationVersion: 2.280.6
-  releaseVersion: 0.9.3
-  configChecksum: 9572e228cc29e89ac6571b80837eb816
+  speakeasyVersion: 1.209.3
+  generationVersion: 2.281.2
+  releaseVersion: 0.9.4
+  configChecksum: 36140eaa90a31c96da4354764cfdbfbb
   repoURL: https://github.com/ding-live/ding-php.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-php

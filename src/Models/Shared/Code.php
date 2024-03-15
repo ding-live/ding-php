@@ -27,6 +27,7 @@ namespace Ding\DingSDK\Models\Shared;
  *   * `invalid_device_id` - The provided device ID is invalid.
  *   * `no_associated_auth_found` - The associated authentication was not found.
  *   * `duplicated_feedback_status` - Duplicated feedback status has found.
+ *   * `invalid_feedback_status` - The provided feedback status is invalid.
  *   * `invalid_template_id` - The provided template ID is invalid.
  * 
  */
@@ -50,5 +51,6 @@ enum Code: string
     case InvalidDeviceId = 'invalid_device_id';
     case NoAssociatedAuthFound = 'no_associated_auth_found';
     case DuplicatedFeedbackStatus = 'duplicated_feedback_status';
+    case InvalidFeedbackStatus = 'invalid_feedback_status';
     case InvalidTemplateId = 'invalid_template_id';
 }
