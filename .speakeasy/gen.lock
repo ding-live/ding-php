@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: c921ac1f-7be5-423b-b385-7f3f7aaa6ba4
 management:
-  docChecksum: 761ff7b72b6a6546da651525ba52b429
+  docChecksum: dcfda3975ee56f99d9a1aab22294af6d
   docVersion: 1.0.0
-  speakeasyVersion: 1.209.3
-  generationVersion: 2.281.2
-  releaseVersion: 0.9.4
-  configChecksum: 36140eaa90a31c96da4354764cfdbfbb
+  speakeasyVersion: 1.215.1
+  generationVersion: 2.286.4
+  releaseVersion: 0.9.5
+  configChecksum: d4e46bf81b0923ed315eab604c5de784
   repoURL: https://github.com/ding-live/ding-php.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-php
@@ -16,7 +16,7 @@ features:
     core: 3.3.3
     examples: 2.81.3
     flattening: 2.81.1
-    globalSecurity: 2.81.5
+    globalSecurity: 2.81.6
     globalServerURLs: 2.82.1
 generatedFiles:
   - src/SDKConfiguration.php

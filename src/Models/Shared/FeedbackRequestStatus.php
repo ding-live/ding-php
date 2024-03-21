@@ -13,4 +13,5 @@ namespace Ding\DingSDK\Models\Shared;
 enum FeedbackRequestStatus: string
 {
     case Onboarded = 'onboarded';
+    case NotOnboarded = 'not_onboarded';
 }
