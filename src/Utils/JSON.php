@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Ding\DingSDK\Utils;
 
+use JMS\Serializer\EventDispatcher\EventDispatcher;
 use JMS\Serializer\Handler\HandlerRegistry;
 use JMS\Serializer\SerializerBuilder;
 
@@ -20,6 +21,10 @@ class JSON
                 $registry->registerSubscribingHandler(new MixedJSONHandler());
                 $registry->registerSubscribingHandler(new EnumHandler());
             },
-        )->addDefaultHandlers()->build();
+        )->addDefaultHandlers()
+        ->configureListeners(function(EventDispatcher $dispatcher) {
+             $dispatcher->addSubscriber(new DateDeserializationSubscriber());
+        })
+        ->build();
     }
 }
