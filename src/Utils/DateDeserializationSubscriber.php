@@ -27,5 +27,9 @@ class DateDeserializationSubscriber implements EventSubscriberInterface
             $truncatedDatetime = preg_replace('/(\.\d{6})\d+Z$/', '$1Z', $data);
             $event->setData($truncatedDatetime);
         }
+
+        if ($data === "0001-01-01T00:00:00Z") {
+            $event->setData("0001-01-01T00:00:00.000000Z");
+        }
     }
 }
