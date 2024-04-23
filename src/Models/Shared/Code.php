@@ -29,6 +29,7 @@ namespace Ding\DingSDK\Models\Shared;
  *   * `duplicated_feedback_status` - Duplicated feedback status has found.
  *   * `invalid_feedback_status` - The provided feedback status is invalid.
  *   * `invalid_template_id` - The provided template ID is invalid.
+ *   * `suspended_account` - Your account has been suspended.
  * 
  */
 enum Code: string
@@ -53,4 +54,5 @@ enum Code: string
     case DuplicatedFeedbackStatus = 'duplicated_feedback_status';
     case InvalidFeedbackStatus = 'invalid_feedback_status';
     case InvalidTemplateId = 'invalid_template_id';
+    case SuspendedAccount = 'suspended_account';
 }

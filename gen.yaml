@@ -10,7 +10,7 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
 php:
-  version: 0.9.5
+  version: 0.9.6
   imports:
     option: openapi
     paths:

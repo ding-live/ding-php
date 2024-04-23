@@ -31,6 +31,7 @@ class ErrorResponse
      *   * `duplicated_feedback_status` - Duplicated feedback status has found.
      *   * `invalid_feedback_status` - The provided feedback status is invalid.
      *   * `invalid_template_id` - The provided template ID is invalid.
+     *   * `suspended_account` - Your account has been suspended.
      * 
      * 
      * @var ?\Ding\DingSDK\Models\Shared\Code $code
