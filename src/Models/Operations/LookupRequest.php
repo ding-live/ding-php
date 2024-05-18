@@ -8,18 +8,18 @@ declare(strict_types=1);
 
 namespace Ding\DingSDK\Models\Operations;
 
-use \Ding\DingSDK\Utils\SpeakeasyMetadata;
+use Ding\DingSDK\Utils\SpeakeasyMetadata;
 class LookupRequest
 {
-	#[SpeakeasyMetadata('header:style=simple,explode=false,name=customer-uuid')]
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=customer-uuid')]
     public string $customerUuid;
-    
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=phone_number')]
+
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=phone_number')]
     public string $phoneNumber;
-    
-	public function __construct()
-	{
-		$this->customerUuid = "";
-		$this->phoneNumber = "";
-	}
+
+    public function __construct()
+    {
+        $this->customerUuid = '';
+        $this->phoneNumber = '';
+    }
 }

@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Ding\DingSDK\Models\Shared;
 
-use \Ding\DingSDK\Utils\SpeakeasyMetadata;
+use Ding\DingSDK\Utils\SpeakeasyMetadata;
 class Security
 {
-	#[SpeakeasyMetadata('security:scheme=true,type=apiKey,subtype=header,name=x-api-key')]
+    #[SpeakeasyMetadata('security:scheme=true,type=apiKey,subtype=header,name=x-api-key')]
     public string $apiKey;
-    
-	public function __construct()
-	{
-		$this->apiKey = "";
-	}
+
+    public function __construct()
+    {
+        $this->apiKey = '';
+    }
 }

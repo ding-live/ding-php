@@ -13,35 +13,35 @@ class FeedbackRequest
 {
     /**
      * Your customer UUID, which can be found in the API settings in the dashboard.
-     * 
+     *
      * @var string $customerUuid
      */
-	#[\JMS\Serializer\Annotation\SerializedName('customer_uuid')]
+    #[\JMS\Serializer\Annotation\SerializedName('customer_uuid')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $customerUuid;
-    
+
     /**
      * An E.164 formatted phone number.
-     * 
+     *
      * @var string $phoneNumber
      */
-	#[\JMS\Serializer\Annotation\SerializedName('phone_number')]
+    #[\JMS\Serializer\Annotation\SerializedName('phone_number')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $phoneNumber;
-    
+
     /**
      * The type of the feedback.
-     * 
+     *
      * @var \Ding\DingSDK\Models\Shared\FeedbackRequestStatus $status
      */
-	#[\JMS\Serializer\Annotation\SerializedName('status')]
+    #[\JMS\Serializer\Annotation\SerializedName('status')]
     #[\JMS\Serializer\Annotation\Type('enum<Ding\DingSDK\Models\Shared\FeedbackRequestStatus>')]
     public FeedbackRequestStatus $status;
-    
-	public function __construct()
-	{
-		$this->customerUuid = "";
-		$this->phoneNumber = "";
-		$this->status = \Ding\DingSDK\Models\Shared\FeedbackRequestStatus::Onboarded;
-	}
+
+    public function __construct()
+    {
+        $this->customerUuid = '';
+        $this->phoneNumber = '';
+        $this->status = \Ding\DingSDK\Models\Shared\FeedbackRequestStatus::Onboarded;
+    }
 }

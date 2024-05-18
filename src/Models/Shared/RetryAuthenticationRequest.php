@@ -13,25 +13,25 @@ class RetryAuthenticationRequest
 {
     /**
      * The authentication UUID that was returned when you created the authentication.
-     * 
+     *
      * @var string $authenticationUuid
      */
-	#[\JMS\Serializer\Annotation\SerializedName('authentication_uuid')]
+    #[\JMS\Serializer\Annotation\SerializedName('authentication_uuid')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $authenticationUuid;
-    
+
     /**
      * Your customer UUID, which can be found in the API settings in the dashboard.
-     * 
+     *
      * @var string $customerUuid
      */
-	#[\JMS\Serializer\Annotation\SerializedName('customer_uuid')]
+    #[\JMS\Serializer\Annotation\SerializedName('customer_uuid')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $customerUuid;
-    
-	public function __construct()
-	{
-		$this->authenticationUuid = "";
-		$this->customerUuid = "";
-	}
+
+    public function __construct()
+    {
+        $this->authenticationUuid = '';
+        $this->customerUuid = '';
+    }
 }

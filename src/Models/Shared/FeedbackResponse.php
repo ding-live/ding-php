@@ -13,16 +13,16 @@ class FeedbackResponse
 {
     /**
      * The UUID of the feedback.
-     * 
+     *
      * @var ?string $uuid
      */
-	#[\JMS\Serializer\Annotation\SerializedName('uuid')]
+    #[\JMS\Serializer\Annotation\SerializedName('uuid')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $uuid = null;
-    
-	public function __construct()
-	{
-		$this->uuid = null;
-	}
+
+    public function __construct()
+    {
+        $this->uuid = null;
+    }
 }

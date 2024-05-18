@@ -13,35 +13,35 @@ class CreateCheckRequest
 {
     /**
      * The authentication UUID that was returned when you created the authentication.
-     * 
+     *
      * @var string $authenticationUuid
      */
-	#[\JMS\Serializer\Annotation\SerializedName('authentication_uuid')]
+    #[\JMS\Serializer\Annotation\SerializedName('authentication_uuid')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $authenticationUuid;
-    
+
     /**
      * The code that the user entered.
-     * 
+     *
      * @var string $checkCode
      */
-	#[\JMS\Serializer\Annotation\SerializedName('check_code')]
+    #[\JMS\Serializer\Annotation\SerializedName('check_code')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $checkCode;
-    
+
     /**
      * Your customer UUID, which can be found in the API settings in the Dashboard.
-     * 
+     *
      * @var string $customerUuid
      */
-	#[\JMS\Serializer\Annotation\SerializedName('customer_uuid')]
+    #[\JMS\Serializer\Annotation\SerializedName('customer_uuid')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $customerUuid;
-    
-	public function __construct()
-	{
-		$this->authenticationUuid = "";
-		$this->checkCode = "";
-		$this->customerUuid = "";
-	}
+
+    public function __construct()
+    {
+        $this->authenticationUuid = '';
+        $this->checkCode = '';
+        $this->customerUuid = '';
+    }
 }

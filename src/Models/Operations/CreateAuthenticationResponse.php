@@ -13,50 +13,45 @@ class CreateAuthenticationResponse
 {
     /**
      * HTTP response content type for this operation
-     * 
+     *
      * @var string $contentType
      */
-	
     public string $contentType;
-    
+
     /**
      * OK
-     * 
+     *
      * @var ?\Ding\DingSDK\Models\Shared\CreateAuthenticationResponse $createAuthenticationResponse
      */
-	
     public ?\Ding\DingSDK\Models\Shared\CreateAuthenticationResponse $createAuthenticationResponse = null;
-    
+
     /**
      * Bad Request
-     * 
+     *
      * @var ?\Ding\DingSDK\Models\Shared\ErrorResponse $errorResponse
      */
-	
     public ?\Ding\DingSDK\Models\Shared\ErrorResponse $errorResponse = null;
-    
+
     /**
      * HTTP response status code for this operation
-     * 
+     *
      * @var int $statusCode
      */
-	
     public int $statusCode;
-    
+
     /**
      * Raw HTTP response; suitable for custom response parsing
-     * 
+     *
      * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
      */
-	
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
-    
-	public function __construct()
-	{
-		$this->contentType = "";
-		$this->createAuthenticationResponse = null;
-		$this->errorResponse = null;
-		$this->statusCode = 0;
-		$this->rawResponse = null;
-	}
+
+    public function __construct()
+    {
+        $this->contentType = '';
+        $this->createAuthenticationResponse = null;
+        $this->errorResponse = null;
+        $this->statusCode = 0;
+        $this->rawResponse = null;
+    }
 }

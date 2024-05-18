@@ -8,53 +8,45 @@ declare(strict_types=1);
 
 namespace Ding\DingSDK;
 
-/**
- * Ding - Ding: The OTP API allows you to send authentication codes to your users using their phone numbers.
- * 
- * @package Ding\DingSDK
- * @access public
- */
+/** Ding - Ding: The OTP API allows you to send authentication codes to your users using their phone numbers. */
 class Ding
 {
-	public const SERVERS = [
+    public const SERVERS = [
         /** The production Ding API server */
-		'https://api.ding.live/v1',
-	];
-  	
+        'https://api.ding.live/v1',
+    ];
+
     /**
      * Send OTP codes to your users using their phone numbers.
-     * 
+     *
      * @var Otp $$otp
      */
-	public Otp $otp;
-	
+    public Otp $otp;
+
     /**
      * Retrieve up-to-date metadata about a specific phone number
-     * 
+     *
      * @var Lookup $$lookup
      */
-	public Lookup $lookup;
-	
+    public Lookup $lookup;
 
-	/**
-	 * Returns a new instance of the SDK builder used to configure and create the SDK instance.
-	 * 
-	 * @return DingBuilder
-	 */
-	public static function builder(): DingBuilder
-	{
-		return new DingBuilder();
-	}
+    /**
+     * Returns a new instance of the SDK builder used to configure and create the SDK instance.
+     *
+     * @return DingBuilder
+     */
+    public static function builder(): DingBuilder
+    {
+        return new DingBuilder();
+    }
 
-	/**
-	 * @param SDKConfiguration $sdkConfiguration
-	 */
-	public function __construct(
-		private SDKConfiguration $sdkConfiguration,
-	) {
-		
-		$this->otp = new Otp($this->sdkConfiguration);
-		
-		$this->lookup = new Lookup($this->sdkConfiguration);
-	}
+    /**
+     * @param  SDKConfiguration  $sdkConfiguration
+     */
+    public function __construct(
+        private SDKConfiguration $sdkConfiguration,
+    ) {
+        $this->otp = new Otp($this->sdkConfiguration);
+        $this->lookup = new Lookup($this->sdkConfiguration);
+    }
 }

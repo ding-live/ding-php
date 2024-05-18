@@ -13,50 +13,45 @@ class CheckResponse
 {
     /**
      * HTTP response content type for this operation
-     * 
+     *
      * @var string $contentType
      */
-	
     public string $contentType;
-    
+
     /**
      * OK
-     * 
+     *
      * @var ?\Ding\DingSDK\Models\Shared\CreateCheckResponse $createCheckResponse
      */
-	
     public ?\Ding\DingSDK\Models\Shared\CreateCheckResponse $createCheckResponse = null;
-    
+
     /**
      * Bad Request
-     * 
+     *
      * @var ?\Ding\DingSDK\Models\Shared\ErrorResponse $errorResponse
      */
-	
     public ?\Ding\DingSDK\Models\Shared\ErrorResponse $errorResponse = null;
-    
+
     /**
      * HTTP response status code for this operation
-     * 
+     *
      * @var int $statusCode
      */
-	
     public int $statusCode;
-    
+
     /**
      * Raw HTTP response; suitable for custom response parsing
-     * 
+     *
      * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
      */
-	
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
-    
-	public function __construct()
-	{
-		$this->contentType = "";
-		$this->createCheckResponse = null;
-		$this->errorResponse = null;
-		$this->statusCode = 0;
-		$this->rawResponse = null;
-	}
+
+    public function __construct()
+    {
+        $this->contentType = '';
+        $this->createCheckResponse = null;
+        $this->errorResponse = null;
+        $this->statusCode = 0;
+        $this->rawResponse = null;
+    }
 }

@@ -10,25 +10,33 @@ namespace Ding\DingSDK;
 
 class SDKConfiguration
 {
-	public ?\GuzzleHttp\ClientInterface $defaultClient = null;
-	public ?\GuzzleHttp\ClientInterface $securityClient = null;
-	public ?Models\Shared\Security $security = null;
-	public string $serverUrl = '';
-	public int $serverIndex = 0;
-	public string $language = 'php';
-	public string $openapiDocVersion = '1.0.0';
-	public string $sdkVersion = '0.9.7';
-	public string $genVersion = '2.326.0';
-	public string $userAgent = 'speakeasy-sdk/php 0.9.7 2.326.0 1.0.0 ding-live/ding-php';
-	
+    public ?\GuzzleHttp\ClientInterface $defaultClient = null;
 
-	public function getServerUrl(): string
-	{
-		
-		if ($this->serverUrl !== '') {
-			return $this->serverUrl;
-		};
-		return Ding::SERVERS[$this->serverIndex];
-	}
-	
+    public ?\GuzzleHttp\ClientInterface $securityClient = null;
+
+    public ?Models\Shared\Security $security = null;
+
+    public string $serverUrl = '';
+
+    public int $serverIndex = 0;
+
+    public string $language = 'php';
+
+    public string $openapiDocVersion = '1.0.0';
+
+    public string $sdkVersion = '0.10.0';
+
+    public string $genVersion = '2.333.3';
+
+    public string $userAgent = 'speakeasy-sdk/php 0.10.0 2.333.3 1.0.0 ding-live/ding-php';
+
+    public function getServerUrl(): string
+    {
+
+        if ($this->serverUrl !== '') {
+            return $this->serverUrl;
+        }
+
+        return Ding::SERVERS[$this->serverIndex];
+    }
 }

@@ -13,82 +13,82 @@ class LookupResponse
 {
     /**
      * The carrier of the phone number.
-     * 
+     *
      * @var ?string $carrier
      */
-	#[\JMS\Serializer\Annotation\SerializedName('carrier')]
+    #[\JMS\Serializer\Annotation\SerializedName('carrier')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $carrier = null;
-    
+
     /**
      * The ISO 3166-1 alpha-2 country code of the phone number.
-     * 
+     *
      * @var ?string $countryCode
      */
-	#[\JMS\Serializer\Annotation\SerializedName('country_code')]
+    #[\JMS\Serializer\Annotation\SerializedName('country_code')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $countryCode = null;
-    
+
     /**
      * The type of phone line.
-     * 
+     *
      * @var ?\Ding\DingSDK\Models\Shared\LineType $lineType
      */
-	#[\JMS\Serializer\Annotation\SerializedName('line_type')]
+    #[\JMS\Serializer\Annotation\SerializedName('line_type')]
     #[\JMS\Serializer\Annotation\Type('enum<Ding\DingSDK\Models\Shared\LineType>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?LineType $lineType = null;
-    
+
     /**
      * The mobile country code of the phone number.
-     * 
+     *
      * @var ?string $mcc
      */
-	#[\JMS\Serializer\Annotation\SerializedName('mcc')]
+    #[\JMS\Serializer\Annotation\SerializedName('mcc')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $mcc = null;
-    
+
     /**
      * The mobile network code of the phone number.
-     * 
+     *
      * @var ?string $mnc
      */
-	#[\JMS\Serializer\Annotation\SerializedName('mnc')]
+    #[\JMS\Serializer\Annotation\SerializedName('mnc')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $mnc = null;
-    
+
     /**
      * Whether the phone number has been ported.
-     * 
+     *
      * @var ?bool $numberPorted
      */
-	#[\JMS\Serializer\Annotation\SerializedName('number_ported')]
+    #[\JMS\Serializer\Annotation\SerializedName('number_ported')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $numberPorted = null;
-    
+
     /**
      * An E.164 formatted phone number.
-     * 
+     *
      * @var ?string $phoneNumber
      */
-	#[\JMS\Serializer\Annotation\SerializedName('phone_number')]
+    #[\JMS\Serializer\Annotation\SerializedName('phone_number')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $phoneNumber = null;
-    
-	public function __construct()
-	{
-		$this->carrier = null;
-		$this->countryCode = null;
-		$this->lineType = null;
-		$this->mcc = null;
-		$this->mnc = null;
-		$this->numberPorted = null;
-		$this->phoneNumber = null;
-	}
+
+    public function __construct()
+    {
+        $this->carrier = null;
+        $this->countryCode = null;
+        $this->lineType = null;
+        $this->mcc = null;
+        $this->mnc = null;
+        $this->numberPorted = null;
+        $this->phoneNumber = null;
+    }
 }

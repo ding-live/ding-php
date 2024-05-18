@@ -8,48 +8,42 @@ declare(strict_types=1);
 
 namespace Ding\DingSDK;
 
-class Lookup 
+class Lookup
 {
+    private SDKConfiguration $sdkConfiguration;
 
-	private SDKConfiguration $sdkConfiguration;
+    /**
+     * @param  SDKConfiguration  $sdkConfig
+     */
+    public function __construct(SDKConfiguration $sdkConfig)
+    {
+        $this->sdkConfiguration = $sdkConfig;
+    }
 
-	/**
-	 * @param SDKConfiguration $sdkConfig
-	 */
-	public function __construct(SDKConfiguration $sdkConfig)
-	{
-		$this->sdkConfiguration = $sdkConfig;
-	}
-	
     /**
      * Perform a phone number lookup
-     * 
-     * @param string $customerUuid
-     * @param string $phoneNumber
+     *
+     * @param  string  $customerUuid
+     * @param  string  $phoneNumber
      * @return \Ding\DingSDK\Models\Operations\LookupResponse
      */
-	public function lookup(
+    public function lookup(
         string $customerUuid,
         string $phoneNumber,
-    ): \Ding\DingSDK\Models\Operations\LookupResponse
-    {
+    ): \Ding\DingSDK\Models\Operations\LookupResponse {
         $request = new \Ding\DingSDK\Models\Operations\LookupRequest();
         $request->customerUuid = $customerUuid;
         $request->phoneNumber = $phoneNumber;
-        
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/lookup/{phone_number}', \Ding\DingSDK\Models\Operations\LookupRequest::class, $request);
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getHeaders($request));
-        if (!array_key_exists('headers', $options)) {
+        if (! array_key_exists('headers', $options)) {
             $options['headers'] = [];
         }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -58,17 +52,15 @@ class Lookup
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->lookupResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\LookupResponse', 'json');
+                $response->lookupResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\LookupResponse', 'json');
             }
-        }
-        else if ($httpResponse->getStatusCode() === 400) {
+        } elseif ($httpResponse->getStatusCode() === 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->errorResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\ErrorResponse', 'json');
+                $response->errorResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\ErrorResponse', 'json');
             }
         }
 

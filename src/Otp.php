@@ -8,42 +8,37 @@ declare(strict_types=1);
 
 namespace Ding\DingSDK;
 
-class Otp 
+class Otp
 {
+    private SDKConfiguration $sdkConfiguration;
 
-	private SDKConfiguration $sdkConfiguration;
+    /**
+     * @param  SDKConfiguration  $sdkConfig
+     */
+    public function __construct(SDKConfiguration $sdkConfig)
+    {
+        $this->sdkConfiguration = $sdkConfig;
+    }
 
-	/**
-	 * @param SDKConfiguration $sdkConfig
-	 */
-	public function __construct(SDKConfiguration $sdkConfig)
-	{
-		$this->sdkConfiguration = $sdkConfig;
-	}
-	
     /**
      * Check a code
-     * 
-     * @param \Ding\DingSDK\Models\Shared\CreateCheckRequest $request
+     *
+     * @param  \Ding\DingSDK\Models\Shared\CreateCheckRequest  $request
      * @return \Ding\DingSDK\Models\Operations\CheckResponse
      */
-	public function check(
+    public function check(
         ?\Ding\DingSDK\Models\Shared\CreateCheckRequest $request,
-    ): \Ding\DingSDK\Models\Operations\CheckResponse
-    {
+    ): \Ding\DingSDK\Models\Operations\CheckResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/check');
-        
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
+        $body = Utils\Utils::serializeRequestBody($request, 'request', 'json');
         if ($body !== null) {
             $options = array_merge_recursive($options, $body);
         }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
         $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -52,46 +47,40 @@ class Otp
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->createCheckResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\CreateCheckResponse', 'json');
+                $response->createCheckResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\CreateCheckResponse', 'json');
             }
-        }
-        else if ($httpResponse->getStatusCode() === 400) {
+        } elseif ($httpResponse->getStatusCode() === 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->errorResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\ErrorResponse', 'json');
+                $response->errorResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\ErrorResponse', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Send a code
-     * 
-     * @param \Ding\DingSDK\Models\Shared\CreateAuthenticationRequest $request
+     *
+     * @param  \Ding\DingSDK\Models\Shared\CreateAuthenticationRequest  $request
      * @return \Ding\DingSDK\Models\Operations\CreateAuthenticationResponse
      */
-	public function createAuthentication(
+    public function createAuthentication(
         ?\Ding\DingSDK\Models\Shared\CreateAuthenticationRequest $request,
-    ): \Ding\DingSDK\Models\Operations\CreateAuthenticationResponse
-    {
+    ): \Ding\DingSDK\Models\Operations\CreateAuthenticationResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/authentication');
-        
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
+        $body = Utils\Utils::serializeRequestBody($request, 'request', 'json');
         if ($body !== null) {
             $options = array_merge_recursive($options, $body);
         }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
         $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -100,46 +89,40 @@ class Otp
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->createAuthenticationResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\CreateAuthenticationResponse', 'json');
+                $response->createAuthenticationResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\CreateAuthenticationResponse', 'json');
             }
-        }
-        else if ($httpResponse->getStatusCode() === 400) {
+        } elseif ($httpResponse->getStatusCode() === 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->errorResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\ErrorResponse', 'json');
+                $response->errorResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\ErrorResponse', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Send feedback
-     * 
-     * @param \Ding\DingSDK\Models\Shared\FeedbackRequest $request
+     *
+     * @param  \Ding\DingSDK\Models\Shared\FeedbackRequest  $request
      * @return \Ding\DingSDK\Models\Operations\FeedbackResponse
      */
-	public function feedback(
+    public function feedback(
         ?\Ding\DingSDK\Models\Shared\FeedbackRequest $request,
-    ): \Ding\DingSDK\Models\Operations\FeedbackResponse
-    {
+    ): \Ding\DingSDK\Models\Operations\FeedbackResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/authentication/feedback');
-        
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
+        $body = Utils\Utils::serializeRequestBody($request, 'request', 'json');
         if ($body !== null) {
             $options = array_merge_recursive($options, $body);
         }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
         $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -148,46 +131,40 @@ class Otp
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->feedbackResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\FeedbackResponse', 'json');
+                $response->feedbackResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\FeedbackResponse', 'json');
             }
-        }
-        else {
+        } else {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->errorResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\ErrorResponse', 'json');
+                $response->errorResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\ErrorResponse', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Perform a retry
-     * 
-     * @param \Ding\DingSDK\Models\Shared\RetryAuthenticationRequest $request
+     *
+     * @param  \Ding\DingSDK\Models\Shared\RetryAuthenticationRequest  $request
      * @return \Ding\DingSDK\Models\Operations\RetryResponse
      */
-	public function retry(
+    public function retry(
         ?\Ding\DingSDK\Models\Shared\RetryAuthenticationRequest $request,
-    ): \Ding\DingSDK\Models\Operations\RetryResponse
-    {
+    ): \Ding\DingSDK\Models\Operations\RetryResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/retry');
-        
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
+        $body = Utils\Utils::serializeRequestBody($request, 'request', 'json');
         if ($body !== null) {
             $options = array_merge_recursive($options, $body);
         }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
         $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -196,17 +173,15 @@ class Otp
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->retryAuthenticationResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\RetryAuthenticationResponse', 'json');
+                $response->retryAuthenticationResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\RetryAuthenticationResponse', 'json');
             }
-        }
-        else if ($httpResponse->getStatusCode() === 400) {
+        } elseif ($httpResponse->getStatusCode() === 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->errorResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\ErrorResponse', 'json');
+                $response->errorResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\ErrorResponse', 'json');
             }
         }
 

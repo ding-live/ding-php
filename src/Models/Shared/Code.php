@@ -11,7 +11,7 @@ namespace Ding\DingSDK\Models\Shared;
 
 /**
  * A machine-readable code that describes the error. Possible values are:
- * 
+ *
  *   * `invalid_phone_number` - This is not a valid E.164 number.
  *   * `internal_server_error` - An internal server error occurred.
  *   * `bad_request` - The request was malformed.
@@ -30,7 +30,7 @@ namespace Ding\DingSDK\Models\Shared;
  *   * `invalid_feedback_status` - The provided feedback status is invalid.
  *   * `invalid_template_id` - The provided template ID is invalid.
  *   * `suspended_account` - Your account has been suspended.
- * 
+ *
  */
 enum Code: string
 {

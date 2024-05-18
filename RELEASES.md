@@ -279,3 +279,13 @@ Based on:
 - [php v0.9.7] .
 ### Releases
 - [Composer v0.9.7] https://packagist.org/packages/ding-live/ding-php#v0.9.7 - .
+
+## 2024-05-18 00:22:32
+### Changes
+Based on:
+- OpenAPI Doc 1.0.0 
+- Speakeasy CLI 1.293.1 (2.333.3) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [php v0.10.0] .
+### Releases
+- [Composer v0.10.0] https://packagist.org/packages/ding-live/ding-php#v0.10.0 - .

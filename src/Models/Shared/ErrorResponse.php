@@ -13,7 +13,7 @@ class ErrorResponse
 {
     /**
      * A machine-readable code that describes the error. Possible values are:
-     * 
+     *
      *   * `invalid_phone_number` - This is not a valid E.164 number.
      *   * `internal_server_error` - An internal server error occurred.
      *   * `bad_request` - The request was malformed.
@@ -32,39 +32,39 @@ class ErrorResponse
      *   * `invalid_feedback_status` - The provided feedback status is invalid.
      *   * `invalid_template_id` - The provided template ID is invalid.
      *   * `suspended_account` - Your account has been suspended.
-     * 
-     * 
+     *
+     *
      * @var ?\Ding\DingSDK\Models\Shared\Code $code
      */
-	#[\JMS\Serializer\Annotation\SerializedName('code')]
+    #[\JMS\Serializer\Annotation\SerializedName('code')]
     #[\JMS\Serializer\Annotation\Type('enum<Ding\DingSDK\Models\Shared\Code>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Code $code = null;
-    
+
     /**
      * A link to the documentation that describes the error.
-     * 
+     *
      * @var ?string $docUrl
      */
-	#[\JMS\Serializer\Annotation\SerializedName('doc_url')]
+    #[\JMS\Serializer\Annotation\SerializedName('doc_url')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $docUrl = null;
-    
+
     /**
      * A human-readable message that describes the error.
-     * 
+     *
      * @var ?string $message
      */
-	#[\JMS\Serializer\Annotation\SerializedName('message')]
+    #[\JMS\Serializer\Annotation\SerializedName('message')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $message = null;
-    
-	public function __construct()
-	{
-		$this->code = null;
-		$this->docUrl = null;
-		$this->message = null;
-	}
+
+    public function __construct()
+    {
+        $this->code = null;
+        $this->docUrl = null;
+        $this->message = null;
+    }
 }
