@@ -26,6 +26,7 @@ try {
     $request->appRealm = '<value>';
     $request->appVersion = '<value>';
     $request->callbackUrl = 'https://piercing-volcano.name';
+    $request->correlationId = '<value>';
     $request->customerUuid = '26e0deca-1ec4-471f-acd6-e8efeb46fdea';
     $request->deviceId = '<value>';
     $request->deviceModel = '<value>';

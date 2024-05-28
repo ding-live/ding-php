@@ -15,6 +15,8 @@ class SDKConfiguration
     public ?\GuzzleHttp\ClientInterface $securityClient = null;
 
     public ?Models\Shared\Security $security = null;
+    /** @var pure-Closure(): string */
+    public ?\Closure $securitySource = null;
 
     public string $serverUrl = '';
 
@@ -24,11 +26,11 @@ class SDKConfiguration
 
     public string $openapiDocVersion = '1.0.0';
 
-    public string $sdkVersion = '0.10.1';
+    public string $sdkVersion = '0.10.2';
 
-    public string $genVersion = '2.333.3';
+    public string $genVersion = '2.338.1';
 
-    public string $userAgent = 'speakeasy-sdk/php 0.10.1 2.333.3 1.0.0 ding-live/ding-php';
+    public string $userAgent = 'speakeasy-sdk/php 0.10.2 2.338.1 1.0.0 ding-live/ding-php';
 
     public function getServerUrl(): string
     {
@@ -38,5 +40,21 @@ class SDKConfiguration
         }
 
         return Ding::SERVERS[$this->serverIndex];
+    }
+    public function hasSecurity(): bool
+    {
+        return $this->security !== null || $this->securitySource !== null;
+    }
+
+    public function getSecurity(): ?Models\Shared\Security
+    {
+        if ($this->securitySource !== null) {
+            $security = new Models\Shared\Security();
+            $security->apiKey = $this->securitySource->call($this);
+
+            return $security;
+        } else {
+            return $this->security;
+        }
     }
 }

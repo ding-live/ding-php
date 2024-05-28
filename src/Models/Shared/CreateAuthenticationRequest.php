@@ -42,6 +42,16 @@ class CreateAuthenticationRequest
     public ?string $callbackUrl = null;
 
     /**
+     * A unique, user-defined identifier that will be included in webhook events
+     *
+     * @var ?string $correlationId
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('correlation_id')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $correlationId = null;
+
+    /**
      * Your customer UUID, which can be found in the API settings in the dashboard.
      *
      * @var string $customerUuid
@@ -134,6 +144,7 @@ class CreateAuthenticationRequest
         $this->appRealm = null;
         $this->appVersion = null;
         $this->callbackUrl = null;
+        $this->correlationId = null;
         $this->customerUuid = '';
         $this->deviceId = null;
         $this->deviceModel = null;
