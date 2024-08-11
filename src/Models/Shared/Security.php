@@ -11,11 +11,18 @@ namespace Ding\DingSDK\Models\Shared;
 use Ding\DingSDK\Utils\SpeakeasyMetadata;
 class Security
 {
+    /**
+     *
+     * @var string $apiKey
+     */
     #[SpeakeasyMetadata('security:scheme=true,type=apiKey,subtype=header,name=x-api-key')]
     public string $apiKey;
 
-    public function __construct()
+    /**
+     * @param  ?string  $apiKey
+     */
+    public function __construct(?string $apiKey = null)
     {
-        $this->apiKey = '';
+        $this->apiKey = $apiKey;
     }
 }

@@ -11,15 +11,27 @@ namespace Ding\DingSDK\Models\Operations;
 use Ding\DingSDK\Utils\SpeakeasyMetadata;
 class LookupRequest
 {
+    /**
+     *
+     * @var string $customerUuid
+     */
     #[SpeakeasyMetadata('header:style=simple,explode=false,name=customer-uuid')]
     public string $customerUuid;
 
+    /**
+     *
+     * @var string $phoneNumber
+     */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=phone_number')]
     public string $phoneNumber;
 
-    public function __construct()
+    /**
+     * @param  ?string  $customerUuid
+     * @param  ?string  $phoneNumber
+     */
+    public function __construct(?string $customerUuid = null, ?string $phoneNumber = null)
     {
-        $this->customerUuid = '';
-        $this->phoneNumber = '';
+        $this->customerUuid = $customerUuid;
+        $this->phoneNumber = $phoneNumber;
     }
 }
