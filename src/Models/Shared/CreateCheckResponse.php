@@ -17,7 +17,6 @@ class CreateCheckResponse
      * @var ?string $authenticationUuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('authentication_uuid')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $authenticationUuid = null;
 
@@ -32,16 +31,20 @@ class CreateCheckResponse
      *   * `expired_auth` - The authentication has expired and cannot be checked.
      *
      *
-     * @var ?\Ding\DingSDK\Models\Shared\CreateCheckResponseStatus $status
+     * @var ?CreateCheckResponseStatus $status
      */
     #[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('enum<Ding\DingSDK\Models\Shared\CreateCheckResponseStatus>')]
+    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\CreateCheckResponseStatus')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?CreateCheckResponseStatus $status = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $authenticationUuid
+     * @param  ?CreateCheckResponseStatus  $status
+     */
+    public function __construct(?string $authenticationUuid = null, ?CreateCheckResponseStatus $status = null)
     {
-        $this->authenticationUuid = null;
-        $this->status = null;
+        $this->authenticationUuid = $authenticationUuid;
+        $this->status = $status;
     }
 }

@@ -16,15 +16,12 @@ Perform a phone number lookup
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \Ding\DingSDK;
-use \Ding\DingSDK\Models\Shared;
-use \Ding\DingSDK\Models\Operations;
+use Ding\DingSDK;
+use Ding\DingSDK\Models\Shared;
 
 $security = new Shared\Security();
 $security->apiKey = 'YOUR_API_KEY';
@@ -32,7 +29,6 @@ $security->apiKey = 'YOUR_API_KEY';
 $sdk = DingSDK\Ding::builder()->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->lookup->lookup('6e93aa15-9177-4d09-8395-b69ce50db1c8', '<value>');
 
@@ -54,5 +50,10 @@ try {
 
 ### Response
 
-**[?\Ding\DingSDK\Models\Operations\LookupResponse](../../Models/Operations/LookupResponse.md)**
+**[?Operations\LookupResponse](../../Models/Operations/LookupResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Errors\ErrorResponse                    | 400                                     | application/json                        |
+| Ding\DingSDK\Models\Errors.SDKException | 4xx-5xx                                 | */*                                     |

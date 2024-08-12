@@ -17,7 +17,6 @@ class FeedbackRequest
      * @var string $customerUuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('customer_uuid')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $customerUuid;
 
     /**
@@ -26,22 +25,26 @@ class FeedbackRequest
      * @var string $phoneNumber
      */
     #[\JMS\Serializer\Annotation\SerializedName('phone_number')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $phoneNumber;
 
     /**
      * The type of the feedback.
      *
-     * @var \Ding\DingSDK\Models\Shared\FeedbackRequestStatus $status
+     * @var FeedbackRequestStatus $status
      */
     #[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('enum<Ding\DingSDK\Models\Shared\FeedbackRequestStatus>')]
+    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\FeedbackRequestStatus')]
     public FeedbackRequestStatus $status;
 
-    public function __construct()
+    /**
+     * @param  ?string  $customerUuid
+     * @param  ?string  $phoneNumber
+     * @param  ?FeedbackRequestStatus  $status
+     */
+    public function __construct(?string $customerUuid = null, ?string $phoneNumber = null, ?FeedbackRequestStatus $status = null)
     {
-        $this->customerUuid = '';
-        $this->phoneNumber = '';
-        $this->status = \Ding\DingSDK\Models\Shared\FeedbackRequestStatus::Onboarded;
+        $this->customerUuid = $customerUuid;
+        $this->phoneNumber = $phoneNumber;
+        $this->status = $status;
     }
 }

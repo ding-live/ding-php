@@ -17,7 +17,6 @@ class LookupResponse
      * @var ?string $carrier
      */
     #[\JMS\Serializer\Annotation\SerializedName('carrier')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $carrier = null;
 
@@ -27,17 +26,16 @@ class LookupResponse
      * @var ?string $countryCode
      */
     #[\JMS\Serializer\Annotation\SerializedName('country_code')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $countryCode = null;
 
     /**
      * The type of phone line.
      *
-     * @var ?\Ding\DingSDK\Models\Shared\LineType $lineType
+     * @var ?LineType $lineType
      */
     #[\JMS\Serializer\Annotation\SerializedName('line_type')]
-    #[\JMS\Serializer\Annotation\Type('enum<Ding\DingSDK\Models\Shared\LineType>')]
+    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\LineType')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?LineType $lineType = null;
 
@@ -47,7 +45,6 @@ class LookupResponse
      * @var ?string $mcc
      */
     #[\JMS\Serializer\Annotation\SerializedName('mcc')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $mcc = null;
 
@@ -57,7 +54,6 @@ class LookupResponse
      * @var ?string $mnc
      */
     #[\JMS\Serializer\Annotation\SerializedName('mnc')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $mnc = null;
 
@@ -67,7 +63,6 @@ class LookupResponse
      * @var ?bool $numberPorted
      */
     #[\JMS\Serializer\Annotation\SerializedName('number_ported')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $numberPorted = null;
 
@@ -77,18 +72,26 @@ class LookupResponse
      * @var ?string $phoneNumber
      */
     #[\JMS\Serializer\Annotation\SerializedName('phone_number')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $phoneNumber = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $carrier
+     * @param  ?string  $countryCode
+     * @param  ?LineType  $lineType
+     * @param  ?string  $mcc
+     * @param  ?string  $mnc
+     * @param  ?bool  $numberPorted
+     * @param  ?string  $phoneNumber
+     */
+    public function __construct(?string $carrier = null, ?string $countryCode = null, ?LineType $lineType = null, ?string $mcc = null, ?string $mnc = null, ?bool $numberPorted = null, ?string $phoneNumber = null)
     {
-        $this->carrier = null;
-        $this->countryCode = null;
-        $this->lineType = null;
-        $this->mcc = null;
-        $this->mnc = null;
-        $this->numberPorted = null;
-        $this->phoneNumber = null;
+        $this->carrier = $carrier;
+        $this->countryCode = $countryCode;
+        $this->lineType = $lineType;
+        $this->mcc = $mcc;
+        $this->mnc = $mnc;
+        $this->numberPorted = $numberPorted;
+        $this->phoneNumber = $phoneNumber;
     }
 }
