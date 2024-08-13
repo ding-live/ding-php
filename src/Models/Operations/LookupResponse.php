@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Ding\DingSDK\Models\Operations;
 
-
+use Ding\DingSDK\Models\Shared;
 class LookupResponse
 {
     /**
@@ -19,18 +19,11 @@ class LookupResponse
     public string $contentType;
 
     /**
-     * Bad Request
-     *
-     * @var ?\Ding\DingSDK\Models\Shared\ErrorResponse $errorResponse
-     */
-    public ?\Ding\DingSDK\Models\Shared\ErrorResponse $errorResponse = null;
-
-    /**
      * OK
      *
-     * @var ?\Ding\DingSDK\Models\Shared\LookupResponse $lookupResponse
+     * @var ?Shared\LookupResponse $lookupResponse
      */
-    public ?\Ding\DingSDK\Models\Shared\LookupResponse $lookupResponse = null;
+    public ?Shared\LookupResponse $lookupResponse = null;
 
     /**
      * HTTP response status code for this operation
@@ -42,16 +35,21 @@ class LookupResponse
     /**
      * Raw HTTP response; suitable for custom response parsing
      *
-     * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
+     * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
-    public ?\Psr\Http\Message\ResponseInterface $rawResponse;
+    public \Psr\Http\Message\ResponseInterface $rawResponse;
 
-    public function __construct()
+    /**
+     * @param  ?string  $contentType
+     * @param  ?int  $statusCode
+     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  ?Shared\LookupResponse  $lookupResponse
+     */
+    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?Shared\LookupResponse $lookupResponse = null)
     {
-        $this->contentType = '';
-        $this->errorResponse = null;
-        $this->lookupResponse = null;
-        $this->statusCode = 0;
-        $this->rawResponse = null;
+        $this->contentType = $contentType;
+        $this->statusCode = $statusCode;
+        $this->rawResponse = $rawResponse;
+        $this->lookupResponse = $lookupResponse;
     }
 }

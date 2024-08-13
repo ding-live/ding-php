@@ -6,18 +6,19 @@
 
 declare(strict_types=1);
 
-namespace Ding\DingSDK\Models\Shared;
+namespace Ding\DingSDK\Models\Errors;
 
 
+/** ErrorResponse - Bad Request */
 class ErrorResponse
 {
     /**
      * A machine-readable code that describes the error.
      *
-     * @var ?\Ding\DingSDK\Models\Shared\Code $code
+     * @var ?Code $code
      */
     #[\JMS\Serializer\Annotation\SerializedName('code')]
-    #[\JMS\Serializer\Annotation\Type('enum<Ding\DingSDK\Models\Shared\Code>')]
+    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Errors\Code')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Code $code = null;
 
@@ -27,7 +28,6 @@ class ErrorResponse
      * @var ?string $docUrl
      */
     #[\JMS\Serializer\Annotation\SerializedName('doc_url')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $docUrl = null;
 
@@ -37,14 +37,18 @@ class ErrorResponse
      * @var ?string $message
      */
     #[\JMS\Serializer\Annotation\SerializedName('message')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $message = null;
 
-    public function __construct()
+    /**
+     * @param  ?Code  $code
+     * @param  ?string  $docUrl
+     * @param  ?string  $message
+     */
+    public function __construct(?Code $code = null, ?string $docUrl = null, ?string $message = null)
     {
-        $this->code = null;
-        $this->docUrl = null;
-        $this->message = null;
+        $this->code = $code;
+        $this->docUrl = $docUrl;
+        $this->message = $message;
     }
 }
