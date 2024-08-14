@@ -8,6 +8,10 @@ declare(strict_types=1);
 
 namespace Ding\DingSDK;
 
+use Ding\DingSDK\Models\Operations;
+use Ding\DingSDK\Models\Shared;
+use JMS\Serializer\DeserializationContext;
+
 class Otp
 {
     private SDKConfiguration $sdkConfiguration;
@@ -23,12 +27,13 @@ class Otp
     /**
      * Check a code
      *
-     * @param  \Ding\DingSDK\Models\Shared\CreateCheckRequest  $request
-     * @return \Ding\DingSDK\Models\Operations\CheckResponse
+     * @param  Shared\CreateCheckRequest  $request
+     * @return Operations\CheckResponse
+     * @throws \Ding\DingSDK\Models\Errors\SDKException
      */
     public function check(
-        ?\Ding\DingSDK\Models\Shared\CreateCheckRequest $request,
-    ): \Ding\DingSDK\Models\Operations\CheckResponse {
+        ?Shared\CreateCheckRequest $request,
+    ): Operations\CheckResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/check');
         $options = ['http_errors' => false];
@@ -38,40 +43,52 @@ class Otp
         }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
 
-        $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
+        if ($statusCode == 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Ding\DingSDK\Models\Shared\CreateCheckResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\CheckResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    createCheckResponse: $obj);
 
-        $response = new \Ding\DingSDK\Models\Operations\CheckResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200) {
+                return $response;
+            } else {
+                throw new \Ding\DingSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode == 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->createCheckResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\CreateCheckResponse', 'json');
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Ding\DingSDK\Models\Errors\ErrorResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                throw $obj;
+            } else {
+                throw new \Ding\DingSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($httpResponse->getStatusCode() === 400) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $response->errorResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\ErrorResponse', 'json');
-            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \Ding\DingSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \Ding\DingSDK\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
-
-        return $response;
     }
 
     /**
      * Send a code
      *
-     * @param  \Ding\DingSDK\Models\Shared\CreateAuthenticationRequest  $request
-     * @return \Ding\DingSDK\Models\Operations\CreateAuthenticationResponse
+     * @param  Shared\CreateAuthenticationRequest  $request
+     * @return Operations\CreateAuthenticationResponse
+     * @throws \Ding\DingSDK\Models\Errors\SDKException
      */
     public function createAuthentication(
-        ?\Ding\DingSDK\Models\Shared\CreateAuthenticationRequest $request,
-    ): \Ding\DingSDK\Models\Operations\CreateAuthenticationResponse {
+        ?Shared\CreateAuthenticationRequest $request,
+    ): Operations\CreateAuthenticationResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/authentication');
         $options = ['http_errors' => false];
@@ -81,40 +98,52 @@ class Otp
         }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
 
-        $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
+        if ($statusCode == 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Ding\DingSDK\Models\Shared\CreateAuthenticationResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\CreateAuthenticationResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    createAuthenticationResponse: $obj);
 
-        $response = new \Ding\DingSDK\Models\Operations\CreateAuthenticationResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200) {
+                return $response;
+            } else {
+                throw new \Ding\DingSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode == 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->createAuthenticationResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\CreateAuthenticationResponse', 'json');
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Ding\DingSDK\Models\Errors\ErrorResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                throw $obj;
+            } else {
+                throw new \Ding\DingSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($httpResponse->getStatusCode() === 400) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $response->errorResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\ErrorResponse', 'json');
-            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \Ding\DingSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \Ding\DingSDK\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
-
-        return $response;
     }
 
     /**
      * Send feedback
      *
-     * @param  \Ding\DingSDK\Models\Shared\FeedbackRequest  $request
-     * @return \Ding\DingSDK\Models\Operations\FeedbackResponse
+     * @param  Shared\FeedbackRequest  $request
+     * @return Operations\FeedbackResponse
+     * @throws \Ding\DingSDK\Models\Errors\SDKException
      */
     public function feedback(
-        ?\Ding\DingSDK\Models\Shared\FeedbackRequest $request,
-    ): \Ding\DingSDK\Models\Operations\FeedbackResponse {
+        ?Shared\FeedbackRequest $request,
+    ): Operations\FeedbackResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/authentication/feedback');
         $options = ['http_errors' => false];
@@ -124,40 +153,56 @@ class Otp
         }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
 
-        $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-
-        $response = new \Ding\DingSDK\Models\Operations\FeedbackResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200) {
+        if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->feedbackResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\FeedbackResponse', 'json');
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Ding\DingSDK\Models\Shared\FeedbackResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\FeedbackResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    feedbackResponse: $obj);
+
+                return $response;
+            } else {
+                throw new \Ding\DingSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \Ding\DingSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->errorResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\ErrorResponse', 'json');
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Ding\DingSDK\Models\Errors\ErrorResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\FeedbackResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    errorResponse: $obj);
+
+                return $response;
+            } else {
+                throw new \Ding\DingSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         }
-
-        return $response;
     }
 
     /**
      * Perform a retry
      *
-     * @param  \Ding\DingSDK\Models\Shared\RetryAuthenticationRequest  $request
-     * @return \Ding\DingSDK\Models\Operations\RetryResponse
+     * @param  Shared\RetryAuthenticationRequest  $request
+     * @return Operations\RetryResponse
+     * @throws \Ding\DingSDK\Models\Errors\SDKException
      */
     public function retry(
-        ?\Ding\DingSDK\Models\Shared\RetryAuthenticationRequest $request,
-    ): \Ding\DingSDK\Models\Operations\RetryResponse {
+        ?Shared\RetryAuthenticationRequest $request,
+    ): Operations\RetryResponse {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/retry');
         $options = ['http_errors' => false];
@@ -167,28 +212,39 @@ class Otp
         }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
 
-        $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
+        if ($statusCode == 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Ding\DingSDK\Models\Shared\RetryAuthenticationResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\RetryResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    retryAuthenticationResponse: $obj);
 
-        $response = new \Ding\DingSDK\Models\Operations\RetryResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200) {
+                return $response;
+            } else {
+                throw new \Ding\DingSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode == 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->retryAuthenticationResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\RetryAuthenticationResponse', 'json');
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Ding\DingSDK\Models\Errors\ErrorResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                throw $obj;
+            } else {
+                throw new \Ding\DingSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($httpResponse->getStatusCode() === 400) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $response->errorResponse = $serializer->deserialize((string) $httpResponse->getBody(), 'Ding\DingSDK\Models\Shared\ErrorResponse', 'json');
-            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \Ding\DingSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \Ding\DingSDK\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
-
-        return $response;
     }
 }

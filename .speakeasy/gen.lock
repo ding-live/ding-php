@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: c921ac1f-7be5-423b-b385-7f3f7aaa6ba4
 management:
-  docChecksum: 85248a8dd6a5cd6fea1b82dfc30249e9
+  docChecksum: c2a5d8222f4117f238343d6187ef2751
   docVersion: 1.0.0
-  speakeasyVersion: 1.352.2
-  generationVersion: 2.385.2
-  releaseVersion: 0.10.6
-  configChecksum: 20c8c1f4ded8ebfa28836cf1bdd6043e
+  speakeasyVersion: 1.366.0
+  generationVersion: 2.396.0
+  releaseVersion: 0.11.0
+  configChecksum: a1f3fd7626454e913ac0ff8df3c8351d
   repoURL: https://github.com/ding-live/ding-php.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-php
@@ -19,6 +19,7 @@ features:
     globalSecurity: 2.81.7
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.1
+    responseFormat: 0.1.0
 generatedFiles:
   - src/SDKConfiguration.php
   - src/Otp.php
@@ -27,8 +28,13 @@ generatedFiles:
   - src/DingBuilder.php
   - composer.json
   - phpstan.neon
+  - phpunit.xml
   - pint.json
   - rector.php
+  - src/Utils/DateHandler.php
+  - src/Utils/DateTimeHandler.php
+  - src/Utils/DefaultResponse.php
+  - src/Utils/DefaultStream.php
   - src/Utils/EnumHandler.php
   - src/Utils/FormMetadata.php
   - src/Utils/Headers.php
@@ -37,6 +43,7 @@ generatedFiles:
   - src/Utils/MultipartMetadata.php
   - src/Utils/ParamsMetadata.php
   - src/Utils/PathParameters.php
+  - src/Utils/PhpDocTypeParser.php
   - src/Utils/QueryParameters.php
   - src/Utils/RequestBodies.php
   - src/Utils/RequestMetadata.php
@@ -44,15 +51,15 @@ generatedFiles:
   - src/Utils/SecurityClient.php
   - src/Utils/SecurityMetadata.php
   - src/Utils/SpeakeasyMetadata.php
+  - src/Utils/UnionHandler.php
   - src/Utils/Utils.php
+  - src/Models/Errors/SDKException.php
   - src/Models/Operations/CheckResponse.php
   - src/Models/Operations/CreateAuthenticationResponse.php
   - src/Models/Operations/FeedbackResponse.php
   - src/Models/Operations/RetryResponse.php
   - src/Models/Operations/LookupRequest.php
   - src/Models/Operations/LookupResponse.php
-  - src/Models/Shared/Code.php
-  - src/Models/Shared/ErrorResponse.php
   - src/Models/Shared/CreateCheckResponseStatus.php
   - src/Models/Shared/CreateCheckResponse.php
   - src/Models/Shared/CreateCheckRequest.php
@@ -69,14 +76,14 @@ generatedFiles:
   - src/Models/Shared/LineType.php
   - src/Models/Shared/LookupResponse.php
   - src/Models/Shared/Security.php
+  - src/Models/Errors/Code.php
+  - src/Models/Errors/ErrorResponse.php
   - docs/Models/Operations/CheckResponse.md
   - docs/Models/Operations/CreateAuthenticationResponse.md
   - docs/Models/Operations/FeedbackResponse.md
   - docs/Models/Operations/RetryResponse.md
   - docs/Models/Operations/LookupRequest.md
   - docs/Models/Operations/LookupResponse.md
-  - docs/Models/Shared/Code.md
-  - docs/Models/Shared/ErrorResponse.md
   - docs/Models/Shared/CreateCheckResponseStatus.md
   - docs/Models/Shared/CreateCheckResponse.md
   - docs/Models/Shared/CreateCheckRequest.md
@@ -93,6 +100,8 @@ generatedFiles:
   - docs/Models/Shared/LineType.md
   - docs/Models/Shared/LookupResponse.md
   - docs/Models/Shared/Security.md
+  - docs/Models/Errors/Code.md
+  - docs/Models/Errors/ErrorResponse.md
   - docs/sdks/ding/README.md
   - docs/sdks/otp/README.md
   - docs/sdks/lookup/README.md
