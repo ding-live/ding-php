@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Ding\DingSDK\Models\Operations;
 
-
+use Ding\DingSDK\Models\Shared;
 class CreateAuthenticationResponse
 {
     /**
@@ -21,16 +21,9 @@ class CreateAuthenticationResponse
     /**
      * OK
      *
-     * @var ?\Ding\DingSDK\Models\Shared\CreateAuthenticationResponse $createAuthenticationResponse
+     * @var ?Shared\CreateAuthenticationResponse $createAuthenticationResponse
      */
-    public ?\Ding\DingSDK\Models\Shared\CreateAuthenticationResponse $createAuthenticationResponse = null;
-
-    /**
-     * Bad Request
-     *
-     * @var ?\Ding\DingSDK\Models\Shared\ErrorResponse $errorResponse
-     */
-    public ?\Ding\DingSDK\Models\Shared\ErrorResponse $errorResponse = null;
+    public ?Shared\CreateAuthenticationResponse $createAuthenticationResponse = null;
 
     /**
      * HTTP response status code for this operation
@@ -42,16 +35,21 @@ class CreateAuthenticationResponse
     /**
      * Raw HTTP response; suitable for custom response parsing
      *
-     * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
+     * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
-    public ?\Psr\Http\Message\ResponseInterface $rawResponse;
+    public \Psr\Http\Message\ResponseInterface $rawResponse;
 
-    public function __construct()
+    /**
+     * @param  ?string  $contentType
+     * @param  ?int  $statusCode
+     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  ?Shared\CreateAuthenticationResponse  $createAuthenticationResponse
+     */
+    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?Shared\CreateAuthenticationResponse $createAuthenticationResponse = null)
     {
-        $this->contentType = '';
-        $this->createAuthenticationResponse = null;
-        $this->errorResponse = null;
-        $this->statusCode = 0;
-        $this->rawResponse = null;
+        $this->contentType = $contentType;
+        $this->statusCode = $statusCode;
+        $this->rawResponse = $rawResponse;
+        $this->createAuthenticationResponse = $createAuthenticationResponse;
     }
 }

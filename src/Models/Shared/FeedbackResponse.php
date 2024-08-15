@@ -17,12 +17,14 @@ class FeedbackResponse
      * @var ?string $uuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('uuid')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $uuid = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $uuid
+     */
+    public function __construct(?string $uuid = null)
     {
-        $this->uuid = null;
+        $this->uuid = $uuid;
     }
 }

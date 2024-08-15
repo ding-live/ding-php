@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Ding\DingSDK\Models\Operations;
 
-
+use Ding\DingSDK\Models\Shared;
 class CheckResponse
 {
     /**
@@ -21,16 +21,9 @@ class CheckResponse
     /**
      * OK
      *
-     * @var ?\Ding\DingSDK\Models\Shared\CreateCheckResponse $createCheckResponse
+     * @var ?Shared\CreateCheckResponse $createCheckResponse
      */
-    public ?\Ding\DingSDK\Models\Shared\CreateCheckResponse $createCheckResponse = null;
-
-    /**
-     * Bad Request
-     *
-     * @var ?\Ding\DingSDK\Models\Shared\ErrorResponse $errorResponse
-     */
-    public ?\Ding\DingSDK\Models\Shared\ErrorResponse $errorResponse = null;
+    public ?Shared\CreateCheckResponse $createCheckResponse = null;
 
     /**
      * HTTP response status code for this operation
@@ -42,16 +35,21 @@ class CheckResponse
     /**
      * Raw HTTP response; suitable for custom response parsing
      *
-     * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
+     * @var \Psr\Http\Message\ResponseInterface $rawResponse
      */
-    public ?\Psr\Http\Message\ResponseInterface $rawResponse;
+    public \Psr\Http\Message\ResponseInterface $rawResponse;
 
-    public function __construct()
+    /**
+     * @param  ?string  $contentType
+     * @param  ?int  $statusCode
+     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  ?Shared\CreateCheckResponse  $createCheckResponse
+     */
+    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?Shared\CreateCheckResponse $createCheckResponse = null)
     {
-        $this->contentType = '';
-        $this->createCheckResponse = null;
-        $this->errorResponse = null;
-        $this->statusCode = 0;
-        $this->rawResponse = null;
+        $this->contentType = $contentType;
+        $this->statusCode = $statusCode;
+        $this->rawResponse = $rawResponse;
+        $this->createCheckResponse = $createCheckResponse;
     }
 }
