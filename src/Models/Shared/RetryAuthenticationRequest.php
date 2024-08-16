@@ -17,7 +17,6 @@ class RetryAuthenticationRequest
      * @var string $authenticationUuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('authentication_uuid')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $authenticationUuid;
 
     /**
@@ -26,12 +25,15 @@ class RetryAuthenticationRequest
      * @var string $customerUuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('customer_uuid')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $customerUuid;
 
-    public function __construct()
+    /**
+     * @param  ?string  $authenticationUuid
+     * @param  ?string  $customerUuid
+     */
+    public function __construct(?string $authenticationUuid = null, ?string $customerUuid = null)
     {
-        $this->authenticationUuid = '';
-        $this->customerUuid = '';
+        $this->authenticationUuid = $authenticationUuid;
+        $this->customerUuid = $customerUuid;
     }
 }
