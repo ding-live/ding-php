@@ -17,7 +17,6 @@ class CreateAuthenticationRequest
      * @var ?string $appRealm
      */
     #[\JMS\Serializer\Annotation\SerializedName('app_realm')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $appRealm = null;
 
@@ -27,7 +26,6 @@ class CreateAuthenticationRequest
      * @var ?string $appVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('app_version')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $appVersion = null;
 
@@ -37,7 +35,6 @@ class CreateAuthenticationRequest
      * @var ?string $callbackUrl
      */
     #[\JMS\Serializer\Annotation\SerializedName('callback_url')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $callbackUrl = null;
 
@@ -47,7 +44,6 @@ class CreateAuthenticationRequest
      * @var ?string $correlationId
      */
     #[\JMS\Serializer\Annotation\SerializedName('correlation_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $correlationId = null;
 
@@ -57,7 +53,6 @@ class CreateAuthenticationRequest
      * @var string $customerUuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('customer_uuid')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $customerUuid;
 
     /**
@@ -66,7 +61,6 @@ class CreateAuthenticationRequest
      * @var ?string $deviceId
      */
     #[\JMS\Serializer\Annotation\SerializedName('device_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $deviceId = null;
 
@@ -76,17 +70,16 @@ class CreateAuthenticationRequest
      * @var ?string $deviceModel
      */
     #[\JMS\Serializer\Annotation\SerializedName('device_model')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $deviceModel = null;
 
     /**
      * The type of device the user is using.
      *
-     * @var ?\Ding\DingSDK\Models\Shared\DeviceType $deviceType
+     * @var ?DeviceType $deviceType
      */
     #[\JMS\Serializer\Annotation\SerializedName('device_type')]
-    #[\JMS\Serializer\Annotation\Type('enum<Ding\DingSDK\Models\Shared\DeviceType>')]
+    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\DeviceType')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?DeviceType $deviceType = null;
 
@@ -96,17 +89,15 @@ class CreateAuthenticationRequest
      * @var ?string $ip
      */
     #[\JMS\Serializer\Annotation\SerializedName('ip')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $ip = null;
 
     /**
-     * Whether the user is a returning user on your app.
+     * This signal should do more than just confirm if a user is returning to your app; it should provide a higher level of trust, indicating that the user is genuine. For more details, refer to [Signals](/guides/prevent-fraud#signals).
      *
      * @var ?bool $isReturningUser
      */
     #[\JMS\Serializer\Annotation\SerializedName('is_returning_user')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $isReturningUser = null;
 
@@ -116,7 +107,6 @@ class CreateAuthenticationRequest
      * @var ?string $osVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('os_version')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $osVersion = null;
 
@@ -126,7 +116,6 @@ class CreateAuthenticationRequest
      * @var string $phoneNumber
      */
     #[\JMS\Serializer\Annotation\SerializedName('phone_number')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     public string $phoneNumber;
 
     /**
@@ -135,24 +124,38 @@ class CreateAuthenticationRequest
      * @var ?string $templateId
      */
     #[\JMS\Serializer\Annotation\SerializedName('template_id')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $templateId = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $customerUuid
+     * @param  ?string  $phoneNumber
+     * @param  ?string  $appRealm
+     * @param  ?string  $appVersion
+     * @param  ?string  $callbackUrl
+     * @param  ?string  $correlationId
+     * @param  ?string  $deviceId
+     * @param  ?string  $deviceModel
+     * @param  ?DeviceType  $deviceType
+     * @param  ?string  $ip
+     * @param  ?bool  $isReturningUser
+     * @param  ?string  $osVersion
+     * @param  ?string  $templateId
+     */
+    public function __construct(?string $customerUuid = null, ?string $phoneNumber = null, ?string $appRealm = null, ?string $appVersion = null, ?string $callbackUrl = null, ?string $correlationId = null, ?string $deviceId = null, ?string $deviceModel = null, ?DeviceType $deviceType = null, ?string $ip = null, ?bool $isReturningUser = null, ?string $osVersion = null, ?string $templateId = null)
     {
-        $this->appRealm = null;
-        $this->appVersion = null;
-        $this->callbackUrl = null;
-        $this->correlationId = null;
-        $this->customerUuid = '';
-        $this->deviceId = null;
-        $this->deviceModel = null;
-        $this->deviceType = null;
-        $this->ip = null;
-        $this->isReturningUser = null;
-        $this->osVersion = null;
-        $this->phoneNumber = '';
-        $this->templateId = null;
+        $this->customerUuid = $customerUuid;
+        $this->phoneNumber = $phoneNumber;
+        $this->appRealm = $appRealm;
+        $this->appVersion = $appVersion;
+        $this->callbackUrl = $callbackUrl;
+        $this->correlationId = $correlationId;
+        $this->deviceId = $deviceId;
+        $this->deviceModel = $deviceModel;
+        $this->deviceType = $deviceType;
+        $this->ip = $ip;
+        $this->isReturningUser = $isReturningUser;
+        $this->osVersion = $osVersion;
+        $this->templateId = $templateId;
     }
 }
