@@ -17,12 +17,14 @@ class RetryAuthenticationResponse
      * @var ?string $authenticationUuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('authentication_uuid')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $authenticationUuid = null;
 
+    /**
+     *
+     * @var ?\DateTime $createdAt
+     */
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?\DateTime $createdAt = null;
 
@@ -32,7 +34,6 @@ class RetryAuthenticationResponse
      * @var ?\DateTime $nextRetryAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('next_retry_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?\DateTime $nextRetryAt = null;
 
@@ -42,7 +43,6 @@ class RetryAuthenticationResponse
      * @var ?int $remainingRetry
      */
     #[\JMS\Serializer\Annotation\SerializedName('remaining_retry')]
-    #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $remainingRetry = null;
 
@@ -57,19 +57,26 @@ class RetryAuthenticationResponse
      *   * `already_validated` - The authentication has already been validated.
      *
      *
-     * @var ?\Ding\DingSDK\Models\Shared\RetryAuthenticationResponseStatus $status
+     * @var ?RetryAuthenticationResponseStatus $status
      */
     #[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('enum<Ding\DingSDK\Models\Shared\RetryAuthenticationResponseStatus>')]
+    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\RetryAuthenticationResponseStatus')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?RetryAuthenticationResponseStatus $status = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $authenticationUuid
+     * @param  ?\DateTime  $createdAt
+     * @param  ?\DateTime  $nextRetryAt
+     * @param  ?int  $remainingRetry
+     * @param  ?RetryAuthenticationResponseStatus  $status
+     */
+    public function __construct(?string $authenticationUuid = null, ?\DateTime $createdAt = null, ?\DateTime $nextRetryAt = null, ?int $remainingRetry = null, ?RetryAuthenticationResponseStatus $status = null)
     {
-        $this->authenticationUuid = null;
-        $this->createdAt = null;
-        $this->nextRetryAt = null;
-        $this->remainingRetry = null;
-        $this->status = null;
+        $this->authenticationUuid = $authenticationUuid;
+        $this->createdAt = $createdAt;
+        $this->nextRetryAt = $nextRetryAt;
+        $this->remainingRetry = $remainingRetry;
+        $this->status = $status;
     }
 }

@@ -39,8 +39,9 @@ class DingBuilder
      */
     public function setSecurity(string $apiKey): DingBuilder
     {
-        $security = new Models\Shared\Security();
-        $security->apiKey = $apiKey;
+        $security = new Models\Shared\Security(
+            apiKey: $apiKey
+        );
         $this->sdkConfig->security = $security;
 
         return $this;
