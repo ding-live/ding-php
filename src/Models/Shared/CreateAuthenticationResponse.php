@@ -18,12 +18,14 @@ class CreateAuthenticationResponse
      * @var ?string $authenticationUuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('authentication_uuid')]
-    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $authenticationUuid = null;
 
+    /**
+     *
+     * @var ?\DateTime $createdAt
+     */
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?\DateTime $createdAt = null;
 
@@ -33,7 +35,6 @@ class CreateAuthenticationResponse
      * @var ?\DateTime $expiresAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('expires_at')]
-    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?\DateTime $expiresAt = null;
 
@@ -45,18 +46,24 @@ class CreateAuthenticationResponse
      *   * `spam_detected` - This attempt is flagged as spam. Go to the dashboard for more details.
      *
      *
-     * @var ?\Ding\DingSDK\Models\Shared\Status $status
+     * @var ?Status $status
      */
     #[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('enum<Ding\DingSDK\Models\Shared\Status>')]
+    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\Status')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Status $status = null;
 
-    public function __construct()
+    /**
+     * @param  ?string  $authenticationUuid
+     * @param  ?\DateTime  $createdAt
+     * @param  ?\DateTime  $expiresAt
+     * @param  ?Status  $status
+     */
+    public function __construct(?string $authenticationUuid = null, ?\DateTime $createdAt = null, ?\DateTime $expiresAt = null, ?Status $status = null)
     {
-        $this->authenticationUuid = null;
-        $this->createdAt = null;
-        $this->expiresAt = null;
-        $this->status = null;
+        $this->authenticationUuid = $authenticationUuid;
+        $this->createdAt = $createdAt;
+        $this->expiresAt = $expiresAt;
+        $this->status = $status;
     }
 }
