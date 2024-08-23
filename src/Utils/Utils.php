@@ -13,6 +13,19 @@ use GuzzleHttp\ClientInterface;
 class Utils
 {
     /**
+     * little function to adjust the return type from DateTime|false to DateTime|null
+     */
+    public static function parseDateTime(string $dateTimeString): ?\DateTime
+    {
+        $val = \DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $dateTimeString);
+        if ($val === false) {
+            return null;
+        }
+
+        return $val;
+    }
+
+    /**
      * configureClient configures the client with the given security.
      *
      * @param  ClientInterface  $client
@@ -190,10 +203,12 @@ function valToString(mixed $val, string $dateTimeFormat = ''): string
             switch (get_class($val)) {
                 case 'DateTime':
                     if (empty($dateTimeFormat)) {
-                        $dateTimeFormat = 'Y-m-d\TH:i:s.uP';
+                        $dateTimeFormat = 'Y-m-d\TH:i:s.up';
                     }
 
                     return $val->format($dateTimeFormat);
+                case 'Brick\DateTime\LocalDate':
+                    return $val->jsonSerialize();
                 default:
                     if (is_a($val, \BackedEnum::class, true)) {
                         $enumVal = $val->value;
@@ -220,11 +235,8 @@ function valToString(mixed $val, string $dateTimeFormat = ''): string
  */
 function populateGlobal(mixed $value, string $type, string $field, array $globals): mixed
 {
-    if ($globals !== null && $value === null && isset($globals['parameters'][$type]) && isset($globals['parameters'][$type][$field])) {
-        $globalVal = $globals['parameters'][$type][$field];
-        if ($globalVal !== null) {
-            $value = $globalVal;
-        }
+    if ($value === null && ! empty($globals['parameters'][$type][$field])) {
+        $value = $globals['parameters'][$type][$field];
     }
 
     return $value;

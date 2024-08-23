@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Ding\DingSDK\Models\Shared;
+namespace Ding\DingSDK\Models\Errors;
 
 
 /** A machine-readable code that describes the error. */
