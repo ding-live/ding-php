@@ -3,17 +3,17 @@ id: c921ac1f-7be5-423b-b385-7f3f7aaa6ba4
 management:
   docChecksum: c2a5d8222f4117f238343d6187ef2751
   docVersion: 1.0.0
-  speakeasyVersion: 1.377.3
-  generationVersion: 2.404.2
-  releaseVersion: 0.11.0
-  configChecksum: a1f3fd7626454e913ac0ff8df3c8351d
+  speakeasyVersion: 1.381.0
+  generationVersion: 2.404.9
+  releaseVersion: 0.11.1
+  configChecksum: 5157ab91b910848727a608c285a27dd8
   repoURL: https://github.com/ding-live/ding-php.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-php
   published: true
 features:
   php:
-    core: 3.3.11
+    core: 3.3.14
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.81.7
