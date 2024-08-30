@@ -34,7 +34,7 @@ class CreateCheckResponse
      * @var ?CreateCheckResponseStatus $status
      */
     #[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\CreateCheckResponseStatus')]
+    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\CreateCheckResponseStatus|null')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?CreateCheckResponseStatus $status = null;
 

@@ -79,7 +79,7 @@ class CreateAuthenticationRequest
      * @var ?DeviceType $deviceType
      */
     #[\JMS\Serializer\Annotation\SerializedName('device_type')]
-    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\DeviceType')]
+    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\DeviceType|null')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?DeviceType $deviceType = null;
 
