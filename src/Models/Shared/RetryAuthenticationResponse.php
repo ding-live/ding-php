@@ -60,7 +60,7 @@ class RetryAuthenticationResponse
      * @var ?RetryAuthenticationResponseStatus $status
      */
     #[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\RetryAuthenticationResponseStatus')]
+    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\RetryAuthenticationResponseStatus|null')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?RetryAuthenticationResponseStatus $status = null;
 
