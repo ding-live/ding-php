@@ -73,7 +73,7 @@ class Lookup
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
                 $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Ding\DingSDK\Models\Errors\ErrorResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                throw $obj;
+                throw $obj->toException();
             } else {
                 throw new \Ding\DingSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }

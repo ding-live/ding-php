@@ -49,7 +49,7 @@ class CreateAuthenticationResponse
      * @var ?Status $status
      */
     #[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\Status')]
+    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\Status|null')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?Status $status = null;
 
