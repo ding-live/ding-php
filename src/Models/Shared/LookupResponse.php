@@ -35,7 +35,7 @@ class LookupResponse
      * @var ?LineType $lineType
      */
     #[\JMS\Serializer\Annotation\SerializedName('line_type')]
-    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\LineType')]
+    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\LineType|null')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?LineType $lineType = null;
 

@@ -146,11 +146,27 @@ try {
 
 
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Ding: The OTP API allows you to send authentication codes to your users using their phone numbers.
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Server Selection](#server-selection)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-### Composer
+The SDK relies on [Composer](https://getcomposer.org/) to manage its dependencies.
 
+To install the SDK and add it as a dependency to an existing `composer.json` file:
 ```bash
 composer require "ding-live/ding-php"
 ```
