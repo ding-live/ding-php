@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Ding\DingSDK\Models\Errors;
 
 
+use Ding\DingSDK\Utils;
 /** ErrorResponse - Bad Request */
 class ErrorResponse
 {
@@ -18,8 +19,8 @@ class ErrorResponse
      * @var ?Code $code
      */
     #[\JMS\Serializer\Annotation\SerializedName('code')]
-    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Errors\Code')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Errors\Code|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?Code $code = null;
 
     /**
@@ -28,7 +29,7 @@ class ErrorResponse
      * @var ?string $docUrl
      */
     #[\JMS\Serializer\Annotation\SerializedName('doc_url')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $docUrl = null;
 
     /**
@@ -37,7 +38,7 @@ class ErrorResponse
      * @var ?string $message
      */
     #[\JMS\Serializer\Annotation\SerializedName('message')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $message = null;
 
     /**
@@ -50,5 +51,18 @@ class ErrorResponse
         $this->code = $code;
         $this->docUrl = $docUrl;
         $this->message = $message;
+    }
+
+    public function toException(): ErrorResponseThrowable
+    {
+        $serializer = Utils\JSON::createSerializer();
+        $message = $serializer->serialize($this, 'json');
+        if ($this->code !== null) {
+            $code = $this->code;
+        } else {
+            $code = -1;
+        }
+
+        return new ErrorResponseThrowable($message, (int) $code, $this);
     }
 }
