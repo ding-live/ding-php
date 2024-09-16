@@ -22,8 +22,9 @@ require 'vendor/autoload.php';
 use Ding\DingSDK;
 use Ding\DingSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = 'YOUR_API_KEY';
+$security = new Shared\Security(
+    apiKey: "YOUR_API_KEY",
+);
 
 $sdk = DingSDK\Ding::builder()->setSecurity($security)->build();
 

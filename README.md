@@ -30,8 +30,9 @@ require 'vendor/autoload.php';
 use Ding\DingSDK;
 use Ding\DingSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = 'YOUR_API_KEY';
+$security = new Shared\Security(
+    apiKey: "YOUR_API_KEY",
+);
 
 $sdk = DingSDK\Ding::builder()->setSecurity($security)->build();
 
@@ -39,17 +40,6 @@ try {
     $request = new Shared\CreateAuthenticationRequest(
         customerUuid: 'c9f826e0-deca-41ec-871f-ecd6e8efeb46',
         phoneNumber: '+1234567890',
-        appRealm: '<value>',
-        appVersion: '<value>',
-        callbackUrl: 'https://thin-television.name',
-        correlationId: '<value>',
-        deviceId: '<value>',
-        deviceModel: '<value>',
-        deviceType: Shared\DeviceType::Android,
-        ip: '176.157.112.67',
-        isReturningUser: false,
-        osVersion: '<value>',
-        templateId: '<value>',
     );
     $response = $sdk->otp->createAuthentication($request);
 
@@ -74,8 +64,9 @@ require 'vendor/autoload.php';
 use Ding\DingSDK;
 use Ding\DingSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = 'YOUR_API_KEY';
+$security = new Shared\Security(
+    apiKey: "YOUR_API_KEY",
+);
 
 $sdk = DingSDK\Ding::builder()->setSecurity($security)->build();
 
@@ -108,8 +99,9 @@ require 'vendor/autoload.php';
 use Ding\DingSDK;
 use Ding\DingSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = 'YOUR_API_KEY';
+$security = new Shared\Security(
+    apiKey: "YOUR_API_KEY",
+);
 
 $sdk = DingSDK\Ding::builder()->setSecurity($security)->build();
 
@@ -132,6 +124,14 @@ try {
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
+<details open>
+<summary>Available methods</summary>
+
+
+### [Lookup](docs/sdks/lookup/README.md)
+
+* [lookup](docs/sdks/lookup/README.md#lookup) - Perform a phone number lookup
+
 ### [Otp](docs/sdks/otp/README.md)
 
 * [check](docs/sdks/otp/README.md#check) - Check a code
@@ -139,18 +139,32 @@ try {
 * [feedback](docs/sdks/otp/README.md#feedback) - Send feedback
 * [retry](docs/sdks/otp/README.md#retry) - Perform a retry
 
-### [Lookup](docs/sdks/lookup/README.md)
-
-* [lookup](docs/sdks/lookup/README.md#lookup) - Perform a phone number lookup
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Ding: The OTP API allows you to send authentication codes to your users using their phone numbers.
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Server Selection](#server-selection)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-### Composer
+The SDK relies on [Composer](https://getcomposer.org/) to manage its dependencies.
 
+To install the SDK and add it as a dependency to an existing `composer.json` file:
 ```bash
 composer require "ding-live/ding-php"
 ```

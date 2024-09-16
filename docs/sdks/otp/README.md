@@ -25,8 +25,9 @@ require 'vendor/autoload.php';
 use Ding\DingSDK;
 use Ding\DingSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = 'YOUR_API_KEY';
+$security = new Shared\Security(
+    apiKey: "YOUR_API_KEY",
+);
 
 $sdk = DingSDK\Ding::builder()->setSecurity($security)->build();
 
@@ -78,8 +79,9 @@ require 'vendor/autoload.php';
 use Ding\DingSDK;
 use Ding\DingSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = 'YOUR_API_KEY';
+$security = new Shared\Security(
+    apiKey: "YOUR_API_KEY",
+);
 
 $sdk = DingSDK\Ding::builder()->setSecurity($security)->build();
 
@@ -87,17 +89,6 @@ try {
     $request = new Shared\CreateAuthenticationRequest(
         customerUuid: 'c9f826e0-deca-41ec-871f-ecd6e8efeb46',
         phoneNumber: '+1234567890',
-        appRealm: '<value>',
-        appVersion: '<value>',
-        callbackUrl: 'https://thin-television.name',
-        correlationId: '<value>',
-        deviceId: '<value>',
-        deviceModel: '<value>',
-        deviceType: Shared\DeviceType::Android,
-        ip: '176.157.112.67',
-        isReturningUser: false,
-        osVersion: '<value>',
-        templateId: '<value>',
     );
     $response = $sdk->otp->createAuthentication($request);
 
@@ -141,8 +132,9 @@ require 'vendor/autoload.php';
 use Ding\DingSDK;
 use Ding\DingSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = 'YOUR_API_KEY';
+$security = new Shared\Security(
+    apiKey: "YOUR_API_KEY",
+);
 
 $sdk = DingSDK\Ding::builder()->setSecurity($security)->build();
 
@@ -193,8 +185,9 @@ require 'vendor/autoload.php';
 use Ding\DingSDK;
 use Ding\DingSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = 'YOUR_API_KEY';
+$security = new Shared\Security(
+    apiKey: "YOUR_API_KEY",
+);
 
 $sdk = DingSDK\Ding::builder()->setSecurity($security)->build();
 
