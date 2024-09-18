@@ -3,38 +3,96 @@ id: c921ac1f-7be5-423b-b385-7f3f7aaa6ba4
 management:
   docChecksum: c2a5d8222f4117f238343d6187ef2751
   docVersion: 1.0.0
-  speakeasyVersion: 1.381.0
-  generationVersion: 2.404.9
-  releaseVersion: 0.11.1
-  configChecksum: 5157ab91b910848727a608c285a27dd8
+  speakeasyVersion: 1.399.0
+  generationVersion: 2.415.8
+  releaseVersion: 0.12.0
+  configChecksum: a77e88b0106d1392e4fb87aced2d7164
   repoURL: https://github.com/ding-live/ding-php.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-php
   published: true
 features:
   php:
-    core: 3.3.14
+    core: 3.4.3
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.81.7
-    globalSecurityFlattening: 0.1.0
+    globalSecurityFlattening: 0.1.1
     globalServerURLs: 2.82.1
     responseFormat: 0.1.0
 generatedFiles:
-  - src/SDKConfiguration.php
-  - src/Otp.php
-  - src/Lookup.php
-  - src/Ding.php
-  - src/DingBuilder.php
+  - .gitattributes
+  - CONTRIBUTING.md
+  - USAGE.md
   - composer.json
+  - docs/Models/Errors/Code.md
+  - docs/Models/Errors/ErrorResponse.md
+  - docs/Models/Operations/CheckResponse.md
+  - docs/Models/Operations/CreateAuthenticationResponse.md
+  - docs/Models/Operations/FeedbackResponse.md
+  - docs/Models/Operations/LookupRequest.md
+  - docs/Models/Operations/LookupResponse.md
+  - docs/Models/Operations/RetryResponse.md
+  - docs/Models/Shared/CreateAuthenticationRequest.md
+  - docs/Models/Shared/CreateAuthenticationResponse.md
+  - docs/Models/Shared/CreateCheckRequest.md
+  - docs/Models/Shared/CreateCheckResponse.md
+  - docs/Models/Shared/CreateCheckResponseStatus.md
+  - docs/Models/Shared/DeviceType.md
+  - docs/Models/Shared/FeedbackRequest.md
+  - docs/Models/Shared/FeedbackRequestStatus.md
+  - docs/Models/Shared/FeedbackResponse.md
+  - docs/Models/Shared/LineType.md
+  - docs/Models/Shared/LookupResponse.md
+  - docs/Models/Shared/RetryAuthenticationRequest.md
+  - docs/Models/Shared/RetryAuthenticationResponse.md
+  - docs/Models/Shared/RetryAuthenticationResponseStatus.md
+  - docs/Models/Shared/Security.md
+  - docs/Models/Shared/Status.md
+  - docs/sdks/ding/README.md
+  - docs/sdks/lookup/README.md
+  - docs/sdks/otp/README.md
   - phpstan.neon
   - phpunit.xml
   - pint.json
   - rector.php
+  - src/Ding.php
+  - src/DingBuilder.php
+  - src/Lookup.php
+  - src/Models/Errors/Code.php
+  - src/Models/Errors/ErrorResponse.php
+  - src/Models/Errors/ErrorResponseThrowable.php
+  - src/Models/Errors/SDKException.php
+  - src/Models/Operations/CheckResponse.php
+  - src/Models/Operations/CreateAuthenticationResponse.php
+  - src/Models/Operations/FeedbackResponse.php
+  - src/Models/Operations/LookupRequest.php
+  - src/Models/Operations/LookupResponse.php
+  - src/Models/Operations/RetryResponse.php
+  - src/Models/Shared/CreateAuthenticationRequest.php
+  - src/Models/Shared/CreateAuthenticationResponse.php
+  - src/Models/Shared/CreateCheckRequest.php
+  - src/Models/Shared/CreateCheckResponse.php
+  - src/Models/Shared/CreateCheckResponseStatus.php
+  - src/Models/Shared/DeviceType.php
+  - src/Models/Shared/FeedbackRequest.php
+  - src/Models/Shared/FeedbackRequestStatus.php
+  - src/Models/Shared/FeedbackResponse.php
+  - src/Models/Shared/LineType.php
+  - src/Models/Shared/LookupResponse.php
+  - src/Models/Shared/RetryAuthenticationRequest.php
+  - src/Models/Shared/RetryAuthenticationResponse.php
+  - src/Models/Shared/RetryAuthenticationResponseStatus.php
+  - src/Models/Shared/Security.php
+  - src/Models/Shared/Status.php
+  - src/Otp.php
+  - src/SDKConfiguration.php
   - src/Utils/DateHandler.php
   - src/Utils/DateTimeHandler.php
+  - src/Utils/DefaultRequest.php
   - src/Utils/DefaultResponse.php
   - src/Utils/DefaultStream.php
+  - src/Utils/DefaultUri.php
   - src/Utils/EnumHandler.php
   - src/Utils/FormMetadata.php
   - src/Utils/Headers.php
@@ -53,58 +111,48 @@ generatedFiles:
   - src/Utils/SpeakeasyMetadata.php
   - src/Utils/UnionHandler.php
   - src/Utils/Utils.php
-  - src/Models/Errors/SDKException.php
-  - src/Models/Operations/CheckResponse.php
-  - src/Models/Operations/CreateAuthenticationResponse.php
-  - src/Models/Operations/FeedbackResponse.php
-  - src/Models/Operations/RetryResponse.php
-  - src/Models/Operations/LookupRequest.php
-  - src/Models/Operations/LookupResponse.php
-  - src/Models/Shared/CreateCheckResponseStatus.php
-  - src/Models/Shared/CreateCheckResponse.php
-  - src/Models/Shared/CreateCheckRequest.php
-  - src/Models/Shared/Status.php
-  - src/Models/Shared/CreateAuthenticationResponse.php
-  - src/Models/Shared/DeviceType.php
-  - src/Models/Shared/CreateAuthenticationRequest.php
-  - src/Models/Shared/FeedbackResponse.php
-  - src/Models/Shared/FeedbackRequestStatus.php
-  - src/Models/Shared/FeedbackRequest.php
-  - src/Models/Shared/RetryAuthenticationResponseStatus.php
-  - src/Models/Shared/RetryAuthenticationResponse.php
-  - src/Models/Shared/RetryAuthenticationRequest.php
-  - src/Models/Shared/LineType.php
-  - src/Models/Shared/LookupResponse.php
-  - src/Models/Shared/Security.php
-  - src/Models/Errors/Code.php
-  - src/Models/Errors/ErrorResponse.php
-  - docs/Models/Operations/CheckResponse.md
-  - docs/Models/Operations/CreateAuthenticationResponse.md
-  - docs/Models/Operations/FeedbackResponse.md
-  - docs/Models/Operations/RetryResponse.md
-  - docs/Models/Operations/LookupRequest.md
-  - docs/Models/Operations/LookupResponse.md
-  - docs/Models/Shared/CreateCheckResponseStatus.md
-  - docs/Models/Shared/CreateCheckResponse.md
-  - docs/Models/Shared/CreateCheckRequest.md
-  - docs/Models/Shared/Status.md
-  - docs/Models/Shared/CreateAuthenticationResponse.md
-  - docs/Models/Shared/DeviceType.md
-  - docs/Models/Shared/CreateAuthenticationRequest.md
-  - docs/Models/Shared/FeedbackResponse.md
-  - docs/Models/Shared/FeedbackRequestStatus.md
-  - docs/Models/Shared/FeedbackRequest.md
-  - docs/Models/Shared/RetryAuthenticationResponseStatus.md
-  - docs/Models/Shared/RetryAuthenticationResponse.md
-  - docs/Models/Shared/RetryAuthenticationRequest.md
-  - docs/Models/Shared/LineType.md
-  - docs/Models/Shared/LookupResponse.md
-  - docs/Models/Shared/Security.md
-  - docs/Models/Errors/Code.md
-  - docs/Models/Errors/ErrorResponse.md
-  - docs/sdks/ding/README.md
-  - docs/sdks/otp/README.md
-  - docs/sdks/lookup/README.md
-  - USAGE.md
-  - .gitattributes
-  - CONTRIBUTING.md
+examples:
+  check:
+    speakeasy-default-check:
+      requestBody:
+        application/json: {"authentication_uuid": "e0e7b0e9-739d-424b-922f-1c2cb48ab077", "check_code": "123456", "customer_uuid": "8f1196d5-806e-4b71-9b24-5f96ec052808"}
+      responses:
+        "200":
+          application/json: {"status": "valid"}
+        "400":
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+  create-authentication:
+    speakeasy-default-create-authentication:
+      requestBody:
+        application/json: {"customer_uuid": "c9f826e0-deca-41ec-871f-ecd6e8efeb46", "phone_number": "+1234567890"}
+      responses:
+        "400":
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+  feedback:
+    speakeasy-default-feedback:
+      requestBody:
+        application/json: {"customer_uuid": "c0c405fa-6bcb-4094-9430-7d6e2428ff23", "phone_number": "+1234567890", "status": "onboarded"}
+      responses:
+        "200":
+          application/json: {"uuid": "123e4567-e89b-12d3-a456-4266141740a0"}
+        default:
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+  retry:
+    speakeasy-default-retry:
+      responses:
+        "200":
+          application/json: {"remaining_retry": 3, "status": "approved"}
+        "400":
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+  lookup:
+    speakeasy-default-lookup:
+      parameters:
+        path:
+          phone_number: "<value>"
+        header:
+          customer-uuid: "6e93aa15-9177-4d09-8395-b69ce50db1c8"
+      responses:
+        "200":
+          application/json: {"carrier": "AT&T", "country_code": "US", "line_type": "Mobile", "mcc": "310", "mnc": "410", "phone_number": "+1234567890"}
+        "400":
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
