@@ -19,9 +19,9 @@ class Security
     public string $apiKey;
 
     /**
-     * @param  ?string  $apiKey
+     * @param  string  $apiKey
      */
-    public function __construct(?string $apiKey = null)
+    public function __construct(string $apiKey)
     {
         $this->apiKey = $apiKey;
     }

@@ -37,11 +37,11 @@ class FeedbackRequest
     public FeedbackRequestStatus $status;
 
     /**
-     * @param  ?string  $customerUuid
-     * @param  ?string  $phoneNumber
-     * @param  ?FeedbackRequestStatus  $status
+     * @param  string  $customerUuid
+     * @param  string  $phoneNumber
+     * @param  FeedbackRequestStatus  $status
      */
-    public function __construct(?string $customerUuid = null, ?string $phoneNumber = null, ?FeedbackRequestStatus $status = null)
+    public function __construct(string $customerUuid, string $phoneNumber, FeedbackRequestStatus $status)
     {
         $this->customerUuid = $customerUuid;
         $this->phoneNumber = $phoneNumber;
