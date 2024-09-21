@@ -22,14 +22,15 @@ require 'vendor/autoload.php';
 use Ding\DingSDK;
 use Ding\DingSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = 'YOUR_API_KEY';
+$security = new Shared\Security(
+    apiKey: "YOUR_API_KEY",
+);
 
 $sdk = DingSDK\Ding::builder()->setSecurity($security)->build();
 
 try {
 
-    $response = $sdk->lookup->lookup('6e93aa15-9177-4d09-8395-b69ce50db1c8', '<value>');
+    $response = $sdk->lookup->lookup('69a197d9-356c-45d1-a807-41874e16b555', '<value>');
 
     if ($response->lookupResponse !== null) {
         // handle response

@@ -17,7 +17,7 @@ class RetryAuthenticationResponse
      * @var ?string $authenticationUuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('authentication_uuid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $authenticationUuid = null;
 
     /**
@@ -25,7 +25,7 @@ class RetryAuthenticationResponse
      * @var ?\DateTime $createdAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $createdAt = null;
 
     /**
@@ -34,7 +34,7 @@ class RetryAuthenticationResponse
      * @var ?\DateTime $nextRetryAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('next_retry_at')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $nextRetryAt = null;
 
     /**
@@ -43,7 +43,7 @@ class RetryAuthenticationResponse
      * @var ?int $remainingRetry
      */
     #[\JMS\Serializer\Annotation\SerializedName('remaining_retry')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $remainingRetry = null;
 
     /**
@@ -60,8 +60,8 @@ class RetryAuthenticationResponse
      * @var ?RetryAuthenticationResponseStatus $status
      */
     #[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\RetryAuthenticationResponseStatus')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\RetryAuthenticationResponseStatus|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?RetryAuthenticationResponseStatus $status = null;
 
     /**
