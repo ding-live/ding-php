@@ -48,13 +48,13 @@ class FeedbackResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
-     * @param  ?string  $contentType
-     * @param  ?int  $statusCode
-     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  string  $contentType
+     * @param  int  $statusCode
+     * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?Errors\ErrorResponse  $errorResponse
      * @param  ?Shared\FeedbackResponse  $feedbackResponse
      */
-    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?Errors\ErrorResponse $errorResponse = null, ?Shared\FeedbackResponse $feedbackResponse = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Errors\ErrorResponse $errorResponse = null, ?Shared\FeedbackResponse $feedbackResponse = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
