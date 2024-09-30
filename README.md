@@ -30,34 +30,21 @@ require 'vendor/autoload.php';
 use Ding\DingSDK;
 use Ding\DingSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = 'YOUR_API_KEY';
+$security = 'YOUR_API_KEY';
 
 $sdk = DingSDK\Ding::builder()->setSecurity($security)->build();
 
-try {
-    $request = new Shared\CreateAuthenticationRequest(
-        customerUuid: 'c9f826e0-deca-41ec-871f-ecd6e8efeb46',
-        phoneNumber: '+1234567890',
-        appRealm: '<value>',
-        appVersion: '<value>',
-        callbackUrl: 'https://thin-television.name',
-        correlationId: '<value>',
-        deviceId: '<value>',
-        deviceModel: '<value>',
-        deviceType: Shared\DeviceType::Android,
-        ip: '176.157.112.67',
-        isReturningUser: false,
-        osVersion: '<value>',
-        templateId: '<value>',
-    );
-    $response = $sdk->otp->createAuthentication($request);
+$request = new Shared\CreateAuthenticationRequest(
+    customerUuid: 'cf2edc1c-7fc6-48fb-86da-b7508c6b7b71',
+    phoneNumber: '+1234567890',
+);
 
-    if ($response->createAuthenticationResponse !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->otp->createAuthentication(
+    request: $request
+);
+
+if ($response->createAuthenticationResponse !== null) {
+    // handle response
 }
 ```
 
@@ -74,24 +61,22 @@ require 'vendor/autoload.php';
 use Ding\DingSDK;
 use Ding\DingSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = 'YOUR_API_KEY';
+$security = 'YOUR_API_KEY';
 
 $sdk = DingSDK\Ding::builder()->setSecurity($security)->build();
 
-try {
-    $request = new Shared\CreateCheckRequest(
-        authenticationUuid: 'e0e7b0e9-739d-424b-922f-1c2cb48ab077',
-        checkCode: '123456',
-        customerUuid: '8f1196d5-806e-4b71-9b24-5f96ec052808',
-    );
-    $response = $sdk->otp->check($request);
+$request = new Shared\CreateCheckRequest(
+    authenticationUuid: 'eebe792b-2fcc-44a0-87f1-650e79259e02',
+    checkCode: '123456',
+    customerUuid: '64f66a7c-4b2c-4131-a8ff-d5b954cca05f',
+);
 
-    if ($response->createCheckResponse !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->otp->check(
+    request: $request
+);
+
+if ($response->createCheckResponse !== null) {
+    // handle response
 }
 ```
 
@@ -108,23 +93,21 @@ require 'vendor/autoload.php';
 use Ding\DingSDK;
 use Ding\DingSDK\Models\Shared;
 
-$security = new Shared\Security();
-$security->apiKey = 'YOUR_API_KEY';
+$security = 'YOUR_API_KEY';
 
 $sdk = DingSDK\Ding::builder()->setSecurity($security)->build();
 
-try {
-    $request = new Shared\RetryAuthenticationRequest(
-        authenticationUuid: 'a74ee547-564d-487a-91df-37fb25413a91',
-        customerUuid: '3c8b3a46-881e-4cdd-93a6-f7f238bf020a',
-    );
-    $response = $sdk->otp->retry($request);
+$request = new Shared\RetryAuthenticationRequest(
+    authenticationUuid: 'a4e4548a-1f7b-451a-81cb-a68ed5aff3b0',
+    customerUuid: '28532118-1b33-420a-b57b-648c9bf85fee',
+);
 
-    if ($response->retryAuthenticationResponse !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->otp->retry(
+    request: $request
+);
+
+if ($response->retryAuthenticationResponse !== null) {
+    // handle response
 }
 ```
 <!-- End SDK Example Usage [usage] -->
@@ -132,29 +115,111 @@ try {
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
-### [Otp](docs/sdks/otp/README.md)
+<details open>
+<summary>Available methods</summary>
+
+
+### [lookup](docs/sdks/lookup/README.md)
+
+* [lookup](docs/sdks/lookup/README.md#lookup) - Perform a phone number lookup
+
+### [otp](docs/sdks/otp/README.md)
 
 * [check](docs/sdks/otp/README.md#check) - Check a code
 * [createAuthentication](docs/sdks/otp/README.md#createauthentication) - Send a code
 * [feedback](docs/sdks/otp/README.md#feedback) - Send feedback
 * [retry](docs/sdks/otp/README.md#retry) - Perform a retry
 
-### [Lookup](docs/sdks/lookup/README.md)
-
-* [lookup](docs/sdks/lookup/README.md#lookup) - Perform a phone number lookup
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Ding: The OTP API allows you to send authentication codes to your users using their phone numbers.
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-### Composer
+The SDK relies on [Composer](https://getcomposer.org/) to manage its dependencies.
 
+To install the SDK and add it as a dependency to an existing `composer.json` file:
 ```bash
 composer require "ding-live/ding-php"
 ```
 <!-- End SDK Installation [installation] -->
+
+<!-- Start Error Handling [errors] -->
+## Error Handling
+
+Handling errors in this SDK should largely match your expectations. All operations return a response object or throw an exception.
+
+By default an API error will raise a `Errors\SDKException` exception, which has the following properties:
+
+| Property       | Type                                    | Description           |
+|----------------|-----------------------------------------|-----------------------|
+| `$message`     | *string*                                | The error message     |
+| `$statusCode`  | *int*                                   | The HTTP status code  |
+| `$rawResponse` | *?\Psr\Http\Message\ResponseInterface*  | The raw HTTP response |
+| `$body`        | *string*                                | The response content  |
+
+When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `check` method throws the following exceptions:
+
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Errors\ErrorResponse                    | 400                                     | application/json                        |
+| Ding\DingSDK\Models\Errors.SDKException | 4xx-5xx                                 | */*                                     |
+
+### Example
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Ding\DingSDK;
+use Ding\DingSDK\Models\Shared;
+
+$security = 'YOUR_API_KEY';
+
+$sdk = DingSDK\Ding::builder()->setSecurity($security)->build();
+
+try {
+    $request = new Shared\CreateCheckRequest(
+        authenticationUuid: 'eebe792b-2fcc-44a0-87f1-650e79259e02',
+        checkCode: '123456',
+        customerUuid: '64f66a7c-4b2c-4131-a8ff-d5b954cca05f',
+    );
+
+    $response = $sdk->otp->check(
+        request: $request
+    );
+
+    if ($response->createCheckResponse !== null) {
+        // handle response
+    }
+} catch (Errors\ErrorResponseThrowable $e) {
+    // handle $e->$container data
+    throw $e;
+} catch (Errors\SDKException $e) {
+    // handle default exception
+    throw $e;
+}
+```
+<!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
 ## Server Selection
