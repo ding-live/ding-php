@@ -17,7 +17,7 @@ class CreateCheckResponse
      * @var ?string $authenticationUuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('authentication_uuid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $authenticationUuid = null;
 
     /**
@@ -34,8 +34,8 @@ class CreateCheckResponse
      * @var ?CreateCheckResponseStatus $status
      */
     #[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\CreateCheckResponseStatus')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\CreateCheckResponseStatus|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?CreateCheckResponseStatus $status = null;
 
     /**
