@@ -36,11 +36,11 @@ class CreateCheckRequest
     public string $customerUuid;
 
     /**
-     * @param  ?string  $authenticationUuid
-     * @param  ?string  $checkCode
-     * @param  ?string  $customerUuid
+     * @param  string  $authenticationUuid
+     * @param  string  $checkCode
+     * @param  string  $customerUuid
      */
-    public function __construct(?string $authenticationUuid = null, ?string $checkCode = null, ?string $customerUuid = null)
+    public function __construct(string $authenticationUuid, string $checkCode, string $customerUuid)
     {
         $this->authenticationUuid = $authenticationUuid;
         $this->checkCode = $checkCode;
