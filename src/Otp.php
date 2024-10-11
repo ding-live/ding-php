@@ -15,7 +15,6 @@ use JMS\Serializer\DeserializationContext;
 class Otp
 {
     private SDKConfiguration $sdkConfiguration;
-
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
@@ -27,13 +26,12 @@ class Otp
     /**
      * Check a code
      *
-     * @param  Shared\CreateCheckRequest  $request
+     * @param  ?Shared\CreateCheckRequest  $request
      * @return Operations\CheckResponse
      * @throws \Ding\DingSDK\Models\Errors\SDKException
      */
-    public function check(
-        ?Shared\CreateCheckRequest $request,
-    ): Operations\CheckResponse {
+    public function check(?Shared\CreateCheckRequest $request = null): Operations\CheckResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/check');
         $options = ['http_errors' => false];
@@ -68,7 +66,7 @@ class Otp
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
                 $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Ding\DingSDK\Models\Errors\ErrorResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                throw $obj;
+                throw $obj->toException();
             } else {
                 throw new \Ding\DingSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
@@ -82,13 +80,12 @@ class Otp
     /**
      * Send a code
      *
-     * @param  Shared\CreateAuthenticationRequest  $request
+     * @param  ?Shared\CreateAuthenticationRequest  $request
      * @return Operations\CreateAuthenticationResponse
      * @throws \Ding\DingSDK\Models\Errors\SDKException
      */
-    public function createAuthentication(
-        ?Shared\CreateAuthenticationRequest $request,
-    ): Operations\CreateAuthenticationResponse {
+    public function createAuthentication(?Shared\CreateAuthenticationRequest $request = null): Operations\CreateAuthenticationResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/authentication');
         $options = ['http_errors' => false];
@@ -123,7 +120,7 @@ class Otp
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
                 $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Ding\DingSDK\Models\Errors\ErrorResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                throw $obj;
+                throw $obj->toException();
             } else {
                 throw new \Ding\DingSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
@@ -137,13 +134,12 @@ class Otp
     /**
      * Send feedback
      *
-     * @param  Shared\FeedbackRequest  $request
+     * @param  ?Shared\FeedbackRequest  $request
      * @return Operations\FeedbackResponse
      * @throws \Ding\DingSDK\Models\Errors\SDKException
      */
-    public function feedback(
-        ?Shared\FeedbackRequest $request,
-    ): Operations\FeedbackResponse {
+    public function feedback(?Shared\FeedbackRequest $request = null): Operations\FeedbackResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/authentication/feedback');
         $options = ['http_errors' => false];
@@ -179,7 +175,7 @@ class Otp
         } else {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Ding\DingSDK\Models\Errors\ErrorResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Ding\DingSDK\Models\Shared\ErrorResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\FeedbackResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
@@ -196,13 +192,12 @@ class Otp
     /**
      * Perform a retry
      *
-     * @param  Shared\RetryAuthenticationRequest  $request
+     * @param  ?Shared\RetryAuthenticationRequest  $request
      * @return Operations\RetryResponse
      * @throws \Ding\DingSDK\Models\Errors\SDKException
      */
-    public function retry(
-        ?Shared\RetryAuthenticationRequest $request,
-    ): Operations\RetryResponse {
+    public function retry(?Shared\RetryAuthenticationRequest $request = null): Operations\RetryResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/retry');
         $options = ['http_errors' => false];
@@ -236,8 +231,8 @@ class Otp
         } elseif ($statusCode == 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Ding\DingSDK\Models\Errors\ErrorResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                throw $obj;
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Ding\DingSDK\Models\Errors\ErrorResponse1', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                throw $obj->toException();
             } else {
                 throw new \Ding\DingSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
@@ -247,4 +242,5 @@ class Otp
             throw new \Ding\DingSDK\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
     }
+
 }

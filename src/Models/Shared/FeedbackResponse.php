@@ -17,7 +17,7 @@ class FeedbackResponse
      * @var ?string $uuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('uuid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $uuid = null;
 
     /**
