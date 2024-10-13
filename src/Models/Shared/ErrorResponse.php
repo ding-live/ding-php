@@ -6,22 +6,20 @@
 
 declare(strict_types=1);
 
-namespace Ding\DingSDK\Models\Errors;
+namespace Ding\DingSDK\Models\Shared;
 
-
-use Ding\DingSDK\Utils;
-
+use Ding\DingSDK\Models\Errors;
 class ErrorResponse
 {
     /**
      * A machine-readable code that describes the error.
      *
-     * @var ?Code $code
+     * @var ?Errors\Code $code
      */
     #[\JMS\Serializer\Annotation\SerializedName('code')]
     #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Errors\Code|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?Code $code = null;
+    public ?Errors\Code $code = null;
 
     /**
      * A link to the documentation that describes the error.
@@ -42,27 +40,14 @@ class ErrorResponse
     public ?string $message = null;
 
     /**
-     * @param  ?Code  $code
+     * @param  ?Errors\Code  $code
      * @param  ?string  $docUrl
      * @param  ?string  $message
      */
-    public function __construct(?Code $code = null, ?string $docUrl = null, ?string $message = null)
+    public function __construct(?Errors\Code $code = null, ?string $docUrl = null, ?string $message = null)
     {
         $this->code = $code;
         $this->docUrl = $docUrl;
         $this->message = $message;
-    }
-
-    public function toException(): ErrorResponseThrowable
-    {
-        $serializer = Utils\JSON::createSerializer();
-        $message = $serializer->serialize($this, 'json');
-        if ($this->code !== null) {
-            $code = $this->code;
-        } else {
-            $code = -1;
-        }
-
-        return new ErrorResponseThrowable($message, (int) $code, $this);
     }
 }

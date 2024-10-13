@@ -14,7 +14,7 @@ use JMS\Serializer\Handler\SubscribingHandlerInterface;
 use JMS\Serializer\JsonDeserializationVisitor;
 use JMS\Serializer\JsonSerializationVisitor;
 
-class DateHandler implements SubscribingHandlerInterface
+class BigDecimalHandler implements SubscribingHandlerInterface
 {
     /** @phpstan-ignore-next-line */
     public static function getSubscribingMethods(): array
@@ -23,39 +23,43 @@ class DateHandler implements SubscribingHandlerInterface
             [
                 'direction' => GraphNavigator::DIRECTION_SERIALIZATION,
                 'format' => 'json',
-                'type' => '\\Brick\\DateTime\\LocalDate',
-                'method' => 'serializeDateTimeToJson',
+                'type' => '\\Brick\\Math\\BigDecimal',
+                'method' => 'serialize',
             ],
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
                 'format' => 'json',
-                'type' => '\\Brick\\DateTime\\LocalDate',
-                'method' => 'deserializeDateTimeToJson',
+                'type' => '\\Brick\\Math\\BigDecimal',
+                'method' => 'deserialize',
             ],
             [
                 'direction' => GraphNavigator::DIRECTION_SERIALIZATION,
                 'format' => 'json',
-                'type' => 'Brick\\DateTime\\LocalDate',
-                'method' => 'serializeDateTimeToJson',
+                'type' => 'Brick\\Math\\BigDecimal',
+                'method' => 'serialize',
             ],
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
                 'format' => 'json',
-                'type' => 'Brick\\DateTime\\LocalDate',
-                'method' => 'deserializeDateTimeToJson',
+                'type' => 'Brick\\Math\\BigDecimal',
+                'method' => 'deserialize',
             ],
         ];
     }
 
     /** @phpstan-ignore-next-line */
-    public function serializeDateTimeToJson(JsonSerializationVisitor $visitor, \Brick\DateTime\LocalDate $any, array $type, Context $context): string
+    public function serialize(JsonSerializationVisitor $visitor, \Brick\Math\BigDecimal|string $any, array $type, Context $context): string|float
     {
-        return $any->jsonSerialize();
+        if (gettype($any) == 'string') {
+            return $any;
+        }
+
+        return (float) $any->__toString();
     }
 
     /** @phpstan-ignore-next-line */
-    public function deserializeDateTimeToJson(JsonDeserializationVisitor $visitor, string $data, array $type, Context $context): mixed
+    public function deserialize(JsonDeserializationVisitor $visitor, string|float $data, array $type, Context $context): mixed
     {
-        return \Brick\DateTime\LocalDate::parse($data);
+        return \Brick\Math\BigDecimal::of($data);
     }
 }
