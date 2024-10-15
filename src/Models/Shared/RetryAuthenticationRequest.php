@@ -28,10 +28,10 @@ class RetryAuthenticationRequest
     public string $customerUuid;
 
     /**
-     * @param  ?string  $authenticationUuid
-     * @param  ?string  $customerUuid
+     * @param  string  $authenticationUuid
+     * @param  string  $customerUuid
      */
-    public function __construct(?string $authenticationUuid = null, ?string $customerUuid = null)
+    public function __construct(string $authenticationUuid, string $customerUuid)
     {
         $this->authenticationUuid = $authenticationUuid;
         $this->customerUuid = $customerUuid;
