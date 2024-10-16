@@ -17,7 +17,7 @@ class LookupResponse
      * @var ?string $carrier
      */
     #[\JMS\Serializer\Annotation\SerializedName('carrier')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $carrier = null;
 
     /**
@@ -26,7 +26,7 @@ class LookupResponse
      * @var ?string $countryCode
      */
     #[\JMS\Serializer\Annotation\SerializedName('country_code')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $countryCode = null;
 
     /**
@@ -35,8 +35,8 @@ class LookupResponse
      * @var ?LineType $lineType
      */
     #[\JMS\Serializer\Annotation\SerializedName('line_type')]
-    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\LineType')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\LineType|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?LineType $lineType = null;
 
     /**
@@ -45,7 +45,7 @@ class LookupResponse
      * @var ?string $mcc
      */
     #[\JMS\Serializer\Annotation\SerializedName('mcc')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $mcc = null;
 
     /**
@@ -54,7 +54,7 @@ class LookupResponse
      * @var ?string $mnc
      */
     #[\JMS\Serializer\Annotation\SerializedName('mnc')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $mnc = null;
 
     /**
@@ -63,7 +63,7 @@ class LookupResponse
      * @var ?bool $numberPorted
      */
     #[\JMS\Serializer\Annotation\SerializedName('number_ported')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $numberPorted = null;
 
     /**
@@ -72,7 +72,7 @@ class LookupResponse
      * @var ?string $phoneNumber
      */
     #[\JMS\Serializer\Annotation\SerializedName('phone_number')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $phoneNumber = null;
 
     /**
