@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Ding\DingSDK\Models\Operations;
 
-use Ding\DingSDK\Models\Errors;
 use Ding\DingSDK\Models\Shared;
 class FeedbackResponse
 {
@@ -22,9 +21,9 @@ class FeedbackResponse
     /**
      * Bad Request
      *
-     * @var ?Errors\ErrorResponse $errorResponse
+     * @var ?Shared\ErrorResponse $errorResponse
      */
-    public ?Errors\ErrorResponse $errorResponse = null;
+    public ?Shared\ErrorResponse $errorResponse = null;
 
     /**
      * OK
@@ -48,13 +47,13 @@ class FeedbackResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
-     * @param  ?string  $contentType
-     * @param  ?int  $statusCode
-     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
-     * @param  ?Errors\ErrorResponse  $errorResponse
+     * @param  string  $contentType
+     * @param  int  $statusCode
+     * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  ?Shared\ErrorResponse  $errorResponse
      * @param  ?Shared\FeedbackResponse  $feedbackResponse
      */
-    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?Errors\ErrorResponse $errorResponse = null, ?Shared\FeedbackResponse $feedbackResponse = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Shared\ErrorResponse $errorResponse = null, ?Shared\FeedbackResponse $feedbackResponse = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
