@@ -26,10 +26,10 @@ class LookupRequest
     public string $phoneNumber;
 
     /**
-     * @param  ?string  $customerUuid
-     * @param  ?string  $phoneNumber
+     * @param  string  $customerUuid
+     * @param  string  $phoneNumber
      */
-    public function __construct(?string $customerUuid = null, ?string $phoneNumber = null)
+    public function __construct(string $customerUuid, string $phoneNumber)
     {
         $this->customerUuid = $customerUuid;
         $this->phoneNumber = $phoneNumber;

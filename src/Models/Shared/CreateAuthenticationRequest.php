@@ -17,7 +17,7 @@ class CreateAuthenticationRequest
      * @var ?string $appRealm
      */
     #[\JMS\Serializer\Annotation\SerializedName('app_realm')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $appRealm = null;
 
     /**
@@ -26,7 +26,7 @@ class CreateAuthenticationRequest
      * @var ?string $appVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('app_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $appVersion = null;
 
     /**
@@ -35,7 +35,7 @@ class CreateAuthenticationRequest
      * @var ?string $callbackUrl
      */
     #[\JMS\Serializer\Annotation\SerializedName('callback_url')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $callbackUrl = null;
 
     /**
@@ -44,7 +44,7 @@ class CreateAuthenticationRequest
      * @var ?string $correlationId
      */
     #[\JMS\Serializer\Annotation\SerializedName('correlation_id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $correlationId = null;
 
     /**
@@ -61,7 +61,7 @@ class CreateAuthenticationRequest
      * @var ?string $deviceId
      */
     #[\JMS\Serializer\Annotation\SerializedName('device_id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $deviceId = null;
 
     /**
@@ -70,7 +70,7 @@ class CreateAuthenticationRequest
      * @var ?string $deviceModel
      */
     #[\JMS\Serializer\Annotation\SerializedName('device_model')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $deviceModel = null;
 
     /**
@@ -79,8 +79,8 @@ class CreateAuthenticationRequest
      * @var ?DeviceType $deviceType
      */
     #[\JMS\Serializer\Annotation\SerializedName('device_type')]
-    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\DeviceType')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\DeviceType|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?DeviceType $deviceType = null;
 
     /**
@@ -89,7 +89,7 @@ class CreateAuthenticationRequest
      * @var ?string $ip
      */
     #[\JMS\Serializer\Annotation\SerializedName('ip')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ip = null;
 
     /**
@@ -98,7 +98,7 @@ class CreateAuthenticationRequest
      * @var ?bool $isReturningUser
      */
     #[\JMS\Serializer\Annotation\SerializedName('is_returning_user')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $isReturningUser = null;
 
     /**
@@ -107,7 +107,7 @@ class CreateAuthenticationRequest
      * @var ?string $osVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('os_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $osVersion = null;
 
     /**
@@ -124,12 +124,12 @@ class CreateAuthenticationRequest
      * @var ?string $templateId
      */
     #[\JMS\Serializer\Annotation\SerializedName('template_id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $templateId = null;
 
     /**
-     * @param  ?string  $customerUuid
-     * @param  ?string  $phoneNumber
+     * @param  string  $customerUuid
+     * @param  string  $phoneNumber
      * @param  ?string  $appRealm
      * @param  ?string  $appVersion
      * @param  ?string  $callbackUrl
@@ -142,7 +142,7 @@ class CreateAuthenticationRequest
      * @param  ?string  $osVersion
      * @param  ?string  $templateId
      */
-    public function __construct(?string $customerUuid = null, ?string $phoneNumber = null, ?string $appRealm = null, ?string $appVersion = null, ?string $callbackUrl = null, ?string $correlationId = null, ?string $deviceId = null, ?string $deviceModel = null, ?DeviceType $deviceType = null, ?string $ip = null, ?bool $isReturningUser = null, ?string $osVersion = null, ?string $templateId = null)
+    public function __construct(string $customerUuid, string $phoneNumber, ?string $appRealm = null, ?string $appVersion = null, ?string $callbackUrl = null, ?string $correlationId = null, ?string $deviceId = null, ?string $deviceModel = null, ?DeviceType $deviceType = null, ?string $ip = null, ?bool $isReturningUser = null, ?string $osVersion = null, ?string $templateId = null)
     {
         $this->customerUuid = $customerUuid;
         $this->phoneNumber = $phoneNumber;
