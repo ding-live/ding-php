@@ -11,7 +11,7 @@ namespace Ding\DingSDK\Models\Errors;
 
 use Ding\DingSDK\Utils;
 
-class ErrorResponse
+class ErrorResponse1
 {
     /**
      * A machine-readable code that describes the error.
@@ -53,7 +53,7 @@ class ErrorResponse
         $this->message = $message;
     }
 
-    public function toException(): ErrorResponseThrowable
+    public function toException(): ErrorResponse1Throwable
     {
         $serializer = Utils\JSON::createSerializer();
         $message = $serializer->serialize($this, 'json');
@@ -63,6 +63,6 @@ class ErrorResponse
             $code = -1;
         }
 
-        return new ErrorResponseThrowable($message, (int) $code, $this);
+        return new ErrorResponse1Throwable($message, (int) $code, $this);
     }
 }
