@@ -26,6 +26,13 @@ class CreateAuthenticationResponse
     public ?Shared\CreateAuthenticationResponse $createAuthenticationResponse = null;
 
     /**
+     * Bad Request
+     *
+     * @var ?Shared\ErrorResponse $errorResponse
+     */
+    public ?Shared\ErrorResponse $errorResponse = null;
+
+    /**
      * HTTP response status code for this operation
      *
      * @var int $statusCode
@@ -40,16 +47,18 @@ class CreateAuthenticationResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
-     * @param  ?string  $contentType
-     * @param  ?int  $statusCode
-     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  string  $contentType
+     * @param  int  $statusCode
+     * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?Shared\CreateAuthenticationResponse  $createAuthenticationResponse
+     * @param  ?Shared\ErrorResponse  $errorResponse
      */
-    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?Shared\CreateAuthenticationResponse $createAuthenticationResponse = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Shared\CreateAuthenticationResponse $createAuthenticationResponse = null, ?Shared\ErrorResponse $errorResponse = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->createAuthenticationResponse = $createAuthenticationResponse;
+        $this->errorResponse = $errorResponse;
     }
 }

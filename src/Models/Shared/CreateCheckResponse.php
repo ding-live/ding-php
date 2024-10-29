@@ -16,33 +16,24 @@ class CreateCheckResponse
      *
      * @var ?string $authenticationUuid
      */
-    #[\JMS\Serializer\Annotation\SerializedName('authentication_uuid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('authentication_uuid')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $authenticationUuid = null;
 
     /**
-     * The status of the check. Possible values are:
      *
-     *   * `valid` - The code is valid.
-     *   * `invalid` - The code is invalid.
-     *   * `without_attempt` - No attempt was sent yet, so a check cannot be completed.
-     *   * `rate_limited` - The authentication was rate limited and cannot be checked.
-     *   * `already_validated` - The authentication has already been validated.
-     *   * `expired_auth` - The authentication has expired and cannot be checked.
-     *
-     *
-     * @var ?CreateCheckResponseStatus $status
+     * @var ?CheckStatus $status
      */
-    #[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\CreateCheckResponseStatus')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?CreateCheckResponseStatus $status = null;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\CheckStatus|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?CheckStatus $status = null;
 
     /**
      * @param  ?string  $authenticationUuid
-     * @param  ?CreateCheckResponseStatus  $status
+     * @param  ?CheckStatus  $status
      */
-    public function __construct(?string $authenticationUuid = null, ?CreateCheckResponseStatus $status = null)
+    public function __construct(?string $authenticationUuid = null, ?CheckStatus $status = null)
     {
         $this->authenticationUuid = $authenticationUuid;
         $this->status = $status;

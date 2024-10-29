@@ -16,7 +16,7 @@ class FeedbackRequest
      *
      * @var string $customerUuid
      */
-    #[\JMS\Serializer\Annotation\SerializedName('customer_uuid')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('customer_uuid')]
     public string $customerUuid;
 
     /**
@@ -24,7 +24,7 @@ class FeedbackRequest
      *
      * @var string $phoneNumber
      */
-    #[\JMS\Serializer\Annotation\SerializedName('phone_number')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('phone_number')]
     public string $phoneNumber;
 
     /**
@@ -32,16 +32,16 @@ class FeedbackRequest
      *
      * @var FeedbackRequestStatus $status
      */
-    #[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\FeedbackRequestStatus')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\FeedbackRequestStatus')]
     public FeedbackRequestStatus $status;
 
     /**
-     * @param  ?string  $customerUuid
-     * @param  ?string  $phoneNumber
-     * @param  ?FeedbackRequestStatus  $status
+     * @param  string  $customerUuid
+     * @param  string  $phoneNumber
+     * @param  FeedbackRequestStatus  $status
      */
-    public function __construct(?string $customerUuid = null, ?string $phoneNumber = null, ?FeedbackRequestStatus $status = null)
+    public function __construct(string $customerUuid, string $phoneNumber, FeedbackRequestStatus $status)
     {
         $this->customerUuid = $customerUuid;
         $this->phoneNumber = $phoneNumber;

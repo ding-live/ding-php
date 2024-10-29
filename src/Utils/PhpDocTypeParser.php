@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Ding\DingSDK\Utils;
 
-use JMS\Serializer\Type\ParserInterface;
 use phpDocumentor\Reflection\Type;
+use Speakeasy\Serializer\Type\ParserInterface;
 
 /**
  * Class PhpDocTypeParser
@@ -85,7 +85,13 @@ class PhpDocTypeParser implements ParserInterface
                     ];
                 }
             }
+        } elseif (\is_a($type, \phpDocumentor\Reflection\Types\Null_::class)) {
+            return [
+                'name' => 'NULL',
+                'params' => [],
+            ];
         }
+
 
         return [
             'name' => $type->__toString(),

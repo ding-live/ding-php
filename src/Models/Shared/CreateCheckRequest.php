@@ -16,7 +16,7 @@ class CreateCheckRequest
      *
      * @var string $authenticationUuid
      */
-    #[\JMS\Serializer\Annotation\SerializedName('authentication_uuid')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('authentication_uuid')]
     public string $authenticationUuid;
 
     /**
@@ -24,7 +24,7 @@ class CreateCheckRequest
      *
      * @var string $checkCode
      */
-    #[\JMS\Serializer\Annotation\SerializedName('check_code')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('check_code')]
     public string $checkCode;
 
     /**
@@ -32,15 +32,15 @@ class CreateCheckRequest
      *
      * @var string $customerUuid
      */
-    #[\JMS\Serializer\Annotation\SerializedName('customer_uuid')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('customer_uuid')]
     public string $customerUuid;
 
     /**
-     * @param  ?string  $authenticationUuid
-     * @param  ?string  $checkCode
-     * @param  ?string  $customerUuid
+     * @param  string  $authenticationUuid
+     * @param  string  $checkCode
+     * @param  string  $customerUuid
      */
-    public function __construct(?string $authenticationUuid = null, ?string $checkCode = null, ?string $customerUuid = null)
+    public function __construct(string $authenticationUuid, string $checkCode, string $customerUuid)
     {
         $this->authenticationUuid = $authenticationUuid;
         $this->checkCode = $checkCode;

@@ -26,6 +26,13 @@ class CheckResponse
     public ?Shared\CreateCheckResponse $createCheckResponse = null;
 
     /**
+     * Bad Request
+     *
+     * @var ?Shared\ErrorResponse $errorResponse
+     */
+    public ?Shared\ErrorResponse $errorResponse = null;
+
+    /**
      * HTTP response status code for this operation
      *
      * @var int $statusCode
@@ -40,16 +47,18 @@ class CheckResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
-     * @param  ?string  $contentType
-     * @param  ?int  $statusCode
-     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  string  $contentType
+     * @param  int  $statusCode
+     * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?Shared\CreateCheckResponse  $createCheckResponse
+     * @param  ?Shared\ErrorResponse  $errorResponse
      */
-    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?Shared\CreateCheckResponse $createCheckResponse = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Shared\CreateCheckResponse $createCheckResponse = null, ?Shared\ErrorResponse $errorResponse = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->createCheckResponse = $createCheckResponse;
+        $this->errorResponse = $errorResponse;
     }
 }

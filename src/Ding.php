@@ -46,7 +46,7 @@ class Ding
      * @param  SDKConfiguration  $sdkConfiguration
      */
     public function __construct(
-        private SDKConfiguration $sdkConfiguration,
+        public SDKConfiguration $sdkConfiguration,
     ) {
         $this->otp = new Otp($this->sdkConfiguration);
         $this->lookup = new Lookup($this->sdkConfiguration);

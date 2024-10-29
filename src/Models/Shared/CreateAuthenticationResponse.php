@@ -17,16 +17,16 @@ class CreateAuthenticationResponse
      *
      * @var ?string $authenticationUuid
      */
-    #[\JMS\Serializer\Annotation\SerializedName('authentication_uuid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('authentication_uuid')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $authenticationUuid = null;
 
     /**
      *
      * @var ?\DateTime $createdAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('created_at')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $createdAt = null;
 
     /**
@@ -34,8 +34,8 @@ class CreateAuthenticationResponse
      *
      * @var ?\DateTime $expiresAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('expires_at')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('expires_at')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $expiresAt = null;
 
     /**
@@ -48,9 +48,9 @@ class CreateAuthenticationResponse
      *
      * @var ?Status $status
      */
-    #[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\Status')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\Status|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Status $status = null;
 
     /**
