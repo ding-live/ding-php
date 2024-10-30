@@ -1,0 +1,13 @@
+workflowVersion: 1.0.0
+sources:
+    my-source:
+        inputs:
+            - location: https://raw.githubusercontent.com/ding-live/openapi/main/ding.yaml
+targets:
+    ding/sdk:
+        target: php
+        source: my-source
+        publish:
+            packagist:
+                username: $PACKAGIST_USERNAME
+                token: $PACKAGIST_TOKEN
