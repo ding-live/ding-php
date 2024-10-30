@@ -6,10 +6,9 @@
 
 declare(strict_types=1);
 
-namespace Ding\DingSDK\Models\Errors;
+namespace Ding\DingSDK\Models\Shared;
 
 
-/** ErrorResponse - Bad Request */
 class ErrorResponse
 {
     /**
@@ -17,9 +16,9 @@ class ErrorResponse
      *
      * @var ?Code $code
      */
-    #[\JMS\Serializer\Annotation\SerializedName('code')]
-    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Errors\Code')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('code')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\Code|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Code $code = null;
 
     /**
@@ -27,8 +26,8 @@ class ErrorResponse
      *
      * @var ?string $docUrl
      */
-    #[\JMS\Serializer\Annotation\SerializedName('doc_url')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('doc_url')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $docUrl = null;
 
     /**
@@ -36,8 +35,8 @@ class ErrorResponse
      *
      * @var ?string $message
      */
-    #[\JMS\Serializer\Annotation\SerializedName('message')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('message')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $message = null;
 
     /**

@@ -9,32 +9,29 @@ declare(strict_types=1);
 namespace Ding\DingSDK;
 
 use Ding\DingSDK\Models\Operations;
-use JMS\Serializer\DeserializationContext;
+use Speakeasy\Serializer\DeserializationContext;
 
 class Lookup
 {
     private SDKConfiguration $sdkConfiguration;
-
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
-    public function __construct(SDKConfiguration $sdkConfig)
+    public function __construct(public SDKConfiguration $sdkConfig)
     {
         $this->sdkConfiguration = $sdkConfig;
     }
 
     /**
-     * Perform a phone number lookup
+     * Look up for phone number
      *
      * @param  string  $customerUuid
      * @param  string  $phoneNumber
      * @return Operations\LookupResponse
      * @throws \Ding\DingSDK\Models\Errors\SDKException
      */
-    public function lookup(
-        string $customerUuid,
-        string $phoneNumber,
-    ): Operations\LookupResponse {
+    public function lookup(string $customerUuid, string $phoneNumber): Operations\LookupResponse
+    {
         $request = new Operations\LookupRequest(
             customerUuid: $customerUuid,
             phoneNumber: $phoneNumber,
@@ -69,18 +66,23 @@ class Lookup
             } else {
                 throw new \Ding\DingSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 400) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Ding\DingSDK\Models\Errors\ErrorResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                throw $obj;
-            } else {
-                throw new \Ding\DingSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-            }
         } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
             throw new \Ding\DingSDK\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
-            throw new \Ding\DingSDK\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Ding\DingSDK\Models\Shared\ErrorResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\LookupResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    errorResponse: $obj);
+
+                return $response;
+            } else {
+                throw new \Ding\DingSDK\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
         }
     }
+
 }
