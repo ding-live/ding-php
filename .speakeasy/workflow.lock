@@ -1,0 +1,32 @@
+speakeasyVersion: 1.423.2
+sources:
+    my-source:
+        sourceNamespace: my-source
+        sourceRevisionDigest: sha256:eaff23155d18e5a12be5671b6e71c4c9786569ab147ed563452a1a653e53422b
+        sourceBlobDigest: sha256:4e1535f26414dc64a637f7aec2b6a6c2955abe3e6f7ab129e78a543c2178887e
+        tags:
+            - latest
+            - main
+targets:
+    ding/sdk:
+        source: my-source
+        sourceNamespace: my-source
+        sourceRevisionDigest: sha256:eaff23155d18e5a12be5671b6e71c4c9786569ab147ed563452a1a653e53422b
+        sourceBlobDigest: sha256:4e1535f26414dc64a637f7aec2b6a6c2955abe3e6f7ab129e78a543c2178887e
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        my-source:
+            inputs:
+                - location: https://raw.githubusercontent.com/ding-live/openapi/main/ding.yaml
+            registry:
+                location: registry.speakeasyapi.dev/ding/ding/my-source
+    targets:
+        ding/sdk:
+            target: php
+            source: my-source
+            publish:
+                packagist:
+                    username: $PACKAGIST_USERNAME
+                    token: $PACKAGIST_TOKEN

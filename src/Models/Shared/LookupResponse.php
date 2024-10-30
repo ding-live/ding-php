@@ -16,8 +16,8 @@ class LookupResponse
      *
      * @var ?string $carrier
      */
-    #[\JMS\Serializer\Annotation\SerializedName('carrier')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('carrier')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $carrier = null;
 
     /**
@@ -25,18 +25,39 @@ class LookupResponse
      *
      * @var ?string $countryCode
      */
-    #[\JMS\Serializer\Annotation\SerializedName('country_code')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('country_code')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $countryCode = null;
 
     /**
      * The type of phone line.
      *
+     *   * `CallingCards` - Numbers that are associated with providers of pre-paid domestic and international calling cards.
+     *   * `FixedLine` - Landline phone numbers.
+     *   * `InternetServiceProvider` - Numbers reserved for ISPs.
+     *   * `LocalRate` - Numbers that can be assigned non-geographically.
+     *   * `Mobile` - Mobile phone numbers.
+     *   * `Other` - Other types of services.
+     *   * `Pager` - Number ranges specifically allocated to paging devices.
+     *   * `PayPhone` - Allocated numbers for payphone kiosks in some countries.
+     *   * `PremiumRate` - Landline numbers where the calling party pays more than standard.
+     *   * `Satellite` - Satellite phone numbers.
+     *   * `Service` - Automated applications.
+     *   * `SharedCost` - Specific landline ranges where the cost of making the call is shared between the calling and called party.
+     *   * `ShortCodesCommercial` - Short codes are memorable, easy-to-use numbers, like the UK's NHS 111, often sold to businesses. Not available in all countries.
+     *   * `TollFree` - Number where the called party pays for the cost of the call not the calling party.
+     *   * `UniversalAccess` - Number ranges reserved for Universal Access initiatives.
+     *   * `Unknown` - Unknown phone number type.
+     *   * `VPN` - Numbers are used exclusively within a private telecommunications network, connecting the operator's terminals internally and not accessible via the public telephone network.
+     *   * `VoiceMail` - A specific category of Interactive Voice Response (IVR) services.
+     *   * `Voip` - Specific ranges for providers of VoIP services to allow incoming calls from the regular telephony network.
+     *
+     *
      * @var ?LineType $lineType
      */
-    #[\JMS\Serializer\Annotation\SerializedName('line_type')]
-    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\LineType')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('line_type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\LineType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?LineType $lineType = null;
 
     /**
@@ -44,8 +65,8 @@ class LookupResponse
      *
      * @var ?string $mcc
      */
-    #[\JMS\Serializer\Annotation\SerializedName('mcc')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mcc')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $mcc = null;
 
     /**
@@ -53,8 +74,8 @@ class LookupResponse
      *
      * @var ?string $mnc
      */
-    #[\JMS\Serializer\Annotation\SerializedName('mnc')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mnc')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $mnc = null;
 
     /**
@@ -62,8 +83,8 @@ class LookupResponse
      *
      * @var ?bool $numberPorted
      */
-    #[\JMS\Serializer\Annotation\SerializedName('number_ported')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('number_ported')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $numberPorted = null;
 
     /**
@@ -71,8 +92,8 @@ class LookupResponse
      *
      * @var ?string $phoneNumber
      */
-    #[\JMS\Serializer\Annotation\SerializedName('phone_number')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('phone_number')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $phoneNumber = null;
 
     /**

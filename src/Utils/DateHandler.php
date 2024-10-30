@@ -8,11 +8,11 @@ declare(strict_types=1);
 
 namespace Ding\DingSDK\Utils;
 
-use JMS\Serializer\Context;
-use JMS\Serializer\GraphNavigator;
-use JMS\Serializer\Handler\SubscribingHandlerInterface;
-use JMS\Serializer\JsonDeserializationVisitor;
-use JMS\Serializer\JsonSerializationVisitor;
+use Speakeasy\Serializer\Context;
+use Speakeasy\Serializer\GraphNavigator;
+use Speakeasy\Serializer\Handler\SubscribingHandlerInterface;
+use Speakeasy\Serializer\JsonDeserializationVisitor;
+use Speakeasy\Serializer\JsonSerializationVisitor;
 
 class DateHandler implements SubscribingHandlerInterface
 {
@@ -30,6 +30,18 @@ class DateHandler implements SubscribingHandlerInterface
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
                 'format' => 'json',
                 'type' => '\\Brick\\DateTime\\LocalDate',
+                'method' => 'deserializeDateTimeToJson',
+            ],
+            [
+                'direction' => GraphNavigator::DIRECTION_SERIALIZATION,
+                'format' => 'json',
+                'type' => 'Brick\\DateTime\\LocalDate',
+                'method' => 'serializeDateTimeToJson',
+            ],
+            [
+                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
+                'format' => 'json',
+                'type' => 'Brick\\DateTime\\LocalDate',
                 'method' => 'deserializeDateTimeToJson',
             ],
         ];

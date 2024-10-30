@@ -16,8 +16,8 @@ class CreateAuthenticationRequest
      *
      * @var ?string $appRealm
      */
-    #[\JMS\Serializer\Annotation\SerializedName('app_realm')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('app_realm')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $appRealm = null;
 
     /**
@@ -25,8 +25,8 @@ class CreateAuthenticationRequest
      *
      * @var ?string $appVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('app_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('app_version')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $appVersion = null;
 
     /**
@@ -34,8 +34,8 @@ class CreateAuthenticationRequest
      *
      * @var ?string $callbackUrl
      */
-    #[\JMS\Serializer\Annotation\SerializedName('callback_url')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('callback_url')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $callbackUrl = null;
 
     /**
@@ -43,8 +43,8 @@ class CreateAuthenticationRequest
      *
      * @var ?string $correlationId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('correlation_id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('correlation_id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $correlationId = null;
 
     /**
@@ -52,7 +52,7 @@ class CreateAuthenticationRequest
      *
      * @var string $customerUuid
      */
-    #[\JMS\Serializer\Annotation\SerializedName('customer_uuid')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('customer_uuid')]
     public string $customerUuid;
 
     /**
@@ -60,8 +60,8 @@ class CreateAuthenticationRequest
      *
      * @var ?string $deviceId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('device_id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('device_id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $deviceId = null;
 
     /**
@@ -69,8 +69,8 @@ class CreateAuthenticationRequest
      *
      * @var ?string $deviceModel
      */
-    #[\JMS\Serializer\Annotation\SerializedName('device_model')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('device_model')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $deviceModel = null;
 
     /**
@@ -78,9 +78,9 @@ class CreateAuthenticationRequest
      *
      * @var ?DeviceType $deviceType
      */
-    #[\JMS\Serializer\Annotation\SerializedName('device_type')]
-    #[\JMS\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\DeviceType')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('device_type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Ding\DingSDK\Models\Shared\DeviceType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?DeviceType $deviceType = null;
 
     /**
@@ -88,8 +88,8 @@ class CreateAuthenticationRequest
      *
      * @var ?string $ip
      */
-    #[\JMS\Serializer\Annotation\SerializedName('ip')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('ip')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $ip = null;
 
     /**
@@ -97,17 +97,26 @@ class CreateAuthenticationRequest
      *
      * @var ?bool $isReturningUser
      */
-    #[\JMS\Serializer\Annotation\SerializedName('is_returning_user')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('is_returning_user')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $isReturningUser = null;
+
+    /**
+     * A BCP-47 locale indicating the language the SMS should be sent to; if this is not set, the SMS will be sent to the language specified by the country code of the message. If we don't support the language set, the message will be sent in US English (en-US).
+     *
+     * @var ?string $locale
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('locale')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $locale = null;
 
     /**
      * The version of the user's device operating system.
      *
      * @var ?string $osVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('os_version')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('os_version')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $osVersion = null;
 
     /**
@@ -115,21 +124,30 @@ class CreateAuthenticationRequest
      *
      * @var string $phoneNumber
      */
-    #[\JMS\Serializer\Annotation\SerializedName('phone_number')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('phone_number')]
     public string $phoneNumber;
+
+    /**
+     * The Sender ID to use when sending the message.
+     *
+     * @var ?string $senderId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('sender_id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $senderId = null;
 
     /**
      * The template id associated with the message content variant to be sent.
      *
      * @var ?string $templateId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('template_id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('template_id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $templateId = null;
 
     /**
-     * @param  ?string  $customerUuid
-     * @param  ?string  $phoneNumber
+     * @param  string  $customerUuid
+     * @param  string  $phoneNumber
      * @param  ?string  $appRealm
      * @param  ?string  $appVersion
      * @param  ?string  $callbackUrl
@@ -139,10 +157,12 @@ class CreateAuthenticationRequest
      * @param  ?DeviceType  $deviceType
      * @param  ?string  $ip
      * @param  ?bool  $isReturningUser
+     * @param  ?string  $locale
      * @param  ?string  $osVersion
+     * @param  ?string  $senderId
      * @param  ?string  $templateId
      */
-    public function __construct(?string $customerUuid = null, ?string $phoneNumber = null, ?string $appRealm = null, ?string $appVersion = null, ?string $callbackUrl = null, ?string $correlationId = null, ?string $deviceId = null, ?string $deviceModel = null, ?DeviceType $deviceType = null, ?string $ip = null, ?bool $isReturningUser = null, ?string $osVersion = null, ?string $templateId = null)
+    public function __construct(string $customerUuid, string $phoneNumber, ?string $appRealm = null, ?string $appVersion = null, ?string $callbackUrl = null, ?string $correlationId = null, ?string $deviceId = null, ?string $deviceModel = null, ?DeviceType $deviceType = null, ?string $ip = null, ?bool $isReturningUser = null, ?string $locale = null, ?string $osVersion = null, ?string $senderId = null, ?string $templateId = null)
     {
         $this->customerUuid = $customerUuid;
         $this->phoneNumber = $phoneNumber;
@@ -155,7 +175,9 @@ class CreateAuthenticationRequest
         $this->deviceType = $deviceType;
         $this->ip = $ip;
         $this->isReturningUser = $isReturningUser;
+        $this->locale = $locale;
         $this->osVersion = $osVersion;
+        $this->senderId = $senderId;
         $this->templateId = $templateId;
     }
 }
